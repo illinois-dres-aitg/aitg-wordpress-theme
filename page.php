@@ -1,6 +1,8 @@
 <?php get_header(); ?>
-	<main id="content" class="content">
-
+  <main class="flex-row">
+    <div class="left-column">
+    </div>
+    <div class="content">
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<?php do_action( 'basic_before_page_article' ); ?>
@@ -31,7 +33,11 @@
 			}
 
 		endwhile; ?>
-		
-	</main> <!-- #content -->
-	<?php get_sidebar(); ?>
+    </div>
+    <div class="right-column">
+    </div>
+  </main>
+
+	<!-- END #content -->
+
 <?php get_footer(); ?>

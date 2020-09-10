@@ -1,17 +1,20 @@
 <?php get_header(); ?>
-	<main id="content">
+  <main class="flex-row">
+    <div class="left-column">
+    </div>
 
+    <div class="middle-column search-results">
 <?php if (have_posts()) : ?>
-		<div class="inform">
-		    <h1><?php _e( 'Search results for', 'basic' ); ?> &laquo;<?php the_search_query() ?>&raquo;</h1>
+	<div class="search-form">
+        <h1><?php _e( 'Search results for', 'basic' ); ?> &laquo;<?php the_search_query() ?>&raquo;</h1>
 		    <?php get_search_form(); ?>
-		</div>
+	</div>
 	<?php while (have_posts()) : the_post(); ?>
 
-		<div <?php post_class(); ?> id="postid-<?php the_ID(); ?>">
-			<h2><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-			<div class="entry clearfix"><?php the_excerpt(); ?></div>
-		</div>
+	<div <?php post_class(); ?> id="postid-<?php the_ID(); ?>">
+		<h2><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+		<div class="entry clearfix"><?php the_excerpt(); ?></div>
+	</div>
 
 	<?php endwhile; ?>
 
@@ -23,12 +26,17 @@
 	?>
 
 <?php else : ?>
-	<article class="post">
-	    <h1><?php _e( 'No results for ', 'basic' ); ?> &laquo;<?php the_search_query() ?>&raquo;</h1>
-	    <?php get_search_form(); ?>
-	 </article>
+	<div class="search-results">
+    	<h1><?php _e( 'No results for ', 'basic' ); ?> &laquo;<?php the_search_query() ?>&raquo;</h1>
+    	<?php get_search_form(); ?>
+    </div>
 <?php endif; ?>
 
-	</main> <!-- #content -->
-<?php get_sidebar(); ?>
+    </div>
+    <div class="right-column">
+    </div>
+  </main>
+
+	<!-- END #content -->
+
 <?php get_footer(); ?>
