@@ -13,58 +13,47 @@ var DisclosureMenu = function (domNode) {
     document.body.addEventListener('mousedown', this.handleBodyCloseMenus.bind(this));
     document.body.addEventListener('focusin', this.handleBodyCloseMenus.bind(this));
     
-    this.containerNodes = this.rootNode.querySelectorAll('ul.menu > li.menu-item-has-children');
-
-    this.buttonNodes = this.rootNode.querySelectorAll('ul.menu > li.menu-item-has-children > a');
-
-    this.linkNodes = [];
-
-    for (let i = 0; i < this.containerNodes.length; i++) {
-        this.containerNodes[i].addEventListener('focusin', this.handleFocusIn.bind(this));
-    }
-
-    for (let i = 0; i < this.buttonNodes.length; i++) {
-        // Change link role to button role and set href to '#'
-        this.buttonNodes[i].setAttribute('role', 'button');
-        this.buttonNodes[i].setAttribute('aria-expanded', 'false');
-        this.buttonNodes[i].setAttribute('href', '#');
-        this.buttonNodes[i].setAttribute('aria-controls', 'banner-menu-' + i);
+    var containerNodes = this.rootNode.querySelectorAll('ul.menu > li.menu-item-has-children');
     
-        this.buttonNodes[i].addEventListener('click', this.handleButtonClick.bind(this));
-    }
+    this.menuContainers = [];
 
-    this.menuNodes = this.rootNode.querySelectorAll('ul.menu > li.menu-item-has-children > ul.sub-menu');
+    for (var i = 0; i < containerNodes.length; i++) {
+        var containerNode = containerNodes[i];
+        var buttonNode    = containerNode.querySelector('a');
+        var menuNode      = containerNode.querySelector('.sub-menu');
+        var menuitemNodes = containerNode.querySelector('.sub-menu a');
 
-    for (let i = 0; i < this.menuNodes.length; i++) {
-        this.menuNodes[i].id = 'banner-menu-' + i;
-        this.linkNodes[i] = this.menuNodes[i].querySelectorAll('ul.sub-menu a');
+        // Updated properties and add event handlers
+        containerNode.addEventListener('focusin', this.handleFocusIn.bind(this));
 
-        for (let j = 0; j < this.linkNodes[i].length; j++) {
-            var linkNode = this.linkNodes[i][j];
-        }
+        // Change link role to button role and set href to '#'
+        buttonNode.setAttribute('role', 'button');
+        buttonNode.setAttribute('aria-expanded', 'false');
+        buttonNode.setAttribute('href', '#');
+        buttonNode.setAttribute('aria-controls', 'banner-menu-' + i);
+    
+        buttonNode.addEventListener('click', this.handleButtonClick.bind(this));
+
+        menuNode.id = 'banner-menu-' + i;
+
+        this.menuContainers[i] = {};
+        this.menuContainers[i].containerNode = containerNode;
+        this.menuContainers[i].buttonNode    = buttonNode;
+        this.menuContainers[i].menuNode      = menuNode;
+        this.menuContainers[i].menuitemNodes = menuitemNodes;
     }
 
 };
 
-DisclosureMenu.prototype.getMenuNode = function (node) {
-    var menuNode = node.nextElementSibling;
-    
-    if (menuNode && menuNode.classList.contains('sub-menu') && menuNode.id) {
-        return menuNode;
-    }
-    
-    menuNode = node.parentNode.parentNode.parentNode.parentNode;
-    
-    if (menuNode && menuNode.classList.contains('sub-menu') && menuNode.id) {
-        return menuNode;
+DisclosureMenu.prototype.getMenuContainer = function (node) {
+    for (var i = 0; i < this.menuContainers.length; i++) {
+        var c = this.menuContainers[i];
+
+        if (c.containerNode.contains(node)) {
+            return c;        
+        }
     }
 
-    menuNode = node.parentNode.parentNode;
-    
-    if (menuNode && menuNode.classList.contains('sub-menu') && menuNode.id) {
-        return menuNode;
-    }
-    
     return false;
 };
 
@@ -77,39 +66,38 @@ DisclosureMenu.prototype.closeMenus = function (menuNode) {
         menuNode = null;
     }
 
-    for (var i = 0; i < this.menuNodes.length; i++) {
-        if (menuNode !== this.menuNodes[i]) {
-            this.menuNodes[i].style.display = 'none';
-            this.buttonNodes[i].setAttribute('aria-expanded', 'false');
+    for (var i = 0; i < this.menuContainers.length; i++) {
+        var mc = this.menuContainers[i];
+        if (mc.menuNode !== menuNode) {
+            mc.menuNode.style.display = 'none';
+            mc.buttonNode.setAttribute('aria-expanded', 'false');
         }
     }
 };
 
-DisclosureMenu.prototype.toggleExpand = function (buttonNode, menuNode) {
-    var isOpen = buttonNode.getAttribute('aria-expanded') === 'true';
+DisclosureMenu.prototype.toggleExpand = function (menuContainer) {
+    var isOpen = menuContainer.buttonNode.getAttribute('aria-expanded') === 'true';
   
     if (isOpen) {
         this.closeMenus();
     }
     else {
-        this.closeMenus(menuNode); 
-        buttonNode.setAttribute('aria-expanded', 'true');
-        this.openMenu(menuNode); 
+        this.closeMenus(menuContainer.menuNode); 
+        menuContainer.buttonNode.setAttribute('aria-expanded', 'true');
+        this.openMenu(menuContainer.menuNode); 
     }
 };
 
 /* Event Handlers */
 DisclosureMenu.prototype.handleButtonClick = function (event) {
-    var menuButton = event.target;
-    var menuNode = this.getMenuNode(menuButton);
-    this.toggleExpand(menuButton, menuNode);
-    menuButton.focus();
+    var mc = this.getMenuContainer(event.target);
+    this.toggleExpand(mc);
+    mc.menuButton.focus();
 };
 
 DisclosureMenu.prototype.handleFocusIn = function (event) {
-    var node = event.target;
-    var menuNode = this.getMenuNode(node);
-    this.closeMenus(menuNode);
+    var mc = this.getMenuContainer(event.target);
+    this.closeMenus(mc.menuNode);
 };
 
 DisclosureMenu.prototype.handleBodyCloseMenus = function (event) {
