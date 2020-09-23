@@ -12,13 +12,9 @@
             'settings': {
                 'skipTo': {
                     landmarks: 'main, [role="main"], [role="search"], nav',
-                    headings: 'h1, h2',
-                    accessKey: 'S',
-                    attachElement: 'header',
-                    color:  '#17385e',
-                    backgroundColor: '#fff',
-                    focusColor: '#17385e',
-                    backgroundFocusColor: '#17385e'
+                    headings: 'main h1, main h2',
+                    colorTheme: 'illinois',
+                    customClass: 'aitg'
                 }
             }
         };        
