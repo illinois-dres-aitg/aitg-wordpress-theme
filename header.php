@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="banner-row-2">
-        <div class="banner-aitg"><a href="<?php echo esc_url( get_site_url() ); ?>">ACCESSIBLE IT GROUP</a></div>
+        <div class="banner-name"><a href="<?php echo esc_url( get_site_url() ); ?>">ACCESSIBLE IT GROUP</a></div>
         <?php wp_nav_menu(
     		array(
     			'menu'  => 'Primary',
