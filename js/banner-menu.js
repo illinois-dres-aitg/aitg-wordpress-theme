@@ -63,9 +63,6 @@ var DisclosureMenu = function(domNode) {
       buttonNode.setAttribute('href', '#');
       buttonNode.setAttribute('aria-controls', 'banner-menu-' + i);
 
-      buttonNode.addEventListener('click', this.handleButtonClick.bind(this));
-      buttonNode.addEventListener('keydown', this.handleButtonKeydown.bind(this));
-      
       for (let i = 0; i < linkNodes.length; i++) {
           linkNodes[i].addEventListener('keydown', this.handleLinkKeydown.bind(this));
       }
@@ -114,8 +111,10 @@ DisclosureMenu.prototype.toggleExpand = function(menuContainer) {
   var isOpen = menuContainer.buttonNode.getAttribute('aria-expanded') === 'true';
 
   if (isOpen) {
+    console.log('[toggleExpand][close]');
     this.closeMenus();
   } else {
+    console.log('[toggleExpand][open]');
     this.closeMenus(menuContainer.menuNode);
     menuContainer.buttonNode.setAttribute('aria-expanded', 'true');
     this.openMenu(menuContainer.menuNode);
@@ -192,9 +191,12 @@ DisclosureMenu.prototype.setFocusToPreviousLink = function(menuContainer, curren
 
 /* Event Handlers */
 DisclosureMenu.prototype.handleButtonClick = function(event) {
-  var mc = this.getMenuContainer(event.target);
-  this.toggleExpand(mc);
-  mc.buttonNode.focus();
+    console.log('[handleButtonClick]');
+    var mc = this.getMenuContainer(event.target);
+    this.toggleExpand(mc);
+    mc.buttonNode.focus();
+    event.stopPropagation();
+    event.preventDefault();
 };
 
 DisclosureMenu.prototype.handleButtonKeydown = function(event) {
