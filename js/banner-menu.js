@@ -145,79 +145,77 @@ DisclosureMenu.prototype.toggleExpand = function(menuContainer) {
 };
 
 DisclosureMenu.prototype.expand = function(menuContainer) {
-    this.closeMenus(menuContainer.menuNode);
-    menuContainer.buttonNode.setAttribute('aria-expanded', 'true');
-    this.openMenu(menuContainer.menuNode);
+  this.closeMenus(menuContainer.menuNode);
+  menuContainer.buttonNode.setAttribute('aria-expanded', 'true');
+  this.openMenu(menuContainer.menuNode);
 };
 
 DisclosureMenu.prototype.getLinkIndex = function(menuContainer, link) {
-
-    for (var i = 0; i < menuContainer.linkNodes.length; i++) {
-        if (link === menuContainer.linkNodes[i]) {
-            return i;
-        }
+  for (var i = 0; i < menuContainer.linkNodes.length; i++) {
+    if (link === menuContainer.linkNodes[i]) {
+      return i;
     }
-
-    return 0;
+  }
+  return 0;
 };
 
 DisclosureMenu.prototype.setFocusToNextMenu = function(menuContainer) {
-    if (menuContainer != this.lastMenuContainer) {
-        var index = this.menuContainers.indexOf(menuContainer);
-        this.closeMenus();
-        this.menuContainers[index+1].buttonNode.focus();
-    }
+  if (menuContainer != this.lastMenuContainer) {
+    var index = this.menuContainers.indexOf(menuContainer);
+    this.closeMenus();
+    this.menuContainers[index+1].buttonNode.focus();
+  }
 };
 
 DisclosureMenu.prototype.setFocusToPreviousMenu = function(menuContainer) {
-    if (menuContainer != this.firstMenuContainer) {
-        var index = this.menuContainers.indexOf(menuContainer);
-        this.closeMenus();
-        this.menuContainers[index-1].buttonNode.focus();
-    }
+  if (menuContainer != this.firstMenuContainer) {
+    var index = this.menuContainers.indexOf(menuContainer);
+    this.closeMenus();
+    this.menuContainers[index-1].buttonNode.focus();
+  }
 };
 
 
 DisclosureMenu.prototype.setFocusToFirstLink = function(menuContainer, currentLink) {
-    if (menuContainer.hasSubMenu) {
-        menuContainer.firstLinkNode.focus();
-    }
+  if (menuContainer.hasSubMenu) {
+    menuContainer.firstLinkNode.focus();
+  }
 };
 
 DisclosureMenu.prototype.setFocusToLastLink = function(menuContainer, currentLink) {
-    if (menuContainer.hasSubMenu) {
-        menuContainer.lastLinkNode.focus();
-    }
+  if (menuContainer.hasSubMenu) {
+    menuContainer.lastLinkNode.focus();
+  }
 };
 
 DisclosureMenu.prototype.setFocusToNextLink = function(menuContainer, currentLink) {
-    if (currentLink === menuContainer.lastLinkNode) {
-        menuContainer.firstLinkNode.focus();
-    }
-    else {
-        var index = this.getLinkIndex(menuContainer, currentLink);
-        menuContainer.linkNodes[index+1].focus();        
-    }
+  if (currentLink === menuContainer.lastLinkNode) {
+    menuContainer.firstLinkNode.focus();
+  }
+  else {
+    var index = this.getLinkIndex(menuContainer, currentLink);
+    menuContainer.linkNodes[index+1].focus();        
+  }
 };
 
 DisclosureMenu.prototype.setFocusToPreviousLink = function(menuContainer, currentLink) {
-    if (currentLink === menuContainer.firstLinkNode) {
-        menuContainer.lastLinkNode.focus();
-    }
-    else {
-        var index = this.getLinkIndex(menuContainer, currentLink);
-        menuContainer.linkNodes[index-1].focus();        
-    }
+  if (currentLink === menuContainer.firstLinkNode) {
+    menuContainer.lastLinkNode.focus();
+  }
+  else {
+    var index = this.getLinkIndex(menuContainer, currentLink);
+    menuContainer.linkNodes[index-1].focus();        
+  }
 };
 
 
 /* Event Handlers */
 DisclosureMenu.prototype.handleButtonClick = function(event) {
-    var mc = this.getMenuContainer(event.target);
-    this.toggleExpand(mc);
-    mc.buttonNode.focus();
-    event.stopPropagation();
-    event.preventDefault();
+  var mc = this.getMenuContainer(event.target);
+  this.toggleExpand(mc);
+  mc.buttonNode.focus();
+  event.stopPropagation();
+  event.preventDefault();
 };
 
 DisclosureMenu.prototype.handleButtonKeydown = function(event) {
@@ -229,36 +227,35 @@ DisclosureMenu.prototype.handleButtonKeydown = function(event) {
   switch (key) {
     case 'Esc':
     case 'Escape':
-        this.closeMenus();
-        flag = true;
+      this.closeMenus();
+      flag = true;
       break;
 
     case 'Up':
     case 'ArrowUp':
-        this.expand(mc);
-        this.setFocusToLastLink(mc, tgt);
-        flag = true;
-        break;
+      this.expand(mc);
+      this.setFocusToLastLink(mc, tgt);
+      flag = true;
+      break;
 
     case 'Down':
     case 'ArrowDown':
-        this.expand(mc);
-        this.setFocusToFirstLink(mc, tgt);
-        flag = true;
-        break;
+      this.expand(mc);
+      this.setFocusToFirstLink(mc, tgt);
+      flag = true;
+      break;
 
     case 'Left':
     case 'ArrowLeft':
-        this.setFocusToPreviousMenu(mc);
+      this.setFocusToPreviousMenu(mc);
       flag = true;
       break;
 
     case 'Right':
     case 'ArrowRight':
-        this.setFocusToNextMenu(mc);
+      this.setFocusToNextMenu(mc);
       flag = true;
       break;
-
 
     default:
       break;
@@ -279,9 +276,9 @@ DisclosureMenu.prototype.handleLinkKeydown = function(event) {
   switch (key) {
     case 'Esc':
     case 'Escape':
-        this.closeMenus();
-        mc.buttonNode.focus();
-        flag = true;
+      this.closeMenus();
+      mc.buttonNode.focus();
+      flag = true;
       break;
 
     case 'Up':
@@ -298,16 +295,15 @@ DisclosureMenu.prototype.handleLinkKeydown = function(event) {
 
     case 'Left':
     case 'ArrowLeft':
-        this.setFocusToPreviousMenu(mc);
+      this.setFocusToPreviousMenu(mc);
       flag = true;
       break;
 
     case 'Right':
     case 'ArrowRight':
-        this.setFocusToNextMenu(mc);
+      this.setFocusToNextMenu(mc);
       flag = true;
       break;
-
 
     default:
       break;
