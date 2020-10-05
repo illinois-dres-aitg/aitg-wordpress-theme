@@ -15,17 +15,32 @@ var DisclosureMenu = function(domNode) {
 
   var containerNodes = this.rootNode.querySelectorAll('ul.menu > li');
   
-  // change span to a link
+  // If a SPAN is found in the banner menu, it is because WP uses a SPAN
+  // when the URL of the page matches the link for the menu item.
+  // Change SPAN to an A element, use the page URL as the HREF attribute
+  // mark the link using ARIA-CURRENT=PAGE
   
   var spanNode = this.rootNode.querySelector('span');
   
   if (spanNode) {
-      var parentNode = spanNode.parentNode;
-      var linkNode = document.createElement('a');
-      linkNode.textContent = spanNode.textContent;
-      linkNode.href = location.href;
-      linkNode.setAttribute('aria-current', 'page');
-      parentNode.replaceChild(linkNode, spanNode);
+    var parentNode = spanNode.parentNode;
+    var linkNode = document.createElement('a');
+    linkNode.textContent = spanNode.textContent;
+    linkNode.href = location.href;
+    linkNode.setAttribute('aria-current', 'page');
+    parentNode.replaceChild(linkNode, spanNode);
+  }
+
+  // If the banner-name link is the current link, mark it with ARIA-CURRENT=PAGE
+
+  var bannerNameLinkNode = document.querySelector('.banner-name a');
+
+  if (bannerNameLinkNode) {
+    var url1 = location.href.trim().toLowerCase();
+    var url2 = bannerNameLinkNode.href.trim().toLowerCase();
+    if (url1 === url2) {
+      bannerNameLinkNode.setAttribute('aria-current', 'page');
+    }
   }
 
   this.menuContainers = [];
@@ -52,7 +67,6 @@ var DisclosureMenu = function(domNode) {
     }
     this.lastMenuContainer = this.menuContainers[i];
     
-    console.log('[buttonNode]: ' + buttonNode.textContent);
     buttonNode.addEventListener('click', this.handleButtonClick.bind(this));
     buttonNode.addEventListener('keydown', this.handleButtonKeydown.bind(this));
 
@@ -65,8 +79,6 @@ var DisclosureMenu = function(domNode) {
       var menuNode = containerNode.querySelector('.sub-menu');
       var linkNodes = containerNode.querySelectorAll('.sub-menu a');
       
-      console.log('[linkNodes]: ' + linkNodes.length);
-
       // Updated properties and add event handlers
       containerNode.addEventListener('focusin', this.handleFocusIn.bind(this));
 
@@ -124,10 +136,8 @@ DisclosureMenu.prototype.toggleExpand = function(menuContainer) {
   var isOpen = menuContainer.buttonNode.getAttribute('aria-expanded') === 'true';
 
   if (isOpen) {
-    console.log('[toggleExpand][close]');
     this.closeMenus();
   } else {
-    console.log('[toggleExpand][open]');
     this.closeMenus(menuContainer.menuNode);
     menuContainer.buttonNode.setAttribute('aria-expanded', 'true');
     this.openMenu(menuContainer.menuNode);
@@ -160,7 +170,6 @@ DisclosureMenu.prototype.setFocusToNextMenu = function(menuContainer) {
 };
 
 DisclosureMenu.prototype.setFocusToPreviousMenu = function(menuContainer) {
-    console.log('[setFocusToPreviousMenu]: ' + menuContainer != this.firstMenuContainer + ' ' + menuContainer.buttonNode.textContent + ' ' + this.firstMenuContainer.buttonNode.textContent);
     if (menuContainer != this.firstMenuContainer) {
         var index = this.menuContainers.indexOf(menuContainer);
         this.closeMenus();
@@ -204,7 +213,6 @@ DisclosureMenu.prototype.setFocusToPreviousLink = function(menuContainer, curren
 
 /* Event Handlers */
 DisclosureMenu.prototype.handleButtonClick = function(event) {
-    console.log('[handleButtonClick]');
     var mc = this.getMenuContainer(event.target);
     this.toggleExpand(mc);
     mc.buttonNode.focus();
