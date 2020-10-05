@@ -88,8 +88,8 @@ var DisclosureMenu = function(domNode) {
       buttonNode.setAttribute('href', '#');
       buttonNode.setAttribute('aria-controls', 'banner-menu-' + i);
 
-      for (let i = 0; i < linkNodes.length; i++) {
-          linkNodes[i].addEventListener('keydown', this.handleLinkKeydown.bind(this));
+      for (var k = 0; k < linkNodes.length; k++) {
+          linkNodes[k].addEventListener('keydown', this.handleLinkKeydown.bind(this));
       }
 
       menuNode.id = 'banner-menu-' + i;
