@@ -6,7 +6,7 @@
  */
 'use strict';
 
-var DisclosureMenu = function(domNode) {
+var DisclosureMenu = function (domNode) {
   this.rootNode = domNode;
   this.enhancedKeyboardSupport = true;
 
@@ -14,14 +14,14 @@ var DisclosureMenu = function(domNode) {
   document.body.addEventListener('focusin', this.handleBodyCloseMenus.bind(this));
 
   var containerNodes = this.rootNode.querySelectorAll('ul.menu > li');
-  
+
   // If a SPAN is found in the banner menu, it is because WP uses a SPAN
   // when the URL of the page matches the link for the menu item.
   // Change SPAN to an A element, use the page URL as the HREF attribute
   // mark the link using ARIA-CURRENT=PAGE
-  
+
   var spanNode = this.rootNode.querySelector('span');
-  
+
   if (spanNode) {
     var parentNode = spanNode.parentNode;
     var linkNode = document.createElement('a');
@@ -44,7 +44,7 @@ var DisclosureMenu = function(domNode) {
   }
 
   this.menuContainers = [];
-  
+
   this.firstMenuContainer = false;
   this.lastMenuContainer = false;
 
@@ -66,7 +66,7 @@ var DisclosureMenu = function(domNode) {
         this.firstMenuContainer = this.menuContainers[0];
     }
     this.lastMenuContainer = this.menuContainers[i];
-    
+
     buttonNode.addEventListener('click', this.handleButtonClick.bind(this));
     buttonNode.addEventListener('keydown', this.handleButtonKeydown.bind(this));
 
@@ -78,7 +78,7 @@ var DisclosureMenu = function(domNode) {
 
       var menuNode = containerNode.querySelector('.sub-menu');
       var linkNodes = containerNode.querySelectorAll('.sub-menu a');
-      
+
       // Updated properties and add event handlers
       containerNode.addEventListener('focusin', this.handleFocusIn.bind(this));
 
@@ -103,7 +103,7 @@ var DisclosureMenu = function(domNode) {
   }
 };
 
-DisclosureMenu.prototype.getMenuContainer = function(node) {
+DisclosureMenu.prototype.getMenuContainer = function (node) {
   for (var i = 0; i < this.menuContainers.length; i++) {
     var c = this.menuContainers[i];
 
@@ -114,11 +114,11 @@ DisclosureMenu.prototype.getMenuContainer = function(node) {
   return false;
 };
 
-DisclosureMenu.prototype.openMenu = function(menuNode) {
+DisclosureMenu.prototype.openMenu = function (menuNode) {
   menuNode.style.display = 'block';
 };
 
-DisclosureMenu.prototype.closeMenus = function(menuNode) {
+DisclosureMenu.prototype.closeMenus = function (menuNode) {
   if (typeof menuNode !== 'object') {
     menuNode = null;
   }
@@ -132,7 +132,7 @@ DisclosureMenu.prototype.closeMenus = function(menuNode) {
   }
 };
 
-DisclosureMenu.prototype.toggleExpand = function(menuContainer) {
+DisclosureMenu.prototype.toggleExpand = function (menuContainer) {
   var isOpen = menuContainer.buttonNode.getAttribute('aria-expanded') === 'true';
 
   if (isOpen) {
@@ -144,13 +144,13 @@ DisclosureMenu.prototype.toggleExpand = function(menuContainer) {
   }
 };
 
-DisclosureMenu.prototype.expand = function(menuContainer) {
+DisclosureMenu.prototype.expand = function (menuContainer) {
   this.closeMenus(menuContainer.menuNode);
   menuContainer.buttonNode.setAttribute('aria-expanded', 'true');
   this.openMenu(menuContainer.menuNode);
 };
 
-DisclosureMenu.prototype.getLinkIndex = function(menuContainer, link) {
+DisclosureMenu.prototype.getLinkIndex = function (menuContainer, link) {
   for (var i = 0; i < menuContainer.linkNodes.length; i++) {
     if (link === menuContainer.linkNodes[i]) {
       return i;
@@ -159,7 +159,7 @@ DisclosureMenu.prototype.getLinkIndex = function(menuContainer, link) {
   return 0;
 };
 
-DisclosureMenu.prototype.setFocusToNextMenu = function(menuContainer) {
+DisclosureMenu.prototype.setFocusToNextMenu = function (menuContainer) {
   if (menuContainer != this.lastMenuContainer) {
     var index = this.menuContainers.indexOf(menuContainer);
     this.closeMenus();
@@ -167,7 +167,7 @@ DisclosureMenu.prototype.setFocusToNextMenu = function(menuContainer) {
   }
 };
 
-DisclosureMenu.prototype.setFocusToPreviousMenu = function(menuContainer) {
+DisclosureMenu.prototype.setFocusToPreviousMenu = function (menuContainer) {
   if (menuContainer != this.firstMenuContainer) {
     var index = this.menuContainers.indexOf(menuContainer);
     this.closeMenus();
@@ -176,41 +176,41 @@ DisclosureMenu.prototype.setFocusToPreviousMenu = function(menuContainer) {
 };
 
 
-DisclosureMenu.prototype.setFocusToFirstLink = function(menuContainer, currentLink) {
+DisclosureMenu.prototype.setFocusToFirstLink = function (menuContainer, currentLink) {
   if (menuContainer.hasSubMenu) {
     menuContainer.firstLinkNode.focus();
   }
 };
 
-DisclosureMenu.prototype.setFocusToLastLink = function(menuContainer, currentLink) {
+DisclosureMenu.prototype.setFocusToLastLink = function (menuContainer, currentLink) {
   if (menuContainer.hasSubMenu) {
     menuContainer.lastLinkNode.focus();
   }
 };
 
-DisclosureMenu.prototype.setFocusToNextLink = function(menuContainer, currentLink) {
+DisclosureMenu.prototype.setFocusToNextLink = function (menuContainer, currentLink) {
   if (currentLink === menuContainer.lastLinkNode) {
     menuContainer.firstLinkNode.focus();
   }
   else {
     var index = this.getLinkIndex(menuContainer, currentLink);
-    menuContainer.linkNodes[index+1].focus();        
+    menuContainer.linkNodes[index+1].focus();
   }
 };
 
-DisclosureMenu.prototype.setFocusToPreviousLink = function(menuContainer, currentLink) {
+DisclosureMenu.prototype.setFocusToPreviousLink = function (menuContainer, currentLink) {
   if (currentLink === menuContainer.firstLinkNode) {
     menuContainer.lastLinkNode.focus();
   }
   else {
     var index = this.getLinkIndex(menuContainer, currentLink);
-    menuContainer.linkNodes[index-1].focus();        
+    menuContainer.linkNodes[index-1].focus();
   }
 };
 
 
 /* Event Handlers */
-DisclosureMenu.prototype.handleButtonClick = function(event) {
+DisclosureMenu.prototype.handleButtonClick = function (event) {
   var mc = this.getMenuContainer(event.target);
   this.toggleExpand(mc);
   mc.buttonNode.focus();
@@ -218,7 +218,7 @@ DisclosureMenu.prototype.handleButtonClick = function(event) {
   event.preventDefault();
 };
 
-DisclosureMenu.prototype.handleButtonKeydown = function(event) {
+DisclosureMenu.prototype.handleButtonKeydown = function (event) {
   var mc = this.getMenuContainer(event.target);
   var tgt = event.currentTarget,
     key = event.key,
@@ -267,7 +267,7 @@ DisclosureMenu.prototype.handleButtonKeydown = function(event) {
   }
 };
 
-DisclosureMenu.prototype.handleLinkKeydown = function(event) {
+DisclosureMenu.prototype.handleLinkKeydown = function (event) {
   var mc = this.getMenuContainer(event.target);
   var tgt = event.currentTarget,
     key = event.key,
@@ -316,12 +316,12 @@ DisclosureMenu.prototype.handleLinkKeydown = function(event) {
 };
 
 
-DisclosureMenu.prototype.handleFocusIn = function(event) {
+DisclosureMenu.prototype.handleFocusIn = function (event) {
   var mc = this.getMenuContainer(event.target);
   this.closeMenus(mc.menuNode);
 };
 
-DisclosureMenu.prototype.handleBodyCloseMenus = function(event) {
+DisclosureMenu.prototype.handleBodyCloseMenus = function (event) {
   if (!this.rootNode.contains(event.target)) {
     this.closeMenus();
   }
@@ -329,7 +329,7 @@ DisclosureMenu.prototype.handleBodyCloseMenus = function(event) {
 
 /* Initialize Disclosure Menus */
 
-window.addEventListener('load', function(event) {
+window.addEventListener('load', function (event) {
   console.log('init banner menu...');
   var menus = document.querySelectorAll('.banner-menu');
   for (var i = 0; i < menus.length; i++) {
