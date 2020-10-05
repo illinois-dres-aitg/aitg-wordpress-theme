@@ -14,6 +14,19 @@ var DisclosureMenu = function(domNode) {
   document.body.addEventListener('focusin', this.handleBodyCloseMenus.bind(this));
 
   var containerNodes = this.rootNode.querySelectorAll('ul.menu > li');
+  
+  // change span to a link
+  
+  var spanNode = this.rootNode.querySelector('span');
+  
+  if (spanNode) {
+      var parentNode = spanNode.parentNode;
+      var linkNode = document.createElement('a');
+      linkNode.textContent = spanNode.textContent;
+      linkNode.href = location.href;
+      linkNode.setAttribute('aria-current', 'page');
+      parentNode.replaceChild(linkNode, spanNode);
+  }
 
   this.menuContainers = [];
   
