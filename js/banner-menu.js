@@ -153,15 +153,17 @@ DisclosureMenu.prototype.closeMenus = function(subMenuNode) {
 };
 
 DisclosureMenu.prototype.toggleExpand = function(menuContainer) {
-  var isOpen = menuContainer.buttonNode.getAttribute('aria-expanded') === 'true';
-
-  if (isOpen) {
-    this.closeMenus();
-  } else {
-    this.closeMenus(menuContainer.subMenuNode);
-    menuContainer.buttonNode.setAttribute('aria-expanded', 'true');
-    this.openMenu(menuContainer.subMenuNode);
-  }
+  if (menuContainer.hasSubMenu) {
+    var isOpen = menuContainer.buttonNode.getAttribute('aria-expanded') === 'true';
+    
+    if (isOpen) {
+      this.closeMenus();
+    } else {
+      this.closeMenus(menuContainer.subMenuNode);
+      menuContainer.buttonNode.setAttribute('aria-expanded', 'true');
+      this.openMenu(menuContainer.subMenuNode);
+    }
+  }    
 };
 
 DisclosureMenu.prototype.expand = function(menuContainer) {
@@ -230,10 +232,12 @@ DisclosureMenu.prototype.setFocusToPreviousLink = function(menuContainer, curren
 /* Event Handlers */
 DisclosureMenu.prototype.handleButtonClick = function(event) {
   var mc = this.getMenuContainer(event.target);
-  this.toggleExpand(mc);
-  mc.buttonNode.focus();
-  event.stopPropagation();
-  event.preventDefault();
+  if (mc.hasSubMenu) {
+    this.toggleExpand(mc);
+    mc.buttonNode.focus();
+    event.stopPropagation();
+    event.preventDefault();
+  }
 };
 
 DisclosureMenu.prototype.handleButtonKeydown = function(event) {
