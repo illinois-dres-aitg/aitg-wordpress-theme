@@ -91,7 +91,8 @@ function DisclosureMenu (domNode) {
   // mark the link using ARIA-CURRENT=PAGE
   convertSpanToLink();
 
-  // If the banner-name link is the current link, mark it with ARIA-CURRENT=PAGE
+  // If the banner-name link is the current page link, 
+  // mark it with ARIA-CURRENT=PAGE
   setAriaCurrentOnBannerNameLink();
 
   this.menuContainers = [];
@@ -100,7 +101,7 @@ function DisclosureMenu (domNode) {
   for (var i = 0; i < containerNodes.length; i++) {
     var containerNode = containerNodes[i];
 
-    // Close other menus when an item gets focus in a menu
+    // When a menu item gets focus, close any other sub menus
     containerNode.addEventListener('focusin', this.handleFocusIn.bind(this));
     
     var linkNode = containerNode.querySelector('a');
@@ -111,8 +112,9 @@ function DisclosureMenu (domNode) {
     }
 
     // Create object that references each menubar link and any associated 
-    // sub menu sociated links.
-    // For menubar links that do not have submenus the hasSubMenu is set to false
+    // sub menu links.
+    // For menubar links that do not have submenus the hasSubMenu property of 
+    // the object is set to false
     this.menuContainers.push(createContainerObjectForMenubarItem( this, containerNode, linkNode ));
   }
 
