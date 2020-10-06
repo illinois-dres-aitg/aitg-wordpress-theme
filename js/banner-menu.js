@@ -6,102 +6,120 @@
  */
 'use strict';
 
-var DisclosureMenu = function(domNode) {
+function DisclosureMenu (domNode) {
+
+  function convertSpanToLink() {
+    var spanNode = domNode.querySelector('span');
+    
+    if (spanNode) {
+      var parentNode = spanNode.parentNode;
+      var linkNode = document.createElement('a');
+      linkNode.textContent = spanNode.textContent;
+      linkNode.href = location.href;
+      linkNode.setAttribute('aria-current', 'page');
+      parentNode.replaceChild(linkNode, spanNode);
+    }
+  }
+  
+  function setAriaCurrentOnBannerNameLink () {
+    var bannerNameLinkNode = document.querySelector('.banner-name a');
+    
+    if (bannerNameLinkNode) {
+      var url1 = location.href.trim().toLowerCase();
+      var url2 = bannerNameLinkNode.href.trim().toLowerCase();
+      if (url1 === url2) {
+        bannerNameLinkNode.setAttribute('aria-current', 'page');
+      }
+    }
+  }
+  
+  function createContainerObjectForMenubarItem ( disclosureMenuObj, containerNode, menubarLinkNode ) {
+    var mc = {}
+    mc.hasSubMenu = false;
+    mc.containerNode = containerNode;
+    // The menubar link will most often act link a button, 
+    // so use the property name buttonNode
+    mc.buttonNode = menubarLinkNode;
+
+    linkNode.addEventListener('click', disclosureMenuObj.handleButtonClick.bind(disclosureMenuObj));
+    linkNode.addEventListener('keydown', disclosureMenuObj.handleButtonKeydown.bind(disclosureMenuObj));
+
+    // Check to see if menubar link has a sub menu links
+    if (containerNode.classList.contains('menu-item-has-children')) {
+
+      mc.hasSubMenu = true;
+
+      // When menubar link has sub-menu links:
+      //   Change link to use the button role
+      //   Set href to '#' so it does not behave like a link
+      //   Add aria-expanded and aria-controls for ARIA menu button pattern
+      menubarLinkNode.setAttribute('role', 'button');
+      menubarLinkNode.setAttribute('aria-expanded', 'false');
+      menubarLinkNode.setAttribute('href', '#');
+      menubarLinkNode.setAttribute('aria-controls', 'banner-menu-' + i);
+
+      var subMenuNode = containerNode.querySelector('.sub-menu');
+      var subMenuLinkNodes = containerNode.querySelectorAll('.sub-menu a');
+      
+      for (var i = 0; i < subMenuLinkNodes.length; i++) {
+          subMenuLinkNodes[i].addEventListener('keydown', disclosureMenuObj.handleSubMenuLinkKeydown.bind(disclosureMenuObj));
+      }
+
+      subMenuNode.id = 'banner-sub-menu-' + i;
+
+      // Add information to menu container object
+      mc.subMenuNode = subMenuNode;
+      mc.subMenuLinkNodes = subMenuLinkNodes;
+      mc.firstSubMenuLinkNode = subMenuLinkNodes[0];
+      mc.lastSubMenuLinkNode = subMenuLinkNodes[subMenuLinkNodes.length - 1];
+    }
+
+    return mc;
+  }
+    
   this.rootNode = domNode;
   this.enhancedKeyboardSupport = true;
 
+  // Event handlers to close the pull down menus when focus or mouse event is 
+  // not on a menu item 
   document.body.addEventListener('mousedown', this.handleBodyCloseMenus.bind(this));
   document.body.addEventListener('focusin', this.handleBodyCloseMenus.bind(this));
 
-  var containerNodes = this.rootNode.querySelectorAll('ul.menu > li');
-  
-  // If a SPAN is found in the banner menu, it is because WP uses a SPAN
-  // when the URL of the page matches the link for the menu item.
-  // Change SPAN to an A element, use the page URL as the HREF attribute
+  // If a SPAN is found in the banner menu, it is because WP changes the link to
+  // a SPAN when the URL of the link page matches page URL.
+  // Change the SPAN to an A element, use the page URL as the HREF attribute
   // mark the link using ARIA-CURRENT=PAGE
-  
-  var spanNode = this.rootNode.querySelector('span');
-  
-  if (spanNode) {
-    var parentNode = spanNode.parentNode;
-    var linkNode = document.createElement('a');
-    linkNode.textContent = spanNode.textContent;
-    linkNode.href = location.href;
-    linkNode.setAttribute('aria-current', 'page');
-    parentNode.replaceChild(linkNode, spanNode);
-  }
+  convertSpanToLink();
 
   // If the banner-name link is the current link, mark it with ARIA-CURRENT=PAGE
-
-  var bannerNameLinkNode = document.querySelector('.banner-name a');
-
-  if (bannerNameLinkNode) {
-    var url1 = location.href.trim().toLowerCase();
-    var url2 = bannerNameLinkNode.href.trim().toLowerCase();
-    if (url1 === url2) {
-      bannerNameLinkNode.setAttribute('aria-current', 'page');
-    }
-  }
+  setAriaCurrentOnBannerNameLink();
 
   this.menuContainers = [];
+  var containerNodes = this.rootNode.querySelectorAll('ul.menu > li');
   
-  this.firstMenuContainer = false;
-  this.lastMenuContainer = false;
+  for (var i = 0; i < containerNodes.length; i++) {
+    var containerNode = containerNodes[i];
 
-  var i = 0;
-
-  for (var j = 0; j < containerNodes.length; j++) {
-    var containerNode = containerNodes[j];
-    var buttonNode = containerNode.querySelector('a');
-    if (!buttonNode) {
+    // Close other menus when an item gets focus in a menu
+    containerNode.addEventListener('focusin', this.handleFocusIn.bind(this));
+    
+    var linkNode = containerNode.querySelector('a');
+    // If for some reason there is no link in the container,
+    // do not create a menuContiner object for this item
+    if (!linkNode) {
         continue;
     }
 
-    this.menuContainers[i] = {};
-    this.menuContainers[i].hasSubMenu = false;
-    this.menuContainers[i].containerNode = containerNode;
-    this.menuContainers[i].buttonNode = buttonNode;
-
-    if (!this.firstMenuContainer) {
-        this.firstMenuContainer = this.menuContainers[0];
-    }
-    this.lastMenuContainer = this.menuContainers[i];
-    
-    buttonNode.addEventListener('click', this.handleButtonClick.bind(this));
-    buttonNode.addEventListener('keydown', this.handleButtonKeydown.bind(this));
-
-    // Updated properties and add event handlers
-    containerNode.addEventListener('focusin', this.handleFocusIn.bind(this));
-
-    if (containerNode.classList.contains('menu-item-has-children')) {
-      this.menuContainers[i].hasSubMenu = true;
-
-      var menuNode = containerNode.querySelector('.sub-menu');
-      var linkNodes = containerNode.querySelectorAll('.sub-menu a');
-      
-      // Updated properties and add event handlers
-      containerNode.addEventListener('focusin', this.handleFocusIn.bind(this));
-
-      // Change link role to button role and set href to '#'
-      buttonNode.setAttribute('role', 'button');
-      buttonNode.setAttribute('aria-expanded', 'false');
-      buttonNode.setAttribute('href', '#');
-      buttonNode.setAttribute('aria-controls', 'banner-menu-' + i);
-
-      for (var k = 0; k < linkNodes.length; k++) {
-          linkNodes[k].addEventListener('keydown', this.handleLinkKeydown.bind(this));
-      }
-
-      menuNode.id = 'banner-menu-' + i;
-
-      this.menuContainers[i].menuNode = menuNode;
-      this.menuContainers[i].linkNodes = linkNodes;
-      this.menuContainers[i].firstLinkNode = linkNodes[0];
-      this.menuContainers[i].lastLinkNode = linkNodes[linkNodes.length - 1];
-    }
-    i++;
+    // Create object that references each menubar link and any associated 
+    // sub menu sociated links.
+    // For menubar links that do not have submenus the hasSubMenu is set to false
+    this.menuContainers.push(createContainerObjectForMenubarItem( this, containerNode, linkNode ));
   }
-};
+
+  this.firstMenuContainer = this.menuContainers[0];
+  this.lastMenuContainer = this.menuContainers[this.menuContainers.length - 1];
+  
+}
 
 DisclosureMenu.prototype.getMenuContainer = function(node) {
   for (var i = 0; i < this.menuContainers.length; i++) {
@@ -118,15 +136,16 @@ DisclosureMenu.prototype.openMenu = function(menuNode) {
   menuNode.style.display = 'block';
 };
 
-DisclosureMenu.prototype.closeMenus = function(menuNode) {
-  if (typeof menuNode !== 'object') {
-    menuNode = null;
+DisclosureMenu.prototype.closeMenus = function(subMenuNode) {
+  if (typeof subMenuNode !== 'object') {
+    subMenuNode = null;
   }
 
   for (var i = 0; i < this.menuContainers.length; i++) {
     var mc = this.menuContainers[i];
-    if (mc.hasSubMenu && mc.menuNode !== menuNode) {
-      mc.menuNode.style.display = 'none';
+    // If sub menu is defined don't close that menu
+    if (mc.hasSubMenu && mc.subMenuNode !== subMenuNode) {
+      mc.subMenuNode.style.display = 'none';
       mc.buttonNode.setAttribute('aria-expanded', 'false');
     }
   }
@@ -138,21 +157,21 @@ DisclosureMenu.prototype.toggleExpand = function(menuContainer) {
   if (isOpen) {
     this.closeMenus();
   } else {
-    this.closeMenus(menuContainer.menuNode);
+    this.closeMenus(menuContainer.subMenuNode);
     menuContainer.buttonNode.setAttribute('aria-expanded', 'true');
-    this.openMenu(menuContainer.menuNode);
+    this.openMenu(menuContainer.subMenuNode);
   }
 };
 
 DisclosureMenu.prototype.expand = function(menuContainer) {
-  this.closeMenus(menuContainer.menuNode);
+  this.closeMenus(menuContainer.subMenuNode);
   menuContainer.buttonNode.setAttribute('aria-expanded', 'true');
-  this.openMenu(menuContainer.menuNode);
+  this.openMenu(menuContainer.subMenuNode);
 };
 
 DisclosureMenu.prototype.getLinkIndex = function(menuContainer, link) {
-  for (var i = 0; i < menuContainer.linkNodes.length; i++) {
-    if (link === menuContainer.linkNodes[i]) {
+  for (var i = 0; i < menuContainer.subMenuLinkNodes.length; i++) {
+    if (link === menuContainer.subMenuLinkNodes[i]) {
       return i;
     }
   }
@@ -177,33 +196,33 @@ DisclosureMenu.prototype.setFocusToPreviousMenu = function(menuContainer) {
 
 DisclosureMenu.prototype.setFocusToFirstLink = function(menuContainer, currentLink) {
   if (menuContainer.hasSubMenu) {
-    menuContainer.firstLinkNode.focus();
+    menuContainer.firstSubMenuLinkNode.focus();
   }
 };
 
 DisclosureMenu.prototype.setFocusToLastLink = function(menuContainer, currentLink) {
   if (menuContainer.hasSubMenu) {
-    menuContainer.lastLinkNode.focus();
+    menuContainer.lastSubMenuLinkNode.focus();
   }
 };
 
 DisclosureMenu.prototype.setFocusToNextLink = function(menuContainer, currentLink) {
-  if (currentLink === menuContainer.lastLinkNode) {
-    menuContainer.firstLinkNode.focus();
+  if (currentLink === menuContainer.lastSubMenuLinkNode) {
+    menuContainer.firstSubMenuLinkNode.focus();
   }
   else {
     var index = this.getLinkIndex(menuContainer, currentLink);
-    menuContainer.linkNodes[index+1].focus();        
+    menuContainer.subMenuLinkNodes[index+1].focus();        
   }
 };
 
 DisclosureMenu.prototype.setFocusToPreviousLink = function(menuContainer, currentLink) {
-  if (currentLink === menuContainer.firstLinkNode) {
-    menuContainer.lastLinkNode.focus();
+  if (currentLink === menuContainer.firstSubMenuLinkNode) {
+    menuContainer.lastSubMenuLinkNode.focus();
   }
   else {
     var index = this.getLinkIndex(menuContainer, currentLink);
-    menuContainer.linkNodes[index-1].focus();        
+    menuContainer.subMenuLinkNodes[index-1].focus();        
   }
 };
 
@@ -265,7 +284,7 @@ DisclosureMenu.prototype.handleButtonKeydown = function(event) {
   }
 };
 
-DisclosureMenu.prototype.handleLinkKeydown = function(event) {
+DisclosureMenu.prototype.handleSubMenuLinkKeydown = function(event) {
   var mc = this.getMenuContainer(event.target);
   var tgt = event.currentTarget,
     key = event.key,
@@ -315,7 +334,7 @@ DisclosureMenu.prototype.handleLinkKeydown = function(event) {
 
 DisclosureMenu.prototype.handleFocusIn = function(event) {
   var mc = this.getMenuContainer(event.target);
-  this.closeMenus(mc.menuNode);
+  this.closeMenus(mc.subMenuNode);
 };
 
 DisclosureMenu.prototype.handleBodyCloseMenus = function(event) {
