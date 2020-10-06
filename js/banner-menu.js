@@ -8,16 +8,16 @@
 
 function DisclosureMenu (domNode) {
 
-  function convertSpanToLink() {
-    var spanNode = domNode.querySelector('span');
+  function convertSpansToLinks() {
+    var spanNodes = domNode.querySelectorAll('span');
     
-    if (spanNode) {
-      var parentNode = spanNode.parentNode;
+    for ( var i = 0; i < spanNodes.length; i += 1) {
+      var parentNode = spanNodes[i].parentNode;
       var linkNode = document.createElement('a');
-      linkNode.textContent = spanNode.textContent;
+      linkNode.textContent = spanNodes[i].textContent;
       linkNode.href = location.href;
       linkNode.setAttribute('aria-current', 'page');
-      parentNode.replaceChild(linkNode, spanNode);
+      parentNode.replaceChild(linkNode, spanNodes[i]);
     }
   }
   
@@ -78,18 +78,17 @@ function DisclosureMenu (domNode) {
   }
     
   this.rootNode = domNode;
-  this.enhancedKeyboardSupport = true;
 
   // Event handlers to close the pull down menus when focus or mouse event is 
   // not on a menu item 
   document.body.addEventListener('mousedown', this.handleBodyCloseMenus.bind(this));
   document.body.addEventListener('focusin', this.handleBodyCloseMenus.bind(this));
 
-  // If a SPAN is found in the banner menu, it is because WP changes the link to
-  // a SPAN when the URL of the link page matches page URL.
+  // If a SPAN is found in the banner menu, it is because WP changes links to
+  // SPANs when the URL of the link page matches page URL.
   // Change the SPAN to an A element, use the page URL as the HREF attribute
   // mark the link using ARIA-CURRENT=PAGE
-  convertSpanToLink();
+  convertSpansToLinks();
 
   // If the banner-name link is the current page link, 
   // mark it with ARIA-CURRENT=PAGE
