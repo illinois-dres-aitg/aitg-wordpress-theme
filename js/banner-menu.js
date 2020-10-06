@@ -37,7 +37,7 @@ function DisclosureMenu (domNode) {
     var mc = {}
     mc.hasSubMenu = false;
     mc.containerNode = containerNode;
-    // The menubar link will most often act link a button, 
+    // The menubar link will most often act like a button, 
     // so use the property name buttonNode
     mc.buttonNode = menubarLinkNode;
 
