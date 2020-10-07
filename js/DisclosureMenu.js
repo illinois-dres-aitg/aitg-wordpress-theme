@@ -66,7 +66,7 @@ function DisclosureMenu (domNode) {
   document.body.addEventListener('focusin', this.handleBodyCloseMenus.bind(this));
 
   // WP/ARIA housekeeping
-  convertSpansToLinks();
+  convertSpansToLinks(this.rootNode);
   setAriaCurrentOnBannerNameLink();
 
   // Create a new data structure for initializing the subcomponents of the
@@ -104,8 +104,8 @@ function DisclosureMenu (domNode) {
   // changes links to  spans when the href value of the link page matches the
   // current page URL. Change each span to an 'a' element, using the current
   // page URL as its href value, and mark the link using aria-current="page".
-  function convertSpansToLinks() {
-    var spanNodes = domNode.querySelectorAll('span');
+  function convertSpansToLinks(rootNode) {
+    var spanNodes = rootNode.querySelectorAll('span');
 
     for (var i = 0; i < spanNodes.length; i += 1) {
       var parentNode = spanNodes[i].parentNode;
