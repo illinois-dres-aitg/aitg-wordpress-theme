@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,600,700" />
     <link rel="stylesheet" media="all" href="<?php echo esc_url( get_template_directory_uri() ); ?>/style.css"/>
-    <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/banner-menu.js"></script>
+    <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/DisclosureMenu.js"></script>
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/skipto.js"></script>
     <script>
         var SkipToConfig =  {
@@ -17,7 +17,7 @@
                     customClass: 'aitg'
                 }
             }
-        };        
+        };
     </script>
 
 </head>
@@ -46,8 +46,8 @@
     			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>'
     		) ); ?>
     </div>
-  </header>    
-    
+  </header>
+
   <!-- END header -->
 
 
