@@ -1,7 +1,7 @@
 /*
  * Theme Name: DRES Accessible IT Group WordPress Theme
  * Description: Is fully responsive, clean and minimal WordPress theme. It has various options in WordPress Customizer to change look of the theme - primary design color, background and header, page layout (left or right sidebar, full or centered content). Clean valid code, semantic markup, markup by Schema.org, full adaptation to mobile devices. Basic is ready to use with child themes and gives for developers simple design change with custom hooks and action. Translation Ready (English, Russian, Ukrainian, French, German, Polish, Turkish). Fully compatible with WPML, WooCommerce, bbPress.
- * Theme URI: 
+ * Theme URI:
  * Tested up to: 5.5
  * Requires PHP: 7.0
  * Author: Nicholas Hoyt, Christy Blew, Lori Lane and Jon Gunderson
@@ -12,7 +12,6 @@
  * Tags: one-column, right-sidebar
  * Text Domain: basic
  */
-
 @font-face {
   font-family: SourceSerifPro;
   src: url("fonts/SourceSerifPro-Regular.ttf");
@@ -354,6 +353,23 @@ header .skip-to.aitg button:focus {
   }
 }
 
+/* -------- DEFINITION LISTS -------- */
+main dt {
+  margin-top: 1em;
+  font-size: 110%;
+  font-weight: bold;
+}
+
+main dl.events dt + dd:before {
+  content: "Event: ";
+  font-weight: bold;
+}
+
+main dl.events dd + dd:before {
+  content: "Date: ";
+  font-weight: bold;
+}
+
 /* -------- MAIN: FLEX LAYOUT -------- */
 main {
   color: #00132c;
@@ -512,3 +528,5 @@ footer a:hover {
 footer a:focus {
   outline: 2px solid #ff552e;
 }
+
+/*# sourceMappingURL=styles.css.map */
