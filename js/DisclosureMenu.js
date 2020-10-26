@@ -69,11 +69,10 @@ function DisclosureMenu (domNode) {
   convertSpansToLinks(this.rootNode);
   setAriaCurrentOnBannerNameLink();
 
-  // Create a new data structure for initializing the subcomponents of the
-  // menu containers.
+  // Initialize array for storing references to menuContainer objects.
   this.menuContainers = [];
 
-  // Get the DOM nodes for the menu container widgets and process each one.
+  // Get the DOM nodes for the menubar list items and process each one.
   containerNodes = this.rootNode.querySelectorAll('ul.menu > li');
 
   for (i = 0; i < containerNodes.length; i++) {
