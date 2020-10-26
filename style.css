@@ -12,6 +12,7 @@
  * Tags: one-column, right-sidebar
  * Text Domain: basic
  */
+
 @font-face {
   font-family: SourceSerifPro;
   src: url("fonts/SourceSerifPro-Regular.ttf");
@@ -353,23 +354,6 @@ header .skip-to.aitg button:focus {
   }
 }
 
-/* -------- DEFINITION LISTS -------- */
-main dt {
-  margin-top: 1em;
-  font-size: 110%;
-  font-weight: bold;
-}
-
-main dl.events dt + dd:before {
-  content: "Event: ";
-  font-weight: bold;
-}
-
-main dl.events dd + dd:before {
-  content: "Date: ";
-  font-weight: bold;
-}
-
 /* -------- MAIN: FLEX LAYOUT -------- */
 main {
   color: #00132c;
@@ -393,6 +377,20 @@ main a:hover {
 
 main a:focus {
   outline: 2px solid #ff552e;
+}
+
+main dt {
+  margin-top: 1em;
+}
+
+main dl.events dt + dd:before {
+  content: "Event: ";
+  font-style: italic;
+}
+
+main dl.events dd + dd:before {
+  content: "Date: ";
+  font-style: italic;
 }
 
 .flex-row {
@@ -528,5 +526,3 @@ footer a:hover {
 footer a:focus {
   outline: 2px solid #ff552e;
 }
-
-/*# sourceMappingURL=styles.css.map */
