@@ -65,6 +65,7 @@ header .skip-to.aitg {
 header .skip-to.aitg button {
   color: #555555;
   background-color: #dddede;
+  font-family: Montserrat, sans-serif;
   font-size: 14px;
   text-decoration: none;
   white-space: nowrap;
@@ -89,6 +90,11 @@ header .skip-to.aitg button:focus {
   border-right: 3px solid #ff552e;
   border-left: 3px solid #ff552e;
   border-bottom: 3px solid #ff552e;
+}
+
+header .skip-to.aitg [role=menuitem] {
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
 }
 
 .banner {
