@@ -333,6 +333,7 @@ header .skip-to.aitg [role=menuitem] {
 
 .banner-menu ul.sub-menu {
   list-style: none;
+  z-index: 1;
 }
 
 .banner-menu ul.sub-menu ul.sub-menu li {
