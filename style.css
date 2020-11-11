@@ -69,11 +69,11 @@ header .skip-to.aitg button {
   font-size: 14px;
   text-decoration: none;
   white-space: nowrap;
-  box-sizing: border-box;
   padding: 6px 8px 8px;
+  border-top: none !important;
   border-right: 2px solid white;
-  border-left: 2px solid white;
   border-bottom: 2px solid white;
+  border-left: 2px solid white;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
@@ -87,9 +87,10 @@ header .skip-to.aitg button:hover {
 
 header .skip-to.aitg button:focus {
   padding: 6px 7px 7px;
+  border-top: none !important;
   border-right: 3px solid #ff552e;
-  border-left: 3px solid #ff552e;
   border-bottom: 3px solid #ff552e;
+  border-left: 3px solid #ff552e;
 }
 
 header .skip-to.aitg [role=menuitem] {
@@ -175,7 +176,6 @@ header .skip-to.aitg [role=menuitem] {
   background-color: white;
   -webkit-transition: 0.3s background;
   transition: 0.3s background;
-  box-sizing: border-box;
   border: 2px solid #13294b;
   border-right: none;
   padding-left: 8px;
