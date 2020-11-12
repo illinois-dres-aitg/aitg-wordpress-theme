@@ -49,6 +49,11 @@ body::after {
 }
 
 /* -------- HEADER -------- */
+header {
+  position: sticky;
+  top: 0;
+}
+
 header .skip-to.aitg {
   position: absolute;
   top: 0px;
