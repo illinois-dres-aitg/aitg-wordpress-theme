@@ -12,34 +12,25 @@
  * Tags: one-column, right-sidebar
  * Text Domain: basic
  */
-@font-face {
-  font-family: SourceSerifPro;
-  src: url("fonts/SourceSerifPro-Regular.ttf");
-}
-@font-face {
-  font-family: SourceSerifPro;
-  font-style: italic;
-  src: url("fonts/SourceSerifPro-Italic.ttf");
-}
-@font-face {
-  font-family: SourceSerifPro;
-  font-weight: bold;
-  src: url("fonts/SourceSerifPro-Bold.ttf");
-}
-body {
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@700&display=swap");
+html, body, div, p, span, a,
+h1, h2, h3, h4, h5, h6,
+dl, dt, dd, ol, ul, li {
   margin: 0;
   padding: 0;
-  font-family: Montserrat, sans-serif;
-  font-size: 16px;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
 }
 
-body::after {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  z-index: -1;
-  content: url("images/search-icon-inv.svg") url("images/search-icon.svg");
+body {
+  font-family: Montserrat, sans-serif;
 }
 
 .screen-reader-text {
@@ -52,11 +43,10 @@ body::after {
 header {
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 
 header .skip-to.aitg {
-  position: absolute;
-  top: 0px;
   left: 60%;
   -webkit-transition: left 0.3s linear;
   transition: left 0.3s linear;
@@ -162,7 +152,7 @@ header .skip-to.aitg [role=menuitem] {
   display: grid;
   grid-template-columns: 2fr;
   grid-template-rows: 1fr;
-  width: 18em;
+  width: 18rem;
 }
 
 .search-widget input {
@@ -194,8 +184,8 @@ header .skip-to.aitg [role=menuitem] {
   border: none;
   outline-offset: -2px;
   outline: 2px solid transparent;
-  width: 37px;
-  height: 36px;
+  width: 34px;
+  height: 33px;
 }
 
 .search-widget button:focus {
@@ -214,7 +204,7 @@ header .skip-to.aitg [role=menuitem] {
 .banner-name {
   float: left;
   width: 100%;
-  font-size: 24px;
+  font-size: 1.5rem;
   white-space: nowrap;
 }
 @media screen and (min-width: 992px) {
@@ -338,7 +328,6 @@ header .skip-to.aitg [role=menuitem] {
 
 .banner-menu ul.sub-menu {
   list-style: none;
-  z-index: 1;
 }
 
 .banner-menu ul.sub-menu ul.sub-menu li {
@@ -365,12 +354,41 @@ header .skip-to.aitg [role=menuitem] {
   }
 }
 
+ul.upcoming-events {
+  font-family: Montserrat;
+  font-size: 0.925rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.upcoming-events > li {
+  display: grid;
+  grid-template-columns: 40% 20% 1fr;
+  grid-column-gap: 4px;
+  grid-row-gap: 4px;
+}
+
+ul.upcoming-events > li:not(:first-child) {
+  margin-top: 1.125rem;
+}
+
+ul.upcoming-events > li dt,
+ul.upcoming-events > li dd {
+  background-color: #eee;
+  padding: 0.25rem 0.5rem;
+}
+
+ul.upcoming-events > li dt {
+  grid-column: 1/4;
+}
+
 /* -------- MAIN: FLEX LAYOUT -------- */
 main {
   color: #00132c;
-  padding: 1em 1.5em;
-  font-family: SourceSerifPro, sans-serif;
-  font-size: 18px;
+  padding: 1.25rem;
+  font-family: "Source Serif Pro", serif;
+  font-size: 1.125rem;
   line-height: 1.4;
 }
 
@@ -390,8 +408,52 @@ main a:focus {
   outline: 2px solid #ff552e;
 }
 
-main dt {
-  margin-top: 1em;
+main h1, main h2, main h3, main h4, main h5, main h6 {
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+}
+
+main h1 {
+  font-size: 200%;
+  margin: 1rem 0;
+}
+
+main h1:first-child {
+  margin-top: 0;
+}
+
+main h2 {
+  font-size: 150%;
+  margin: 1rem 0;
+}
+
+main h3 {
+  font-size: 125%;
+  margin: 0.75rem 0 0.75rem;
+}
+
+main h4 {
+  font-size: 110%;
+  margin: 0.75rem 0 0.75rem;
+}
+
+main p {
+  margin: 1rem 0 0;
+}
+
+main h1 + p,
+main h2 + p,
+main h3 + p,
+main h4 + p {
+  margin-top: 0;
+}
+
+main ol, main ul {
+  margin: 0.5rem 0 0.5rem 2.4rem;
+}
+
+main dl.events dt {
+  margin-top: 1rem;
 }
 
 main dl.events dt + dd:before {
@@ -420,38 +482,7 @@ main dl.events dd + dd:before {
   flex-direction: column;
   flex-basis: 92%;
   box-shadow: -1px 0 #eee;
-  padding: 0 24px;
-}
-
-.content h1,
-.content h2,
-.content h3,
-.content h4,
-.content h5,
-.content h6 {
-  font-family: Montserrat, sans-serif;
-  font-weight: normal;
-  padding: 0;
-}
-
-.content h1 {
-  font-size: 225%;
-  margin: 0.25em 0;
-}
-
-.content h2 {
-  font-size: 180%;
-  margin: 0.325em 0;
-}
-
-.content h3 {
-  font-size: 155%;
-  margin: 0.45em 0;
-}
-
-.content h4 {
-  font-size: 135%;
-  margin: 0.575em 0;
+  padding: 0 1.25rem;
 }
 
 .right-column {
