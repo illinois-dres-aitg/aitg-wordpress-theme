@@ -408,7 +408,7 @@ ul.presentations > li div {
 }
 
 ul.presentations > li div:first-child {
-  grid-column: 1/4;
+  grid-column: 1/2;
 }
 
 /* -------- MAIN: FLEX LAYOUT -------- */
