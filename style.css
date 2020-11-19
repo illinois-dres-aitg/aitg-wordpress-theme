@@ -393,7 +393,7 @@ ul.presentations {
 
 ul.presentations > li {
   display: grid;
-  grid-template-columns: 40% 1fr;
+  grid-template-columns: 30% 1fr;
   grid-column-gap: 4px;
   grid-row-gap: 4px;
 }
@@ -596,3 +596,5 @@ footer a:hover {
 footer a:focus {
   outline: 2px solid #ff552e;
 }
+
+/*# sourceMappingURL=styles.css.map */
