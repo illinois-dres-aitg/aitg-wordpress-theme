@@ -383,6 +383,34 @@ ul.upcoming-events > li dt {
   grid-column: 1/4;
 }
 
+ul.presentations {
+  font-family: Montserrat;
+  font-size: 0.925rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.presentations > li {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  grid-column-gap: 4px;
+  grid-row-gap: 4px;
+}
+
+ul.presentations > li:not(:first-child) {
+  margin-top: 1.125rem;
+}
+
+ul.presentations > li div {
+  background-color: #eee;
+  padding: 0.25rem 0.5rem;
+}
+
+ul.presentations > li div:first-child {
+  grid-column: 1/4;
+}
+
 /* -------- MAIN: FLEX LAYOUT -------- */
 main {
   color: #00132c;
