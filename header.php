@@ -7,6 +7,7 @@
     <link rel="stylesheet" media="all" href="<?php echo esc_url( get_template_directory_uri() ); ?>/style.css"/>
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/DisclosureMenu.js"></script>
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/skipto.js"></script>
+    <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/AdjustEventDates.js"></script>
     <script>
         var SkipToConfig =  {
             'settings': {
