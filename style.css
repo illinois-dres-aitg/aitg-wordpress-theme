@@ -373,42 +373,13 @@ ul.upcoming-events > li:not(:first-child) {
   margin-top: 1.125rem;
 }
 
-ul.upcoming-events > li dt,
-ul.upcoming-events > li dd {
+ul.upcoming-events > li > div {
   background-color: #eee;
   padding: 0.25rem 0.5rem;
 }
 
-ul.upcoming-events > li dt {
+ul.upcoming-events > li > div:first-child {
   grid-column: 1/4;
-}
-
-ul.presentations {
-  font-family: Montserrat;
-  font-size: 0.925rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-ul.presentations > li {
-  display: grid;
-  grid-template-columns: 30% 1fr;
-  grid-column-gap: 4px;
-  grid-row-gap: 4px;
-}
-
-ul.presentations > li:not(:first-child) {
-  margin-top: 1.125rem;
-}
-
-ul.presentations > li div {
-  background-color: #eee;
-  padding: 0.25rem 0.5rem;
-}
-
-ul.presentations > li div:first-child {
-  grid-column: 1/3;
 }
 
 /* -------- MAIN: FLEX LAYOUT -------- */
@@ -596,5 +567,3 @@ footer a:hover {
 footer a:focus {
   outline: 2px solid #ff552e;
 }
-
-/*# sourceMappingURL=styles.css.map */
