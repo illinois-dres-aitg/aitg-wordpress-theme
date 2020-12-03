@@ -39,58 +39,16 @@ body {
   left: -3000em;
 }
 
-/* -------- HEADER -------- */
+/* -------- header.scss -------- */
 header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 1;
 }
-
-header .skip-to.aitg {
-  left: 60%;
-  -webkit-transition: left 0.3s linear;
-  transition: left 0.3s linear;
-}
-@media screen and (min-width: 768px) {
-  header .skip-to.aitg {
-    left: 40%;
+@media screen and (min-width: 992px) {
+  header {
+    position: sticky;
+    top: 0;
   }
-}
-
-header .skip-to.aitg button {
-  color: #555555;
-  background-color: #dddede;
-  font-family: Montserrat, sans-serif;
-  font-size: 14px;
-  text-decoration: none;
-  white-space: nowrap;
-  padding: 6px 8px 8px;
-  border-top: none !important;
-  border-right: 2px solid white;
-  border-bottom: 2px solid white;
-  border-left: 2px solid white;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-}
-
-header .skip-to.aitg button:focus,
-header .skip-to.aitg button:hover {
-  color: #00132c;
-  background-color: #cad9ef;
-  outline: none;
-}
-
-header .skip-to.aitg button:focus {
-  padding: 6px 7px 7px;
-  border-top: none !important;
-  border-right: 3px solid #ff552e;
-  border-bottom: 3px solid #ff552e;
-  border-left: 3px solid #ff552e;
-}
-
-header .skip-to.aitg [role=menuitem] {
-  font-family: Montserrat, sans-serif;
-  font-size: 14px;
 }
 
 .banner {
@@ -196,9 +154,15 @@ header .skip-to.aitg [role=menuitem] {
 }
 
 .banner-row-2 {
+  position: relative;
   color: white;
   background-color: #13294b;
   width: 100%;
+}
+@media screen and (min-width: 576px) {
+  .banner-row-2 {
+    position: static;
+  }
 }
 
 .banner-name {
@@ -240,26 +204,72 @@ header .skip-to.aitg [role=menuitem] {
   outline: 3px solid #ff552e;
 }
 
-/* -------- BANNER MENU -------- */
-.banner-menu {
-  font-size: 16px;
+/* -------- skip-to.scss -------- */
+header .skip-to.aitg {
+  left: 60%;
+  -webkit-transition: left 0.3s linear;
+  transition: left 0.3s linear;
+}
+@media screen and (min-width: 768px) {
+  header .skip-to.aitg {
+    left: 40%;
+  }
+}
+
+header .skip-to.aitg button {
+  color: #555555;
+  background-color: #dddede;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  text-decoration: none;
   white-space: nowrap;
-  margin: 0;
-  padding: 0;
+  padding: 6px 8px 8px;
+  border-top: none !important;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  border-left: 2px solid white;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+header .skip-to.aitg button:focus,
+header .skip-to.aitg button:hover {
+  color: #00132c;
+  background-color: #cad9ef;
+  outline: none;
+}
+
+header .skip-to.aitg button:focus {
+  padding: 6px 7px 7px;
+  border-top: none !important;
+  border-right: 3px solid #ff552e;
+  border-bottom: 3px solid #ff552e;
+  border-left: 3px solid #ff552e;
+}
+
+header .skip-to.aitg [role=menuitem] {
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+}
+
+/* -------- banner-menu.scss -------- */
+.banner-menu {
   float: left;
-  padding-left: 12px;
+  margin-left: 12px;
+  width: 95%;
+  font-size: 16px;
+}
+@media screen and (min-width: 576px) {
+  .banner-menu {
+    white-space: nowrap;
+    width: auto;
+  }
 }
 @media screen and (min-width: 992px) {
   .banner-menu {
     float: right;
-    padding-right: 18px;
+    margin-right: 16px;
   }
-}
-
-.banner-menu ul,
-.banner-menu li {
-  margin: 0;
-  padding: 0;
 }
 
 .banner-menu ul.menu li.menu-item a,
@@ -280,16 +290,29 @@ header .skip-to.aitg [role=menuitem] {
 }
 
 .banner-menu ul.menu > li.menu-item {
-  display: inline-block;
   position: relative;
+  display: block;
+}
+@media screen and (min-width: 576px) {
+  .banner-menu ul.menu > li.menu-item {
+    display: inline-block;
+  }
 }
 
 .banner-menu ul.menu > li.menu-item > a {
-  display: inline-block;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
   padding: 14px 12px;
   text-decoration: none;
   outline-offset: -1px;
   outline: 1px solid transparent;
+}
+@media screen and (min-width: 576px) {
+  .banner-menu ul.menu > li.menu-item > a {
+    display: inline-block;
+    width: auto;
+  }
 }
 @media screen and (min-width: 992px) {
   .banner-menu ul.menu > li.menu-item > a {
@@ -298,15 +321,19 @@ header .skip-to.aitg [role=menuitem] {
 }
 
 .banner-menu ul.menu > li.menu-item > a:hover {
-  padding: 12px 10px 14px;
-  border-top: 2px solid white;
-  border-right: 2px solid white;
-  border-left: 2px solid white;
+  padding: 12px 10px;
+  border: 2px solid white;
+}
+@media screen and (min-width: 576px) {
+  .banner-menu ul.menu > li.menu-item > a:hover {
+    border-bottom: none;
+  }
 }
 @media screen and (min-width: 992px) {
   .banner-menu ul.menu > li.menu-item > a:hover {
     padding: 22px 10px;
     border-top: none;
+    border-bottom: none;
   }
 }
 
@@ -326,8 +353,30 @@ header .skip-to.aitg [role=menuitem] {
   margin-right: 7px;
 }
 
+.banner-hamburger {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  display: block;
+}
+@media screen and (min-width: 576px) {
+  .banner-hamburger {
+    display: none;
+  }
+}
+
+.banner-menu .menu.hide {
+  display: none;
+}
+@media screen and (min-width: 576px) {
+  .banner-menu .menu.hide {
+    display: block;
+  }
+}
+
 .banner-menu ul.sub-menu {
   list-style: none;
+  z-index: 1;
 }
 
 .banner-menu ul.sub-menu ul.sub-menu li {
@@ -342,11 +391,16 @@ header .skip-to.aitg [role=menuitem] {
 }
 
 .banner-menu ul.menu > li.menu-item-has-children > ul.sub-menu {
+  position: static;
   display: none;
   outline-offset: -1px;
   outline: 1px solid transparent;
-  position: absolute;
-  top: 48px;
+}
+@media screen and (min-width: 576px) {
+  .banner-menu ul.menu > li.menu-item-has-children > ul.sub-menu {
+    position: absolute;
+    top: 48px;
+  }
 }
 @media screen and (min-width: 992px) {
   .banner-menu ul.menu > li.menu-item-has-children > ul.sub-menu {
@@ -354,12 +408,17 @@ header .skip-to.aitg [role=menuitem] {
   }
 }
 
+/* -------- events.scss -------- */
 ul.upcoming-events {
+  list-style: none;
   font-family: Montserrat;
   font-size: 0.925rem;
-  list-style: none;
   margin: 0;
   padding: 0;
+}
+
+ul.upcoming-events > li:not(:first-child) {
+  margin-top: 1.125rem;
 }
 
 ul.upcoming-events > li {
@@ -367,10 +426,6 @@ ul.upcoming-events > li {
   grid-template-columns: 40% 20% 1fr;
   grid-column-gap: 4px;
   grid-row-gap: 4px;
-}
-
-ul.upcoming-events > li:not(:first-child) {
-  margin-top: 1.125rem;
 }
 
 ul.upcoming-events > li > div {
@@ -382,35 +437,11 @@ ul.upcoming-events > li > div:first-child {
   grid-column: 1/4;
 }
 
-ul.presentations {
-  font-family: Montserrat;
-  font-size: 0.925rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-ul.presentations > li {
-  display: grid;
+ul.upcoming-events.presentations > li {
   grid-template-columns: 60% 20% 1fr;
-  grid-column-gap: 4px;
-  grid-row-gap: 4px;
 }
 
-ul.presentations > li:not(:first-child) {
-  margin-top: 1.125rem;
-}
-
-ul.presentations > li > div {
-  background-color: #eee;
-  padding: 0.25rem 0.5rem;
-}
-
-ul.presentations > li > div:first-child {
-  grid-column: 1/4;
-}
-
-/* -------- MAIN: FLEX LAYOUT -------- */
+/* -------- styles.scss -------- */
 main {
   color: #00132c;
   padding: 1.25rem;
@@ -544,7 +575,6 @@ main dl.events dd + dd:before {
     flex-basis: 18%;
   }
 }
-/* -------- FOOTER: FLEX LAYOUT -------- */
 footer {
   color: #fff;
   background-color: #13294b;
@@ -595,4 +625,3 @@ footer a:hover {
 footer a:focus {
   outline: 2px solid #ff552e;
 }
-
