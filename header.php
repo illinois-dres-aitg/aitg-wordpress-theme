@@ -5,22 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,600,700" />
     <link rel="stylesheet" media="all" href="<?php echo esc_url( get_template_directory_uri() ); ?>/style.css"/>
-    <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/DisclosureMenu.js"></script>
-    <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/skipto.js"></script>
-    <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/AdjustEventDates.js"></script>
-    <script>
-        var SkipToConfig =  {
-            'settings': {
-                'skipTo': {
-                    landmarks: 'main, [role="main"], [role="search"], nav',
-                    headings: 'main h1, main h2',
-                    colorTheme: 'illinois',
-                    customClass: 'aitg'
-                }
-            }
-        };
-    </script>
-    
     <?php wp_head(); ?>
 
 </head>
