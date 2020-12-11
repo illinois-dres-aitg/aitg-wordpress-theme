@@ -188,9 +188,11 @@ DisclosureMenu.prototype.closeMenus = function (subMenuNode) {
 
   for (var i = 0; i < this.menuContainers.length; i++) {
     var mc = this.menuContainers[i];
-    // If sub menu is defined don't close that menu
-    if (mc.hasSubMenu && mc.subMenuNode !== subMenuNode) {
-      mc.subMenuNode.style.display = 'none';
+    // Do not close sub-menu if it is nested within another sub-menu
+    if (mc.hasSubMenu && (mc.subMenuNode !== subMenuNode)) {
+      // Setting display:none on sub-menu when it is closed is now handled by
+      // event handler triggered by the 'animationend' event of CSS animation
+      /* mc.subMenuNode.style.display = 'none'; */
       mc.buttonNode.setAttribute('aria-expanded', 'false');
     }
   }
