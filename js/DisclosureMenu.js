@@ -410,12 +410,14 @@ DisclosureMenu.prototype.handleHamburgerClick = function (event) {
   event.preventDefault();
 };
 
-/* Initialize DisclosureMenu objects */
-
-window.addEventListener('load', function (event) {
+/*
+*   IIFE that Initializes DisclosureMenu objects
+*/
+(function () {
   console.log('init banner menu...');
   var menus = document.querySelectorAll('.banner-menu');
   for (var i = 0; i < menus.length; i++) {
     new DisclosureMenu(menus[i]);
   }
-}, false);
+})();
+
