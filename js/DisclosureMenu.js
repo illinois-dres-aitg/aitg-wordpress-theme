@@ -73,7 +73,8 @@ function DisclosureMenu (domNode) {
   this.hamburgerButtonNode.classList.add('banner-hamburger');
   this.hamburgerButtonNode.setAttribute('aria-expanded', 'false');
   this.hamburgerButtonNode.addEventListener('click', this.handleHamburgerClick.bind(this));
-  this.hamburgerButtonNode.appendChild(this.getHambugerSVGNode());
+  this.hamburgerButtonNode.appendChild(this.getMenuOpenSVGNode());
+  this.hamburgerButtonNode.appendChild(this.getMenuCloseSVGNode());
   domNode.parentNode.insertBefore(this.hamburgerButtonNode, domNode);
 
   this.menuNode = domNode.querySelector('.menu');
@@ -153,21 +154,6 @@ function DisclosureMenu (domNode) {
 }
 
 /* Prototype Methods */
-
-/*
-DisclosureMenu.prototype.getHambugerSVGNode = function () {
-  var svgNode = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svgNode.setAttributeNS(null, 'version', '1.1');
-  svgNode.setAttributeNS(null, 'height', '32px');
-  svgNode.setAttributeNS(null, 'width', '32px');
-  svgNode.setAttributeNS(null, 'viewBox', '0 0 32 32');
-  svgNode.setAttributeNS(null, 'style', 'enable-background:new 0 0 32 32;');
-  var pathNode = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  pathNode.setAttributeNS(null, 'd', 'M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z');
-  svgNode.appendChild(pathNode);
-  return svgNode;
-};
-*/
 
 DisclosureMenu.prototype.getMenuContainer = function (node) {
   for (var i = 0; i < this.menuContainers.length; i++) {
@@ -417,15 +403,16 @@ DisclosureMenu.prototype.handleHamburgerClick = function (event) {
   event.preventDefault();
 };
 
-DisclosureMenu.prototype.getHambugerSVGNode = function () {
+DisclosureMenu.prototype.getMenuOpenSVGNode = function () {
   const xmlns = 'http://www.w3.org/2000/svg';
 
   let svg = document.createElementNS(xmlns, 'svg');
-  svg.setAttributeNS(null, 'width', '34.5px');
+  svg.setAttributeNS(null, 'width', '34px');
   svg.setAttributeNS(null, 'height', '32px');
-  svg.setAttributeNS(null, 'viewBox', '0 -1.5 32 32');
+  svg.setAttributeNS(null, 'viewBox', '0 0 32 32');
   svg.setAttributeNS(null, 'preserveAspectRatio', 'xMidYMid meet');
   svg.setAttributeNS(null, 'aria-hidden', 'true');
+  svg.setAttributeNS(null, 'class', 'menu-open');
   svg.setAttributeNS(null, 'version', '1.1');
 
   let title = document.createElementNS(xmlns, 'title');
@@ -479,6 +466,52 @@ DisclosureMenu.prototype.getHambugerSVGNode = function () {
 
   return svg;
 };
+
+DisclosureMenu.prototype.getMenuCloseSVGNode = function () {
+  const xmlns = 'http://www.w3.org/2000/svg';
+
+  let svg = document.createElementNS(xmlns, 'svg');
+  svg.setAttributeNS(null, 'width', '34px');
+  svg.setAttributeNS(null, 'height', '32px');
+  svg.setAttributeNS(null, 'viewBox', '0 0 32 32');
+  svg.setAttributeNS(null, 'preserveAspectRatio', 'xMidYMid meet');
+  svg.setAttributeNS(null, 'aria-hidden', 'true');
+  svg.setAttributeNS(null, 'class', 'menu-close');
+  svg.setAttributeNS(null, 'version', '1.1');
+
+  let title = document.createElementNS(xmlns, 'title');
+  let text = document.createTextNode('close menu icon');
+  title.appendChild(text);
+  svg.appendChild(title);
+
+  let g1 = document.createElementNS(xmlns, 'g');
+  g1.setAttributeNS(null, 'stroke', 'none');
+  g1.setAttributeNS(null, 'stroke-width', '1');
+  g1.setAttributeNS(null, 'fill', 'none');
+  g1.setAttributeNS(null, 'fill-rule', 'evenodd');
+  svg.appendChild(g1);
+
+  let rect1 = document.createElementNS(xmlns, 'rect');
+  rect1.setAttributeNS(null, 'fill', '#FFFFFF');
+  rect1.setAttributeNS(null, 'x', '0');
+  rect1.setAttributeNS(null, 'y', '0');
+  rect1.setAttributeNS(null, 'width', '32');
+  rect1.setAttributeNS(null, 'height', '32');
+  g1.appendChild(rect1);
+
+  let path1 = document.createElementNS(xmlns, 'path');
+  path1.setAttributeNS(null, 'd', 'M6.10050506,23.0710678 L23.0710678,6.10050506 C23.8521164,5.31945648 25.1184464,5.31945648 25.8994949,6.10050506 C26.6805435,6.88155365 26.6805435,8.1478836 25.8994949,8.92893219 L8.92893219,25.8994949 C8.1478836,26.6805435 6.88155365,26.6805435 6.10050506,25.8994949 C5.31945648,25.1184464 5.31945648,23.8521164 6.10050506,23.0710678 Z');
+  path1.setAttributeNS(null, 'fill', '#13294b');
+  g1.appendChild(path1);
+
+  let path2 = document.createElementNS(xmlns, 'path');
+  path2.setAttributeNS(null, 'd', 'M8.93264069,6.10421356 L25.9032034,23.0747763 C26.684252,23.8558249 26.684252,25.1221549 25.9032034,25.9032034 C25.1221549,26.684252 23.8558249,26.684252 23.0747763,25.9032034 L6.10421356,8.93264069 C5.32316498,8.1515921 5.32316498,6.88526215 6.10421356,6.10421356 C6.88526215,5.32316498 8.1515921,5.32316498 8.93264069,6.10421356 Z');
+  path2.setAttributeNS(null, 'fill', '#13294b');
+  g1.appendChild(path2);
+
+  return svg;
+};
+
 
 /*
 *   IIFE that initializes DisclosureMenu objects
