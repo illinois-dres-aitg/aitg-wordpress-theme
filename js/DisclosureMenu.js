@@ -68,6 +68,7 @@ function DisclosureMenu (domNode) {
 
   // Add hamburger button
   this.hamburgerButtonNode = document.createElement('button');
+  this.hamburgerButtonNode.setAttribute('type', 'button');
   this.hamburgerButtonNode.setAttribute('aria-label', 'Main Menu');
   this.hamburgerButtonNode.classList.add('banner-hamburger');
   this.hamburgerButtonNode.setAttribute('aria-expanded', 'false');
@@ -153,6 +154,7 @@ function DisclosureMenu (domNode) {
 
 /* Prototype Methods */
 
+/*
 DisclosureMenu.prototype.getHambugerSVGNode = function () {
   var svgNode = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svgNode.setAttributeNS(null, 'version', '1.1');
@@ -165,6 +167,7 @@ DisclosureMenu.prototype.getHambugerSVGNode = function () {
   svgNode.appendChild(pathNode);
   return svgNode;
 };
+*/
 
 DisclosureMenu.prototype.getMenuContainer = function (node) {
   for (var i = 0; i < this.menuContainers.length; i++) {
@@ -408,12 +411,77 @@ DisclosureMenu.prototype.handleHamburgerClick = function (event) {
     this.hamburgerButtonNode.setAttribute('aria-expanded', 'true');
     this.menuNode.classList.remove('hide');
   }
+  // support moving focus to button on macOS
+  this.hamburgerButtonNode.focus();
   event.stopPropagation();
   event.preventDefault();
 };
 
+DisclosureMenu.prototype.getHambugerSVGNode = function () {
+  const xmlns = 'http://www.w3.org/2000/svg';
+
+  let svg = document.createElementNS(xmlns, 'svg');
+  svg.setAttributeNS(null, 'width', '34.5px');
+  svg.setAttributeNS(null, 'height', '32px');
+  svg.setAttributeNS(null, 'viewBox', '0 -1.5 32 32');
+  svg.setAttributeNS(null, 'preserveAspectRatio', 'xMidYMid meet');
+  svg.setAttributeNS(null, 'aria-hidden', 'true');
+  svg.setAttributeNS(null, 'version', '1.1');
+
+  let title = document.createElementNS(xmlns, 'title');
+  let text = document.createTextNode('open menu icon');
+  title.appendChild(text);
+  svg.appendChild(title);
+
+  let g1 = document.createElementNS(xmlns, 'g');
+  g1.setAttributeNS(null, 'stroke', 'none');
+  g1.setAttributeNS(null, 'stroke-width', '1');
+  g1.setAttributeNS(null, 'fill', 'none');
+  g1.setAttributeNS(null, 'fill-rule', 'evenodd');
+  svg.appendChild(g1);
+
+  let rect1 = document.createElementNS(xmlns, 'rect');
+  rect1.setAttributeNS(null, 'fill', '#FFFFFF');
+  rect1.setAttributeNS(null, 'x', '0');
+  rect1.setAttributeNS(null, 'y', '0');
+  rect1.setAttributeNS(null, 'width', '32');
+  rect1.setAttributeNS(null, 'height', '32');
+  g1.appendChild(rect1);
+
+  let g2 = document.createElementNS(xmlns, 'g');
+  g2.setAttributeNS(null, 'transform', 'translate(4.000000, 6.000000)');
+  g2.setAttributeNS(null, 'fill', '#13294b');
+  g1.appendChild(g2);
+
+  let rect2 = document.createElementNS(xmlns, 'rect');
+  rect2.setAttributeNS(null, 'x', '0');
+  rect2.setAttributeNS(null, 'y', '0');
+  rect2.setAttributeNS(null, 'width', '24');
+  rect2.setAttributeNS(null, 'height', '4');
+  rect2.setAttributeNS(null, 'rx', '2');
+  g2.appendChild(rect2);
+
+  let rect3 = document.createElementNS(xmlns, 'rect');
+  rect3.setAttributeNS(null, 'x', '0');
+  rect3.setAttributeNS(null, 'y', '8');
+  rect3.setAttributeNS(null, 'width', '24');
+  rect3.setAttributeNS(null, 'height', '4');
+  rect3.setAttributeNS(null, 'rx', '2');
+  g2.appendChild(rect3);
+
+  let rect4 = document.createElementNS(xmlns, 'rect');
+  rect4.setAttributeNS(null, 'x', '0');
+  rect4.setAttributeNS(null, 'y', '16');
+  rect4.setAttributeNS(null, 'width', '24');
+  rect4.setAttributeNS(null, 'height', '4');
+  rect4.setAttributeNS(null, 'rx', '2');
+  g2.appendChild(rect4);
+
+  return svg;
+};
+
 /*
-*   IIFE that Initializes DisclosureMenu objects
+*   IIFE that initializes DisclosureMenu objects
 */
 (function () {
   console.log('init banner menu...');
@@ -422,4 +490,3 @@ DisclosureMenu.prototype.handleHamburgerClick = function (event) {
     new DisclosureMenu(menus[i]);
   }
 })();
-
