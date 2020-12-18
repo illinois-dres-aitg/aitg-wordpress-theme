@@ -667,8 +667,8 @@
       // Create actions, if enabled
       if (this.config.enableActions) {
         groupNode = this.renderMenuitemGroup('id-skip-to-group-actions', this.config.actionGroupLabel);
-        this.renderActionMoreHeadings(groupNode);
         this.renderActionMoreLandmarks(groupNode);
+        this.renderActionMoreHeadings(groupNode);
       }
 
       // Update list of menuitems
