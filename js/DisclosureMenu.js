@@ -406,26 +406,28 @@ DisclosureMenu.prototype.handleHamburgerClick = function (event) {
 DisclosureMenu.prototype.getMenuOpenSVGNode = function () {
   const xmlns = 'http://www.w3.org/2000/svg';
 
-  let svg = document.createElementNS(xmlns, 'svg');
-  svg.setAttributeNS(null, 'width', '34px');
-  svg.setAttributeNS(null, 'height', '32px');
-  svg.setAttributeNS(null, 'viewBox', '0 0 32 32');
-  svg.setAttributeNS(null, 'preserveAspectRatio', 'xMidYMid meet');
-  svg.setAttributeNS(null, 'aria-hidden', 'true');
-  svg.setAttributeNS(null, 'class', 'menu-open');
-  svg.setAttributeNS(null, 'version', '1.1');
+  let svg1 = document.createElementNS(xmlns, 'svg');
+  svg1.setAttributeNS(null, 'class', 'menu-open');
+  svg1.setAttributeNS(null, 'aria-hidden', 'true');
+  svg1.setAttributeNS(null, 'preserveAspectRatio', 'xMidYMid meet');
+  svg1.setAttributeNS(null, 'width', '34px');
+  svg1.setAttributeNS(null, 'height', '32px');
+  svg1.setAttributeNS(null, 'viewBox', '0 0 32 32');
+  svg1.setAttributeNS(null, 'version', '1.1');
 
-  let title = document.createElementNS(xmlns, 'title');
-  let text = document.createTextNode('open menu icon');
-  title.appendChild(text);
-  svg.appendChild(title);
+  let title1 = document.createElementNS(xmlns, 'title');
+  {
+    let textNode = document.createTextNode('Open Menu');
+    title1.appendChild(textNode);
+  }
+  svg1.appendChild(title1);
 
   let g1 = document.createElementNS(xmlns, 'g');
   g1.setAttributeNS(null, 'stroke', 'none');
   g1.setAttributeNS(null, 'stroke-width', '1');
   g1.setAttributeNS(null, 'fill', 'none');
   g1.setAttributeNS(null, 'fill-rule', 'evenodd');
-  svg.appendChild(g1);
+  svg1.appendChild(g1);
 
   let rect1 = document.createElementNS(xmlns, 'rect');
   rect1.setAttributeNS(null, 'fill', '#FFFFFF');
@@ -464,32 +466,34 @@ DisclosureMenu.prototype.getMenuOpenSVGNode = function () {
   rect4.setAttributeNS(null, 'rx', '2');
   g2.appendChild(rect4);
 
-  return svg;
+  return svg1;
 };
 
 DisclosureMenu.prototype.getMenuCloseSVGNode = function () {
   const xmlns = 'http://www.w3.org/2000/svg';
 
-  let svg = document.createElementNS(xmlns, 'svg');
-  svg.setAttributeNS(null, 'width', '34px');
-  svg.setAttributeNS(null, 'height', '32px');
-  svg.setAttributeNS(null, 'viewBox', '0 0 32 32');
-  svg.setAttributeNS(null, 'preserveAspectRatio', 'xMidYMid meet');
-  svg.setAttributeNS(null, 'aria-hidden', 'true');
-  svg.setAttributeNS(null, 'class', 'menu-close');
-  svg.setAttributeNS(null, 'version', '1.1');
+  let svg1 = document.createElementNS(xmlns, 'svg');
+  svg1.setAttributeNS(null, 'class', 'menu-close');
+  svg1.setAttributeNS(null, 'aria-hidden', 'true');
+  svg1.setAttributeNS(null, 'preserveAspectRatio', 'xMidYMid meet');
+  svg1.setAttributeNS(null, 'width', '34px');
+  svg1.setAttributeNS(null, 'height', '32px');
+  svg1.setAttributeNS(null, 'viewBox', '0 0 32 32');
+  svg1.setAttributeNS(null, 'version', '1.1');
 
-  let title = document.createElementNS(xmlns, 'title');
-  let text = document.createTextNode('close menu icon');
-  title.appendChild(text);
-  svg.appendChild(title);
+  let title1 = document.createElementNS(xmlns, 'title');
+  {
+    let textNode = document.createTextNode('Close Menu');
+    title1.appendChild(textNode);
+  }
+  svg1.appendChild(title1);
 
   let g1 = document.createElementNS(xmlns, 'g');
   g1.setAttributeNS(null, 'stroke', 'none');
   g1.setAttributeNS(null, 'stroke-width', '1');
   g1.setAttributeNS(null, 'fill', 'none');
   g1.setAttributeNS(null, 'fill-rule', 'evenodd');
-  svg.appendChild(g1);
+  svg1.appendChild(g1);
 
   let rect1 = document.createElementNS(xmlns, 'rect');
   rect1.setAttributeNS(null, 'fill', '#FFFFFF');
@@ -509,7 +513,7 @@ DisclosureMenu.prototype.getMenuCloseSVGNode = function () {
   path2.setAttributeNS(null, 'fill', '#13294b');
   g1.appendChild(path2);
 
-  return svg;
+  return svg1;
 };
 
 
