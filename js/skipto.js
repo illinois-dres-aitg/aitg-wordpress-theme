@@ -630,7 +630,7 @@
       var landmarks, landmarksLen, labelNode;
       var selectedLandmarks = this.getLandmarks(this.getShowMoreLandmarksSelector('selected'));
       var selectedLandmarksLen = selectedLandmarks.length;
-      var allLandmarks = this.getLandmarks(this.getShowMoreLandmarksSelector('all', true));
+      var allLandmarks = this.getLandmarks(this.getShowMoreLandmarksSelector('all'), true);
       var allLandmarksLen = allLandmarks.length;
 
       if ( option === 'all' ) {
