@@ -870,8 +870,6 @@
       var isLandmark = menuitem.classList.contains('landmark');
       var isSearch = menuitem.classList.contains('search');
       var isNav = menuitem.classList.contains('nav');
-      console.log('[skipToElement][     isNav]: ' + isNav);
-      console.log('[skipToElement][isLandmark]: ' + isLandmark);
       var node = document.querySelector('[data-skip-to-id="' + menuitem.getAttribute('data-id') + '"]');
       if (node) {
         if (isSearch) {
@@ -880,10 +878,7 @@
         if (isNav) {
           focusNode = node.querySelector('a');
         }
-        console.log('[skipToElement][focusNode]: ' + focusNode);
-        console.log('[skipToElement][isVisible]: ' + this.isVisible(focusNode));
         if (focusNode && this.isVisible(focusNode)) {
-          console.log('[skipTOElement][focusNode.focus]');
           focusNode.focus();
           focusNode.scrollIntoView({block: 'nearest'});
         }
