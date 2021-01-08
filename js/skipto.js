@@ -886,7 +886,7 @@
           if (isLandmark) {
             node.tabIndex = -1;
             node.focus();
-            node.scrollIntoView({block: 'nearest'});
+            node.scrollIntoView({block: 'start'});
           } else {
             node.tabIndex = -1;
             node.focus();
