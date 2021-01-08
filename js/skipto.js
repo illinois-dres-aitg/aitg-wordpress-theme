@@ -1,4 +1,4 @@
-/*! skipto - v3.1.2 - 2021-01-05
+/*! skipto - v3.1.2 - 2021-01-08
 * https://github.com/paypal/skipto
 * Copyright (c) 2021 PayPal Accessibility Team and University of Illinois; Licensed BSD */
  /*@cc_on @*/
@@ -378,6 +378,7 @@
       var menuitemNode = document.createElement('div');
       menuitemNode.setAttribute('role', 'menuitem');
       menuitemNode.classList.add(mi.class);
+      menuitemNode.classList.add(mi.tagName);
       menuitemNode.setAttribute('data-id', mi.dataId);
       menuitemNode.tabIndex = -1;
       if (mi.ariaLabel) {
@@ -507,14 +508,14 @@
 
       var selectedHeadingsLen = this.getHeadings(this.getShowMoreHeadingsSelector('selected')).length;
       var allHeadingsLen = this.getHeadings(this.getShowMoreHeadingsSelector('all')).length;
-      var noAdditional = selectedHeadingsLen === allHeadingsLen;
+      var noAction = selectedHeadingsLen === allHeadingsLen;
       var headingsLen = allHeadingsLen;
 
       if (option !== 'all') {
         headingsLen = selectedHeadingsLen;
       }
 
-      if (!noAdditional) {
+      if (!noAction) {
         item = {};
         item.tagName = 'action';
         item.role = 'menuitem';
@@ -527,7 +528,7 @@
         menuitemNode.setAttribute('data-show-heading-option', option);
         menuitemNode.title = this.config.actionShowHeadingsHelp;
       }
-      return noAdditional;
+      return noAction;
     },
 
     updateHeadingGroupMenuitems: function(option) {
@@ -538,6 +539,7 @@
       var allHeadings = this.getHeadings(this.getShowMoreHeadingsSelector('all'));
       var allHeadingsLen = allHeadings.length;
 
+      // Update list of headings
       if ( option === 'all' ) {
         headings = allHeadings;
       }
@@ -554,6 +556,7 @@
         groupNode.firstElementChild.focus();
       }
 
+      // Update heading action menuitem
       if (option === 'all') {
         option = 'selected';
         headingsLen = selectedHeadingsLen;
@@ -602,14 +605,14 @@
 
       var selectedLandmarksLen = this.getLandmarks(this.getShowMoreLandmarksSelector('selected')).length;
       var allLandmarksLen = this.getLandmarks(this.getShowMoreLandmarksSelector('all')).length;
-      var noAdditional = selectedLandmarksLen === allLandmarksLen;
+      var noAction = selectedLandmarksLen === allLandmarksLen;
       var landmarksLen = allLandmarksLen;
 
       if (option !== 'all') {
         landmarksLen = selectedLandmarksLen;
       }
 
-      if (!noAdditional) {
+      if (!noAction) {
         item = {};
         item.tagName = 'action';
         item.role = 'menuitem';
@@ -623,7 +626,7 @@
         menuitemNode.setAttribute('data-show-landmark-option', option);
         menuitemNode.title = this.config.actionShowLandmarksHelp;
       }
-      return noAdditional;
+      return noAction;
     },
 
     updateLandmarksGroupMenuitems: function(option) {
@@ -633,6 +636,7 @@
       var allLandmarks = this.getLandmarks(this.getShowMoreLandmarksSelector('all'), true);
       var allLandmarksLen = allLandmarks.length;
 
+      // Update landmark menu items
       if ( option === 'all' ) {
         landmarks = allLandmarks;
       }
@@ -649,6 +653,7 @@
         groupNode.firstElementChild.focus();
       }
 
+      // Update landmark action menuitem
       if (option === 'all') {
         option = 'selected';
         landmarksLen = selectedLandmarksLen;
@@ -696,6 +701,7 @@
         groupNode = this.renderMenuitemGroup('id-skip-to-group-actions', this.config.actionGroupLabel);
         hasNoAction1 = this.renderActionMoreLandmarks(groupNode);
         hasNoAction2 = this.renderActionMoreHeadings(groupNode);
+        // Remove action label if no actions are available
         if (hasNoAction1 && hasNoAction2) {
           this.removeMenuitemGroup('id-skip-to-group-actions');
         }
@@ -860,20 +866,37 @@
       event.preventDefault();
     },
     skipToElement: function(menuitem) {
-      var inputNode = false;
-      var isSearch = menuitem.classList.contains('skip-to-search');
+      var focusNode = false;
+      var isLandmark = menuitem.classList.contains('landmark');
+      var isSearch = menuitem.classList.contains('search');
+      var isNav = menuitem.classList.contains('nav');
+      console.log('[skipToElement][     isNav]: ' + isNav);
+      console.log('[skipToElement][isLandmark]: ' + isLandmark);
       var node = document.querySelector('[data-skip-to-id="' + menuitem.getAttribute('data-id') + '"]');
       if (node) {
         if (isSearch) {
-          inputNode = node.querySelector('input');
+          focusNode = node.querySelector('input');
         }
-        if (inputNode && this.isVisible(inputNode)) {
-          inputNode.focus();
+        if (isNav) {
+          focusNode = node.querySelector('a');
+        }
+        console.log('[skipToElement][focusNode]: ' + focusNode);
+        console.log('[skipToElement][isVisible]: ' + this.isVisible(focusNode));
+        if (focusNode && this.isVisible(focusNode)) {
+          console.log('[skipTOElement][focusNode.focus]');
+          focusNode.focus();
+          focusNode.scrollIntoView({block: 'nearest'});
         }
         else {
-          node.tabIndex = -1;
-          node.focus();
-          node.scrollIntoView({block: 'center'});
+          if (isLandmark) {
+            node.tabIndex = -1;
+            node.focus();
+            node.scrollIntoView({block: 'nearest'});
+          } else {
+            node.tabIndex = -1;
+            node.focus();
+            node.scrollIntoView({block: 'center'});
+          }
         }
       }
     },
