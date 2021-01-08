@@ -27,6 +27,7 @@
     firstChars: [],
     headingLevels: [],
     skipToIdIndex: 1,
+    contentSelector: 'h1, h2, h3, h4, h5, h6, p, li, img, input, select, textarea',
     showAllLandmarksSelector: 'main, [role=main], [role=search], nav, [role=navigation], section[aria-label], section[aria-labelledby], section[title], [role=region][aria-label], [role=region][aria-labelledby], [role=region][title], form[aria-label], form[aria-labelledby], aside, [role=complementary], body > header, [role=banner], body > footer, [role=contentinfo]',
     showAllHeadingsSelector: 'h1, h2, h3, h4, h5, h6',
     // Default configuration values
@@ -867,6 +868,7 @@
     },
     skipToElement: function(menuitem) {
       var focusNode = false;
+      var scrollNode = false;
       var isLandmark = menuitem.classList.contains('landmark');
       var isSearch = menuitem.classList.contains('search');
       var isNav = menuitem.classList.contains('nav');
@@ -884,14 +886,14 @@
         }
         else {
           if (isLandmark) {
-            node.tabIndex = -1;
-            node.focus();
-            node.scrollIntoView({block: 'start'});
-          } else {
-            node.tabIndex = -1;
-            node.focus();
-            node.scrollIntoView({block: 'center'});
+            scrollNode = node.querySelector(this.contentSelector);
+            if (scrollNode) {
+              node = scrollNode;
+            }
           }
+          node.tabIndex = -1;
+          node.focus();
+          node.scrollIntoView({block: 'center'});
         }
       }
     },
