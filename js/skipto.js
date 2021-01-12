@@ -464,7 +464,6 @@
 
         spanNode = document.createElement('span');
         spanNode.classList.add('mofn');
-        spanNode.textContent = '()';
         labelNode.append(spanNode);
 
         groupNode = document.createElement('div');
