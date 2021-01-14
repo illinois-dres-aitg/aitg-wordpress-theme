@@ -7,9 +7,7 @@
     <div class="middle-column search-results">
       <div class="search-form">
         <h1><?php _e( 'Oops! That page can&rsquo;t be found.', 'basic' ); ?></h1>
-        <div class="search-widget">
-          <?php get_search_form(); ?>
-        </div>
+         <?php get_search_form(); ?>
       </div>
     </div>
     <div class="right-column">
