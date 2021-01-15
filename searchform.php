@@ -1,7 +1,7 @@
 <?php $s = get_search_query(); ?>
     <div class="search-widget">
     	<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-    		<input type="search" size="20" maxlength="128" class="search-field" placeholder="<?php esc_attr_e( 'Search...', 'unlimited' ); ?>" value=""
+    		<input type="search" size="20" maxlength="128" class="search-field" placeholder="<?php esc_attr_e( 'SEARCH', 'unlimited' ); ?>" value=""
     		       name="s" title="<?php esc_attr_e( 'Search Pages', 'unlimited' ); ?>"/>
               <button type="submit" alt="Submit Query">
                 <svg width="21px" height="21px" viewBox="0 0 241 243" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
