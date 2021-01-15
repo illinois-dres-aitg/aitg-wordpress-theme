@@ -117,14 +117,20 @@ header {
 
 .search-widget input {
   grid-column: 1;
-  color: #555;
+  color: #444;
   background-color: #dddede;
   border: none;
   outline-offset: -2px;
   outline: 2px solid transparent;
-  font-family: inherit;
-  font-size: 16px;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
   padding-left: 10px;
+}
+
+.search-widget input::placeholder {
+  text-transform: uppercase;
+  color: #444;
+  opacity: 1;
 }
 
 .search-widget input:focus {
@@ -264,7 +270,7 @@ header .skip-to.aitg {
 }
 
 header .skip-to.aitg button {
-  color: #555;
+  color: #444;
   background-color: #dddede;
   font-family: Montserrat, sans-serif;
   font-size: 14px;
