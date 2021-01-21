@@ -1,9 +1,21 @@
 <?php get_header(); ?>
-	<main id="content" class="content">
 
-	<?php while (have_posts()) : the_post(); 
+  <main class="flex-row">
+    <div class="left-column">
+    </div>
+    <div class="content">
 
-			get_template_part( 'content',  get_post_format() );		
+
+	<?php while (have_posts()) : the_post(); ?>
+
+	   <h1><?php the_title(); ?></h1>
+
+    <?php
+
+        the_content();
+
+		get_template_part( 'content',  get_post_format() );
+
 
 			if ( comments_open() || get_comments_number() ) {
 				do_action( 'basic_before_post_comments_area' );
@@ -12,9 +24,11 @@
 			}
 
 	endwhile; ?>
-		
 
+    </div>
+    <div class="right-column">
+    </div>
+  </main>
 
-	</main> <!-- #content -->
 	<?php get_sidebar(); ?>
 <?php get_footer(); ?>
