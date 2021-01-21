@@ -27,8 +27,8 @@
 
     </div>
     <div class="right-column">
+	<?php get_sidebar(); ?>
     </div>
   </main>
 
-	<?php get_sidebar(); ?>
 <?php get_footer(); ?>
