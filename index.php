@@ -40,10 +40,10 @@
     	<?php do_action( 'basic_main_content_inner_end' ); ?>
     </div>
     <div class="right-column">
+      <?php get_sidebar(); ?>
     </div>
   </main>
 
 	<!-- END #content -->
 	
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
