@@ -401,7 +401,8 @@ header .skip-to.aitg [role=menuitem] {
 }
 
 .banner-menu ul.menu li.menu-item a:focus,
-.banner-menu ul.menu li.menu-item a:hover {
+.banner-menu ul.menu li.menu-item a:hover,
+.banner-menu ul.menu li.menu-item a[aria-current=page] {
   background-color: #1d58a7;
   -webkit-transition: 0.3s background;
   -moz-transition: 0.3s background;
@@ -460,18 +461,24 @@ header .skip-to.aitg [role=menuitem] {
   }
 }
 
-.banner-menu ul.menu > li.menu-item > a:hover {
+.banner-menu ul.menu > li.menu-item > a:hover,
+.banner-menu ul.menu > li.menu-item.current-menu-ancestor > a,
+.banner-menu ul.menu > li.menu-item.current-menu-item > a {
   padding: 12px 10px;
   border: 2px solid white;
 }
 @media screen and (min-width: 576px) {
-  .banner-menu ul.menu > li.menu-item > a:hover {
+  .banner-menu ul.menu > li.menu-item > a:hover,
+.banner-menu ul.menu > li.menu-item.current-menu-ancestor > a,
+.banner-menu ul.menu > li.menu-item.current-menu-item > a {
     padding: 12px 10px 14px;
     border-bottom: none;
   }
 }
 @media screen and (min-width: 992px) {
-  .banner-menu ul.menu > li.menu-item > a:hover {
+  .banner-menu ul.menu > li.menu-item > a:hover,
+.banner-menu ul.menu > li.menu-item.current-menu-ancestor > a,
+.banner-menu ul.menu > li.menu-item.current-menu-item > a {
     padding: 22px 10px;
     border-top: none;
     border-bottom: none;
