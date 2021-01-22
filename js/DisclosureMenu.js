@@ -135,11 +135,6 @@ function DisclosureMenu (domNode) {
       linkNode.href = location.href;
       linkNode.setAttribute('aria-current', 'page');
       parentNode.replaceChild(linkNode, spanNodes[i]);
-      // Add a class to the parent menu button
-      var buttonNode = linkNode.closest('a[role=button]');
-      if (buttonNode) {
-        buttonNode.classList.add('current-context');
-      }
     }
   }
 
