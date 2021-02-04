@@ -1,3 +1,4 @@
+<h1>Blog Posts</h1>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <h2 class="entry-title">
       <a href="<?php the_permalink(); ?>">
