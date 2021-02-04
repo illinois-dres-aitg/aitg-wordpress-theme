@@ -2,9 +2,16 @@
     <h2 class="entry-title">
       <a href="<?php the_permalink(); ?>">
         <?php the_title(); ?>
-        <?php the_author(); ?>
       </a>
-  </h2>
+    </h2>
+
+    <div class="date">
+        <?php the_date(); ?>
+    </div>
+
+    <div class="author">
+        <?php the_author(); ?>
+    </div>
 
     <?php the_excerpt(); ?>
 </article>
