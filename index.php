@@ -12,10 +12,13 @@
             </div>
         <?php } ?>
 
-        <?php if (have_posts()) :
-        	while (have_posts()) : the_post(); ?>
+        <?php if (have_posts()) : ?>
+
             <h1>Blog Posts</h1>
+
             <?php
+
+        	while (have_posts()) : the_post();
 
         		get_template_part( 'content' );
 
