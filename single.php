@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
-  <main class="flex-row">
+  <div class="flex-row">
     <div class="left-column">
     </div>
-    <div class="content">
+    <main class="content">
 
 
 	<?php while (have_posts()) : the_post(); ?>
@@ -25,10 +25,10 @@
 
 	endwhile; ?>
 
-    </div>
+    </main>
     <div class="right-column">
 	<?php get_sidebar(); ?>
     </div>
-  </main>
+  </div>
 
 <?php get_footer(); ?>
