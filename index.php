@@ -9,14 +9,13 @@
         <?php if ( is_home() && 'customtitle' == get_theme_mod( 'home_h1_type', 'sitetitle' )  ) { ?>
             <div class="blog-home-header">
                 <h1><?php echo esc_html( get_theme_mod( 'custom_home_h1', get_bloginfo('sitetitle') ) ); ?></h1>
-                <div class="category"><?php current_category() ?></div>
             </div>
         <?php } ?>
 
         <?php if (have_posts()) : ?>
 
             <h1>Blog Posts</h1>
-            <div class="filter"><?php get_the_category(); ?></div>
+            <div class="category"><?php get_category(); ?></div>
 
             <?php
 
