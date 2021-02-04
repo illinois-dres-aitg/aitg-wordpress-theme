@@ -1,13 +1,13 @@
 <?php get_header(); ?>
-  <main class="flex-row">
+  <div class="flex-row">
     <div class="left-column">
     </div>
-    <div class="content">
+    <main class="content">
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<?php do_action( 'basic_before_page_article' ); ?>
 			<article class="post page" id="pageid-<?php the_ID(); ?>">
-				
+
 				<?php do_action( 'basic_before_page_title' );  ?>
 				<h1><?php the_title(); ?></h1>
 				<?php do_action( 'basic_after_page_title' );  ?>
@@ -24,7 +24,7 @@
 			<?php do_action( 'basic_after_page_article' ); ?>
 
 
-			<?php 
+			<?php
 
 			if ( comments_open() || get_comments_number() ) {
 				do_action( 'basic_before_page_comments_area' );
@@ -33,10 +33,10 @@
 			}
 
 		endwhile; ?>
-    </div>
+    </main>
     <div class="right-column">
     </div>
-  </main>
+  </div>
 
 	<!-- END #content -->
 

@@ -1,9 +1,9 @@
 <?php get_header(); ?>
-  <main class="flex-row">
+  <div class="flex-row">
     <div class="left-column">
     </div>
 
-    <div class="middle-column search-results">
+    <main class="middle-column search-results">
 <?php if (have_posts()) : ?>
 	<div class="search-form">
         <h1><?php _e( 'Search results for', 'basic' ); ?> &laquo;<?php the_search_query() ?>&raquo;</h1>
@@ -32,10 +32,10 @@
     </div>
 <?php endif; ?>
 
-    </div>
+    </main>
     <div class="right-column">
     </div>
-  </main>
+  </div>
 
 	<!-- END #content -->
 
