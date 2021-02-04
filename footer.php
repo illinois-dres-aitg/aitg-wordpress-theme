@@ -30,10 +30,7 @@
 
   <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/DisclosureMenu.js"></script>
   <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/menuSVG.js"></script>
-  <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/skipto.js"></script>
-  <!--
   <script src="https://cdn.disability.illinois.edu/skipto.min.js"></script>
-  -->
   <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/AdjustEventDates.js"></script>
   <script>
       var SkipToConfig =  {
