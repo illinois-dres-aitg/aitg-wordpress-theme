@@ -15,7 +15,7 @@
         <?php if (have_posts()) : ?>
 
             <h1>Blog Posts</h1>
-            <div class="category"><?php current_category() ?></div>
+            <div class="category"><?php term_description() ?></div>
 
             <?php
 
