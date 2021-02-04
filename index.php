@@ -15,6 +15,7 @@
         <?php if (have_posts()) : ?>
 
             <h1>Blog Posts</h1>
+            <div class="category"><?php the_category(); ?></div>
 
             <?php
 

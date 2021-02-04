@@ -13,5 +13,9 @@
         <?php the_author(); ?>
     </div>
 
+    <div class="categories">
+        <?php the_category(); ?>
+    </div>
+
     <?php the_excerpt(); ?>
 </article>
