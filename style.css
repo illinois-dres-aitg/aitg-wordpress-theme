@@ -625,10 +625,11 @@ ul.upcoming-events.presentations > li {
 /* -------- styles.scss -------- */
 main {
   color: #00132c;
-  padding: 1.25rem;
   font-family: "Source Serif Pro", serif;
   font-size: 1.125rem;
   line-height: 1.4;
+  box-shadow: -1px 0 #eee;
+  padding: 1.25rem;
 }
 
 main a {
@@ -746,8 +747,6 @@ main img.aligncenter {
   display: flex;
   flex-direction: column;
   flex-basis: 92%;
-  box-shadow: -1px 0 #eee;
-  padding: 0 1.25rem;
 }
 
 .right-column {
