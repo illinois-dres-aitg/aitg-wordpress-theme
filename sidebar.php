@@ -10,14 +10,12 @@ $class = ( $mob_sidebar ) ? 'block' : '';
 
 <!-- BEGIN #sidebar -->
 <aside id="sidebar" class="<?php echo $class; ?>">
-	<ul id="widgetlist">
 
     <?php if ( is_active_sidebar( 'sidebar' ) ) :
 
       ?>
-      <div class="posts">
-        <h2>Latest Posts</h2>
-        <ul>
+      <nav aria-labelledby="id-latest-posts">
+        <h2 id="id-latest-posts">Latest Posts</h2>
       <?php
 
         $postslist = get_posts( array(
@@ -27,7 +25,7 @@ $class = ( $mob_sidebar ) ? 'block' : '';
         ) );
 
         if ( $postslist ) {
-            foreach ( $postslist as $post ) :
+            foreach ( $postslist as $post ) {
               setup_postdata( $post );
       ?>
               <li>
@@ -36,16 +34,14 @@ $class = ( $mob_sidebar ) ? 'block' : '';
                 </a>
               </li>
       <?php
-            endforeach;
+            }
             wp_reset_postdata();
         }
       ?>
-        </ul>
-      </div>
+      </nav>
 
-      <div class="categories">
-        <h2>Categories</h2>
-        <ul>
+      <nav id="id-categories" class="categories">
+        <h2 aria-labelledby="id-categories">Categories</h2>
         <?php
           $categories = get_categories( array(
               'orderby' => 'name',
@@ -61,22 +57,20 @@ $class = ( $mob_sidebar ) ? 'block' : '';
             );
           }
         ?>
-        </ul>
-      </div>
+      </nav>
     <?php
 
 //        dynamic_sidebar( 'sidebar' );
     else : ?>
 
-		<li class="widget widget_search">
+		<div class="widget widget_search">
 			<?php get_search_form(); ?>
-		</li>
+		</div>
 
 		<?php wp_list_categories('use_desc_for_title=0&title_li=<p class="wtitle">'. __("Categories", 'basic') .'</p>');  ?>
 
 	<?php endif; ?>
 
-	</ul>
 </aside>
 <!-- END #sidebar -->
 
