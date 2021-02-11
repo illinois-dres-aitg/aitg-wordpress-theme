@@ -40,8 +40,8 @@ $class = ( $mob_sidebar ) ? 'block' : '';
       ?>
       </nav>
 
-      <nav id="id-categories" class="categories">
-        <h2 aria-labelledby="id-categories">Categories</h2>
+      <nav class="categories"  aria-labelledby="id-categories">
+        <h2 id="id-categories">Categories</h2>
         <?php
           $categories = get_categories( array(
               'orderby' => 'name',
