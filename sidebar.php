@@ -47,19 +47,18 @@ $class = ( $mob_sidebar ) ? 'block' : '';
         <h2>Categories</h2>
         <ul>
         <?php
-        $categories = get_categories( array(
-            'orderby' => 'name',
-            'order'   => 'ASC'
-        ) );
+          $categories = get_categories( array(
+              'orderby' => 'name',
+              'order'   => 'ASC'
+          ) );
 
-        foreach( $categories as $category ) {
+          foreach( $categories as $category ) {
         ?>
-          <li>
-            <?php  esc_html($category->name) ?>
-            (<?php esc_html( $category->count ) ?>)
-          </li>
+            <li>
+              <?php esc_html( $category->name ) ?>
+            </li>
         <?php
-        }
+          }
         ?>
         </ul>
       </div>
