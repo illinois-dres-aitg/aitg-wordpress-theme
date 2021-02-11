@@ -20,25 +20,25 @@ $class = ( $mob_sidebar ) ? 'block' : '';
         <ul>
       <?php
 
-          $postslist = get_posts( array(
-              'posts_per_page' => 10,
-              'order'          => 'ASC',
-              'orderby'        => 'title'
-          ) );
+        $postslist = get_posts( array(
+            'posts_per_page' => 10,
+            'order'          => 'ASC',
+            'orderby'        => 'title'
+        ) );
 
-          if ( $postslist ) {
-              foreach ( $postslist as $post ) :
-                  setup_postdata( $post );
-              ?>
-                <li>
-                  <a href="<?php the_permalink(); ?>">
-                    <?php the_title(); ?>
-                  </a>
-                </li>
-              <?php
-              endforeach;
-              wp_reset_postdata();
-          }
+        if ( $postslist ) {
+            foreach ( $postslist as $post ) :
+              setup_postdata( $post );
+      ?>
+              <li>
+                <a href="<?php the_permalink(); ?>">
+                  <?php the_title(); ?>
+                </a>
+              </li>
+      <?php
+            endforeach;
+            wp_reset_postdata();
+        }
       ?>
         </ul>
       </div>
@@ -52,13 +52,11 @@ $class = ( $mob_sidebar ) ? 'block' : '';
               'order'   => 'ASC'
           ) );
 
-          foreach( $categories as $category ) {
+          foreach( $categories as $category ) :
         ?>
-            <li>
-              <?php esc_html( $category->name ) ?>
-            </li>
+            <li><?php esc_html( $category->name ) ?></li>
         <?php
-          }
+          endforeach;
         ?>
         </ul>
       </div>
