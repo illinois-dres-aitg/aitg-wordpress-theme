@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $no_sidebar = in_array( basic_get_layout(), array('full','center') );
 
@@ -13,7 +13,39 @@ $class = ( $mob_sidebar ) ? 'block' : '';
 	<ul id="widgetlist">
 
     <?php if ( is_active_sidebar( 'sidebar' ) ) :
-        dynamic_sidebar( 'sidebar' );
+
+      ?>
+      <div class="posts">
+        <h2>Latest Posts</h2>
+        <ul>
+      <?php
+
+          $postslist = get_posts( array(
+              'posts_per_page' => 10,
+              'order'          => 'ASC',
+              'orderby'        => 'title'
+          ) );
+
+          if ( $postslist ) {
+              foreach ( $postslist as $post ) :
+                  setup_postdata( $post );
+                  ?>
+                  <li>
+                      <?php the_date(); ?>
+                      <br />
+                      <?php the_title(); ?>
+                      <?php the_excerpt(); ?>
+                  </li>
+              <?php
+              endforeach;
+              wp_reset_postdata();
+          }
+      ?>
+        </ul>
+      </div>
+      <?php
+
+//        dynamic_sidebar( 'sidebar' );
     else : ?>
 
 		<li class="widget widget_search">
