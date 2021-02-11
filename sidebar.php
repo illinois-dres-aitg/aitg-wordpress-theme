@@ -52,11 +52,13 @@ $class = ( $mob_sidebar ) ? 'block' : '';
               'order'   => 'ASC'
           ) );
 
-          foreach( $categories as $category ) :
+          if ( $categories ) {
+            foreach( $categories as $category ) :
         ?>
             <li><?php esc_html( $category->name ) ?></li>
         <?php
-          endforeach;
+            endforeach;
+          }
         ?>
         </ul>
       </div>
