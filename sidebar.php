@@ -29,12 +29,12 @@ $class = ( $mob_sidebar ) ? 'block' : '';
           if ( $postslist ) {
               foreach ( $postslist as $post ) :
                   setup_postdata( $post );
-                  ?>
-                  <li>
-                    <a href="<?php the_permalink(); ?>">
-                      <?php the_title(); ?>
-                    </a>
-                  </li>
+              ?>
+                <li>
+                  <a href="<?php the_permalink(); ?>">
+                    <?php the_title(); ?>
+                  </a>
+                </li>
               <?php
               endforeach;
               wp_reset_postdata();
@@ -42,7 +42,37 @@ $class = ( $mob_sidebar ) ? 'block' : '';
       ?>
         </ul>
       </div>
-      <?php
+
+      <div class="categories">
+        <h2>Categories</h2>
+        <ul>
+        <?php
+        $categories = get_categories( array(
+            'orderby' => 'name',
+            'order'   => 'ASC'
+        ) );
+
+        foreach( $categories as $category ) {
+            $category_link = sprintf(
+                '<a href="%1$s" alt="%2$s">%3$s</a>',
+                esc_url( get_category_link( $category->term_id ) ),
+                esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ),
+                esc_html( $category->name )
+            );
+
+            ?>
+              <li>
+                <a href="<?php $category_link ?>">
+                  <?php esc_html( $category->name ) ?>
+                </a>
+                (<?php esc_html( $category->count ) ?>)
+              </li>
+            <?php
+
+        }
+        </ul>
+      </div>
+    <?php
 
 //        dynamic_sidebar( 'sidebar' );
     else : ?>
