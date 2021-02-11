@@ -31,10 +31,9 @@ $class = ( $mob_sidebar ) ? 'block' : '';
                   setup_postdata( $post );
                   ?>
                   <li>
-                      <?php the_date(); ?>
-                      <br />
+                    <a href="<?php the_permalink(); ?>">
                       <?php the_title(); ?>
-                      <?php the_excerpt(); ?>
+                    </a>
                   </li>
               <?php
               endforeach;
