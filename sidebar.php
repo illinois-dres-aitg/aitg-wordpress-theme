@@ -49,7 +49,7 @@ $class = ( $mob_sidebar ) ? 'block' : '';
       ?>
         </ul>
 
-        <p><a href="/blog/">All Posts</a></p>
+        <p><a href="/blog/">Index of all posts</a></p>
       </nav>
 
       <nav class="categories"  aria-labelledby="id-categories">
