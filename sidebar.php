@@ -19,6 +19,8 @@ $class = ( $mob_sidebar ) ? 'block' : '';
         <ul>
           <li><?php previous_post_link(); ?></li>
           <li><?php next_post_link(); ?></li>
+          <li><?php previous_post_link( '%link', 'Previous in category', true); ?></li>
+          <li><?php next_post_link( '%link', 'Next in category', true); ?></li>
         </ul>
       </nav>
 
