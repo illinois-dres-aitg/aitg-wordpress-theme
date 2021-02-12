@@ -17,8 +17,8 @@ $class = ( $mob_sidebar ) ? 'block' : '';
       <nav aria-labelledby="id-prev-next-posts">
         <h2 id="id-prev-next-posts">Next/Previous Posts</h2>
         <ul>
-          <li><?php previous_post_link('%link', '%title'); ?></li>
-          <li><?php next_post_link('%link', '%title'); ?></li>
+          <li><a href="<?php get_previous_post_link(); ?>">Previous Post</li>
+          <li><a href="<?php get_next_post_link(); ?>">Next Post</li>
         </ul>
       </nav>
 
