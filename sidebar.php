@@ -14,8 +14,17 @@ $class = ( $mob_sidebar ) ? 'block' : '';
     <?php if ( is_active_sidebar( 'sidebar' ) ) :
 
       ?>
+      <nav aria-labelledby="id-prev-next-posts">
+        <h2 id="id-prev-next-posts">Next/Previous Posts</h2>
+        <ul>
+          <li><?php previous_post_link('%link', '%title'); ?></li>
+          <li><?php next_post_link('%link', '%title'); ?></li>
+        </ul>
+      </nav>
+
       <nav aria-labelledby="id-latest-posts">
         <h2 id="id-latest-posts">Latest Posts</h2>
+
       <?php
 
         $postslist = get_posts( array(
