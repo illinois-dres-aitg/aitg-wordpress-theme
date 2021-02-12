@@ -24,7 +24,7 @@ $class = ( $mob_sidebar ) ? 'block' : '';
 
       <nav aria-labelledby="id-latest-posts">
         <h2 id="id-latest-posts">Latest Posts</h2>
-
+        <ul>
       <?php
 
         $postslist = get_posts( array(
@@ -47,10 +47,12 @@ $class = ( $mob_sidebar ) ? 'block' : '';
             wp_reset_postdata();
         }
       ?>
+        </ul>
       </nav>
 
       <nav class="categories"  aria-labelledby="id-categories">
         <h2 id="id-categories">Categories</h2>
+        <ul>
         <?php
           $categories = get_categories( array(
               'orderby' => 'name',
@@ -66,6 +68,7 @@ $class = ( $mob_sidebar ) ? 'block' : '';
             );
           }
         ?>
+        </ul>
       </nav>
     <?php
 
