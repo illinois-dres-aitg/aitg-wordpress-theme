@@ -14,11 +14,7 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
     <main class="content">
 
 
-  <?php while (have_posts()) : the_post(); ?>
-
-     <h1><?php the_title(); ?></h1>
-
-    <?php
+  <?php while (have_posts()) : the_post();
 
       the_content();
 
