@@ -37,27 +37,10 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
       <nav aria-label="Previous and Next Posts">
         <?php if ( $category ) { ?>
           <div class="prev-post">
-            <?php if ($prev_link) {
-              echo  $prev_link;
-            } else {
-              echo  $no_prev_link;
-            }
-            ?>
-          </div>
-          <div class="next-post">
-            <?php if ($next_link) {
-              echo  $next_link;
-            } else {
-              echo  $no_next_link;
-            }
-            ?>
-          </div>
-        <?php } else { ?>
-          <div class="prev-post">
             <?php if ($prev_in_category_link) {
-              echo $prev_in_category_link;
+              echo  $prev_in_category_link;
             } else {
-              echo $no_prev_in_category_link;
+              echo  $no_prev_in_category_link;
             }
             ?>
           </div>
@@ -66,6 +49,23 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
               echo  $next_in_category_link;
             } else {
               echo  $no_next_in_category_link;
+            }
+            ?>
+          </div>
+        <?php } else { ?>
+          <div class="prev-post">
+            <?php if ($prev_link) {
+              echo $prev_link;
+            } else {
+              echo $no_prev_link;
+            }
+            ?>
+          </div>
+          <div class="next-post">
+            <?php if ($next_link) {
+              echo  $next_link;
+            } else {
+              echo  $no_next_link;
             }
             ?>
           </div>
