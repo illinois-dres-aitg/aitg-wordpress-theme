@@ -27,7 +27,7 @@
 
     </main>
     <div class="right-column">
-      <?php get_template_part( 'single-sidebar',  get_post_format() ); ?>
+      <?php get_template_part( 'single-sidebar' ); ?>
     </div>
   </div>
 

@@ -1,11 +1,5 @@
 <?php
 
-$no_sidebar = in_array( basic_get_layout(), array('full','center') );
-
-$mob_sidebar = basic_get_theme_option('show_sidebar', false );
-$class = ( $mob_sidebar ) ? 'block' : '';
-//$class = ( $no_sidebar && is_customize_preview() ) ? $class .' hide' : $class;
-
 $category = single_cat_title( '', false );
 
 $no_prev_link = '<span class="no-link">Previous</span>';
