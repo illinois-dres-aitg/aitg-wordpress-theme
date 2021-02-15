@@ -21,5 +21,5 @@
         <?php the_tags(); ?>
     </div>
 
-    <?php the_content(); ?>
+    <?php the_excerpt(); ?>
 </article>
