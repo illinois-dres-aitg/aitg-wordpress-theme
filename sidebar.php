@@ -17,7 +17,7 @@ $next_link = get_next_post_link('%link', 'Next');
 ?>
 
 <!-- BEGIN #sidebar -->
-<aside id="sidebar" class="<?php echo $class; ?>">
+<aside id="sidebar" class="<?php echo $class; ?>" aria-label="Post Navigation">
 
     <?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
 
