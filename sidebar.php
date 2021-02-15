@@ -6,6 +6,10 @@ $mob_sidebar = basic_get_theme_option('show_sidebar', false );
 $class = ( $mob_sidebar ) ? 'block' : '';
 //$class = ( $no_sidebar && is_customize_preview() ) ? $class .' hide' : $class;
 
+$category = single_cat_title( '', false );
+
+$tags = get_tags();
+
 ?>
 
 <!-- BEGIN #sidebar -->
@@ -18,6 +22,13 @@ $class = ( $mob_sidebar ) ? 'block' : '';
       <div>Category: <?php echo $category ?></div>
       <?php } else { ?>
       <div>No Category</div>
+      <?php } ?>
+
+      if ($tags) {
+      ?>
+      <div>Tags: <?php echo $tags ?></div>
+      <?php } else { ?>
+      <div>No Tags</div>
       <?php } ?>
 
       <nav aria-labelledby="id-latest-posts">
