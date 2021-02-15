@@ -30,6 +30,7 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
       <?php if ( is_single() ) : ?>
 
         <nav aria-label="Previous and Next Posts">
+          <div><?php echo $category ?></div>
           <?php if ( $category ) { ?>
             <div class="prev-post">
               <?php if ($prev_in_category_link) {
