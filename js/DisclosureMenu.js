@@ -10,12 +10,12 @@ function MenuContainer (containerNode, index, disclosureMenuObj) {
   this.hasSubMenu = false;
   this.containerNode = containerNode;
 
-  // Add an accessible name to main menu
-
-  if (containerMenu.tagName.toLowerCase() !== 'nav') {
-    containerMenu.setAttribute('role', 'navigation');
+  // Check for navigation landmark role
+  if (containerNode.tagName.toLowerCase() !== 'nav') {
+    containerNode.setAttribute('role', 'navigation');
   }
-  containerMenu.setAttribute('aria-label', 'Main');
+  // Add an accessible name to main menu
+  containerNode.setAttribute('aria-label', 'Main');
 
   // We know that the containerNode contains a link, and that it will most
   // often act like a button, so we use the property name buttonNode.
