@@ -25,7 +25,7 @@ $tags = get_the_tags();
       <?php }
       if ($tags) {
       ?>
-      <div>Tags: <?php echo $tags ?></div>
+      <div>Tags: <?php echo count($tags) ?></div>
       <?php } else { ?>
       <div>No Tags</div>
       <?php } ?>
