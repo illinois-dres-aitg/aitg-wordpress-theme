@@ -15,16 +15,15 @@
 
         <?php if (have_posts()) : ?>
 
-            <h1>Blog Posts</h1>
 
             <?php
                 $category = single_cat_title( '', false );
-                if ($category) {
-            ?>
-                    <p>Category: <?php echo $category ?></p>
+                if ($category) {?>
 
+                <h1><?php echo $category ?></h1>
+            <?php } else { ?>
+                <h1>All Blog Posts</h1>
             <?php } ?>
-
 
             <?php
 
