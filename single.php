@@ -1,4 +1,12 @@
-<?php get_header(); ?>
+<?php get_header();
+
+$no_prev_in_category_link = '<span class="no-link">Previous in Category</span>';
+$no_next_in_category_link = '<span class="no-link">Next in Category</span>';
+
+$prev_in_category_link = get_previous_post_link( '%link', 'Previous in category', true);
+$next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
+
+?>
 
   <div class="flex-row">
     <div class="left-column">
@@ -24,6 +32,23 @@
       }
 
   endwhile; ?>
+
+      <nav aria-label="Next and Previous Posts in Category">
+        <div class="prev-post">
+          <?php if ($prev_in_category_link) {
+            echo  $prev_in_category_link;
+          } else {
+            echo  $no_prev_in_category_link;
+          } ?>
+        </div>
+        <div class="next-post">
+          <?php if ($next_in_category_link) {
+            echo  $next_in_category_link;
+          } else {
+            echo  $no_next_in_category_link;
+          } ?>
+        </div>
+      </nav>
 
     </main>
     <div class="right-column">
