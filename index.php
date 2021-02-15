@@ -19,7 +19,6 @@
             <?php
                 $category = single_cat_title( '', false );
                 if ($category) {?>
-
                 <h1><?php echo $category ?> Blog Posts</h1>
             <?php } else { ?>
                 <h1>All Blog Posts</h1>
