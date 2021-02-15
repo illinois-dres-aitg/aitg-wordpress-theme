@@ -6,9 +6,17 @@ $mob_sidebar = basic_get_theme_option('show_sidebar', false );
 $class = ( $mob_sidebar ) ? 'block' : '';
 //$class = ( $no_sidebar && is_customize_preview() ) ? $class .' hide' : $class;
 
-$category = single_cat_title( '', false );
+$no_prev_link = '<span class="no-link">Previous</span>';
+$no_next_link = '<span class="no-link">Next</span>';
 
-$tags = get_the_tags();
+$no_prev_in_category_link = '<span class="no-link">Previous in Category</span>';
+$no_next_in_category_link = '<span class="no-link">Next in Category</span>';
+
+$prev_link = get_previous_post_link('%link', 'Previous');
+$next_link = get_next_post_link('%link', 'Next');
+
+$prev_in_category_link = get_previous_post_link( '%link', 'Previous in category', true);
+$next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
 
 ?>
 
@@ -17,22 +25,10 @@ $tags = get_the_tags();
 
     <?php if ( is_active_sidebar( 'sidebar' ) ) :
 
-      if ($category) {
-      ?>
-      <div>Category: <?php echo $category ?></div>
-      <?php } else { ?>
-      <div>No Category</div>
-      <?php }
-      if ($tags) {
-      ?>
-      <div>Tags: <?php echo count($tags) ?></div>
-      <?php } else { ?>
-      <div>No Tags</div>
-      <?php } ?>
+      if ( is_single() ) {
 
-      <div>Singular: <?php echo is_singular() ?></div>
-      <div>Single: <?php echo is_single() ?></div>
-      <div>Page: <?php echo is_page() ?></div>
+
+      }
 
       <nav aria-labelledby="id-latest-posts">
         <h2 id="id-latest-posts">Latest Posts</h2>
