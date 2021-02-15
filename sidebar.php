@@ -8,6 +8,19 @@ $class = ( $mob_sidebar ) ? 'block' : '';
 
 $category = single_cat_title( '', false );
 
+$no_prev_link = '<span class="no-link">Previous</span>';
+$no_next_link = '<span class="no-link">Next</span>';
+
+$no_prev_in_category_link = '<span class="no-link">Previous in Category</span>';
+$no_next_in_category_link = '<span class="no-link">Next in Category</span>';
+
+
+$prev_link = previous_post_link('%link', 'Previous');
+$next_link = next_post_link('%link', 'Next');
+
+$prev_in_category_link = previous_post_link( '%link', 'Previous in category', true);
+$next_in_category_link = next_post_link( '%link', 'Next in category', true);
+
 ?>
 
 <!-- BEGIN #sidebar -->
@@ -18,8 +31,22 @@ $category = single_cat_title( '', false );
       ?>
       <nav aria-label="Previous and Next Posts">
         <?php if ( $category ) { ?>
-          <div class="prev-post"><?php previous_post_link('%link', 'Previous'); ?></div>
-          <div class="next-post"><?php next_post_link('%link', 'Next'); ?></div>
+          <div class="prev-post">
+            <?php if ($prev_link) {
+              echo  esc_html($prev_link);
+            } else {
+              echo  esc_html($no_prev_link);
+            }
+            ?>
+          </div>
+          <div class="next-post">
+            <?php if ($next_link) {
+              echo  esc_html($next_link);
+            } else {
+              echo  esc_html($no_next_link);
+            }
+            ?>
+          </div>
         <?php } else { ?>
           <div class="prev-post"><?php previous_post_link( '%link', 'Previous in category', true); ?></div>
           <div class="next-post"><?php next_post_link( '%link', 'Next in category', true); ?></div>
