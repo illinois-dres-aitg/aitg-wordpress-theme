@@ -10,7 +10,6 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
 
   <div class="flex-row">
     <div class="left-column">
-      <p>Test single.php</p>
      </div>
     <main class="content">
 

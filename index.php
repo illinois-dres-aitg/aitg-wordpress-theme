@@ -2,7 +2,6 @@
 
   <div class="flex-row">
     <div class="left-column">
-        <p>Test index.php</p>
     </div>
     <main class="content">
     	<?php do_action( 'basic_main_content_inner_begin' ); ?>
