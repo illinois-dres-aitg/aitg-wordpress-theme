@@ -17,7 +17,7 @@
 
             <h1>Blog Posts</h1>
 
-            <p><?php echo single_cat_title( '', false ) ?></p>
+            <p>Category: <?php echo single_cat_title( '', false ) ?></p>
 
             <?php
 
