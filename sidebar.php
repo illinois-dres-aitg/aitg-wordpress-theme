@@ -25,11 +25,6 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
 
     <?php if ( is_active_sidebar( 'sidebar' ) ) :
 
-      if ( is_single() ) {
-
-
-      }
-
       <nav aria-labelledby="id-latest-posts">
         <h2 id="id-latest-posts">Latest Posts</h2>
         <ul class="latest-posts">
