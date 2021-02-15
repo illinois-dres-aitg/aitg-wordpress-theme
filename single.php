@@ -33,7 +33,7 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
 
   endwhile; ?>
 
-      <nav aria-label="Next and Previous Posts in Category">
+      <nav aria-label="Within Category">
         <div class="prev-post">
           <?php if ($prev_in_category_link) {
             echo  $prev_in_category_link;
