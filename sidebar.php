@@ -6,6 +6,8 @@ $mob_sidebar = basic_get_theme_option('show_sidebar', false );
 $class = ( $mob_sidebar ) ? 'block' : '';
 //$class = ( $no_sidebar && is_customize_preview() ) ? $class .' hide' : $class;
 
+$category = the_category();
+
 $no_prev_link = '<span class="no-link">Previous</span>';
 $no_next_link = '<span class="no-link">Next</span>';
 
@@ -34,16 +36,14 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
                 echo  $prev_in_category_link;
               } else {
                 echo  $no_prev_in_category_link;
-              }
-              ?>
+              } ?>
             </div>
             <div class="next-post">
               <?php if ($next_in_category_link) {
                 echo  $next_in_category_link;
               } else {
                 echo  $no_next_in_category_link;
-              }
-              ?>
+              } ?>
             </div>
           <?php } else { ?>
             <div class="prev-post">
@@ -51,16 +51,14 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
                 echo $prev_link;
               } else {
                 echo $no_prev_link;
-              }
-              ?>
+              } ?>
             </div>
             <div class="next-post">
               <?php if ($next_link) {
                 echo  $next_link;
               } else {
                 echo  $no_next_link;
-              }
-              ?>
+              } ?>
             </div>
           <?php } ?>
         </nav>
