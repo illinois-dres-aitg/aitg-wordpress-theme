@@ -23,7 +23,7 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
 <!-- BEGIN #sidebar -->
 <aside id="sidebar" class="<?php echo $class; ?>">
 
-    <?php if ( is_active_sidebar( 'sidebar' ) ) :
+    <?php if ( is_active_sidebar( 'sidebar' ) ) :?>
 
       <nav aria-labelledby="id-latest-posts">
         <h2 id="id-latest-posts">Latest Posts</h2>
