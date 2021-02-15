@@ -16,8 +16,6 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
 
   <?php while (have_posts()) : the_post();
 
-      the_content();
-
       get_template_part( 'content',  get_post_format() );
       ?>
 
