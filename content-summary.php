@@ -1,9 +1,9 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <h1 class="entry-title">
+    <h2 class="entry-title">
       <a href="<?php the_permalink(); ?>">
-        <?php the_title(); ?>
+        <?php the_title(); ?> Summary
       </a>
-    </h1>
+    </h2>
 
     <div class="date">
         <?php the_date(); ?>
