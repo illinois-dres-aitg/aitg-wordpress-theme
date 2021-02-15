@@ -16,6 +16,7 @@ function MenuContainer (containerNode, index, disclosureMenuObj) {
   }
   // Add an accessible name to main menu
   containerNode.setAttribute('aria-label', 'Main');
+  console.log('[aria-label]' + containerNode.getAttribute('aria-label'));
 
   // We know that the containerNode contains a link, and that it will most
   // often act like a button, so we use the property name buttonNode.
