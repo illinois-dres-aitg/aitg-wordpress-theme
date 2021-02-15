@@ -48,8 +48,22 @@ $next_in_category_link = next_post_link( '%link', 'Next in category', true);
             ?>
           </div>
         <?php } else { ?>
-          <div class="prev-post"><?php previous_post_link( '%link', 'Previous in category', true); ?></div>
-          <div class="next-post"><?php next_post_link( '%link', 'Next in category', true); ?></div>
+          <div class="prev-post">
+            <?php if ($prev_in_category_link) {
+              echo  esc_html($prev_in_category_link);
+            } else {
+              echo  esc_html($no_prev_in_category_link);
+            }
+            ?>
+          </div>
+          <div class="next-post">
+            <?php if ($next_in_category_link) {
+              echo  esc_html($next_in_category_link);
+            } else {
+              echo  esc_html($no_next_in_category_link);
+            }
+            ?>
+          </div>
         <?php } ?>
       </nav>
 
