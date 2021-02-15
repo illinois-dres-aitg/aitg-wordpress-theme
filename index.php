@@ -17,6 +17,8 @@
 
             <h1>Blog Posts</h1>
 
+            <p><?php echo single_cat_title( '', false ) ?></p>
+
             <?php
 
         	while (have_posts()) : the_post();
