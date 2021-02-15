@@ -6,6 +6,20 @@ $mob_sidebar = basic_get_theme_option('show_sidebar', false );
 $class = ( $mob_sidebar ) ? 'block' : '';
 //$class = ( $no_sidebar && is_customize_preview() ) ? $class .' hide' : $class;
 
+$category = single_cat_title( '', false );
+
+$no_prev_link = '<span class="no-link">Previous</span>';
+$no_next_link = '<span class="no-link">Next</span>';
+
+$no_prev_in_category_link = '<span class="no-link">Previous in Category</span>';
+$no_next_in_category_link = '<span class="no-link">Next in Category</span>';
+
+$prev_link = get_previous_post_link('%link', 'Previous');
+$next_link = get_next_post_link('%link', 'Next');
+
+$prev_in_category_link = get_previous_post_link( '%link', 'Previous in category', true);
+$next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
+
 ?>
 
 <!-- BEGIN #sidebar -->
@@ -19,6 +33,44 @@ $class = ( $mob_sidebar ) ? 'block' : '';
       <?php } else { ?>
       <div>No Category</div>
       <?php } ?>
+
+      <nav aria-label="Previous and Next Posts">
+        <?php if ( $category ) { ?>
+          <div class="prev-post">
+            <?php if ($prev_in_category_link) {
+              echo  $prev_in_category_link;
+            } else {
+              echo  $no_prev_in_category_link;
+            }
+            ?>
+          </div>
+          <div class="next-post">
+            <?php if ($next_in_category_link) {
+              echo  $next_in_category_link;
+            } else {
+              echo  $no_next_in_category_link;
+            }
+            ?>
+          </div>
+        <?php } else { ?>
+          <div class="prev-post">
+            <?php if ($prev_link) {
+              echo $prev_link;
+            } else {
+              echo $no_prev_link;
+            }
+            ?>
+          </div>
+          <div class="next-post">
+            <?php if ($next_link) {
+              echo  $next_link;
+            } else {
+              echo  $no_next_link;
+            }
+            ?>
+          </div>
+        <?php } ?>
+      </nav>
 
       <nav aria-labelledby="id-latest-posts">
         <h2 id="id-latest-posts">Latest Posts</h2>
