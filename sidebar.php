@@ -6,6 +6,8 @@ $mob_sidebar = basic_get_theme_option('show_sidebar', false );
 $class = ( $mob_sidebar ) ? 'block' : '';
 //$class = ( $no_sidebar && is_customize_preview() ) ? $class .' hide' : $class;
 
+$category = single_cat_title( '', false );
+
 ?>
 
 <!-- BEGIN #sidebar -->
@@ -14,19 +16,19 @@ $class = ( $mob_sidebar ) ? 'block' : '';
     <?php if ( is_active_sidebar( 'sidebar' ) ) :
 
       ?>
-      <nav aria-labelledby="id-prev-next-posts">
-        <h2 id="id-prev-next-posts">Next/Previous Posts</h2>
-        <ul>
-          <li><?php previous_post_link('%link', 'Previous'); ?></li>
-          <li><?php next_post_link('%link', 'Next'); ?></li>
-          <li><?php previous_post_link( '%link', 'Previous in category', true); ?></li>
-          <li><?php next_post_link( '%link', 'Next in category', true); ?></li>
-        </ul>
+      <nav aria-label="Previous and Next Posts">
+        <?php if ( $category ) { ?>
+          <div class="prev-post"><?php previous_post_link('%link', 'Previous'); ?></div>
+          <div class="next-post"><?php next_post_link('%link', 'Next'); ?></div>
+        <?php } else { ?>
+          <div class="prev-post"><?php previous_post_link( '%link', 'Previous in category', true); ?></div>
+          <div class="next-post"><?php next_post_link( '%link', 'Next in category', true); ?></div>
+        <?php } ?>
       </nav>
 
       <nav aria-labelledby="id-latest-posts">
         <h2 id="id-latest-posts">Latest Posts</h2>
-        <ul>
+        <ul class="latest-posts">
       <?php
 
         $postslist = get_posts( array(
@@ -39,7 +41,7 @@ $class = ( $mob_sidebar ) ? 'block' : '';
             foreach ( $postslist as $post ) {
               setup_postdata( $post );
       ?>
-              <li>
+              <li class="recent-posts">
                 <a href="<?php the_permalink(); ?>">
                   <?php the_title(); ?>
                 </a>
@@ -51,12 +53,12 @@ $class = ( $mob_sidebar ) ? 'block' : '';
       ?>
         </ul>
 
-        <p><a href="/blog/">Index of all posts</a></p>
+        <div class="all-posts"><a href="/blog/">Index of all posts</a></div>
       </nav>
 
-      <nav class="categories"  aria-labelledby="id-categories">
+      <nav aria-labelledby="id-categories">
         <h2 id="id-categories">Categories</h2>
-        <ul>
+        <ul class="categories">
         <?php
           $categories = get_categories( array(
               'orderby' => 'name',
