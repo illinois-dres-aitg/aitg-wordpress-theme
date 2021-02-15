@@ -23,13 +23,55 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
 <!-- BEGIN #sidebar -->
 <aside id="sidebar" class="<?php echo $class; ?>">
 
-    <?php if ( is_active_sidebar( 'sidebar' ) ) :?>
+    <?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
+
+      <?php if ( is_single() : ?>
+
+        <nav aria-label="Previous and Next Posts">
+          <?php if ( $category ) { ?>
+            <div class="prev-post">
+              <?php if ($prev_in_category_link) {
+                echo  $prev_in_category_link;
+              } else {
+                echo  $no_prev_in_category_link;
+              }
+              ?>
+            </div>
+            <div class="next-post">
+              <?php if ($next_in_category_link) {
+                echo  $next_in_category_link;
+              } else {
+                echo  $no_next_in_category_link;
+              }
+              ?>
+            </div>
+          <?php } else { ?>
+            <div class="prev-post">
+              <?php if ($prev_link) {
+                echo $prev_link;
+              } else {
+                echo $no_prev_link;
+              }
+              ?>
+            </div>
+            <div class="next-post">
+              <?php if ($next_link) {
+                echo  $next_link;
+              } else {
+                echo  $no_next_link;
+              }
+              ?>
+            </div>
+          <?php } ?>
+        </nav>
+
+      <?php endif; ?>
 
       <nav aria-labelledby="id-latest-posts">
         <h2 id="id-latest-posts">Latest Posts</h2>
         <ul class="latest-posts">
-      <?php
 
+      <?php
         $postslist = get_posts( array(
             'posts_per_page' => 10,
             'order'          => 'ASC',
