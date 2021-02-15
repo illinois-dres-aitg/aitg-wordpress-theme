@@ -23,14 +23,7 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
       the_content();
 
       get_template_part( 'content',  get_post_format() );
-      ?> <p>test</p> <?php
-      if ( comments_open() || get_comments_number() ) {
-        do_action( 'basic_before_post_comments_area' );
-        comments_template();
-        do_action( 'basic_after_post_comments_area' );
-      }
-
-  endwhile; ?>
+      ?>
 
       <nav aria-label="Current Post Category">
         <div class="prev-post">
@@ -48,6 +41,16 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
           } ?>
         </div>
       </nav>
+
+
+      <?php
+      if ( comments_open() || get_comments_number() ) {
+        do_action( 'basic_before_post_comments_area' );
+        comments_template();
+        do_action( 'basic_after_post_comments_area' );
+      }
+
+  endwhile; ?>
 
     </main>
     <div class="right-column">
