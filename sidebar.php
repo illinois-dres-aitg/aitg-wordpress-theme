@@ -30,6 +30,8 @@ $tags = get_the_tags();
       <div>No Tags</div>
       <?php } ?>
 
+      <div>Single: <?php echo is_singular() ?></div>
+
       <nav aria-labelledby="id-latest-posts">
         <h2 id="id-latest-posts">Latest Posts</h2>
         <ul class="latest-posts">
