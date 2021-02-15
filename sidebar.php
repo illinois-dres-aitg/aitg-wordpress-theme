@@ -6,7 +6,7 @@ $mob_sidebar = basic_get_theme_option('show_sidebar', false );
 $class = ( $mob_sidebar ) ? 'block' : '';
 //$class = ( $no_sidebar && is_customize_preview() ) ? $class .' hide' : $class;
 
-$category = the_category();
+$category = get_the_category();
 
 $no_prev_link = '<span class="no-link">Previous</span>';
 $no_next_link = '<span class="no-link">Next</span>';
