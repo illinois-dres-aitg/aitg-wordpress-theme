@@ -2,7 +2,8 @@
 
   <div class="flex-row">
     <div class="left-column">
-    </div>
+      <p>Test single.php</p>
+     </div>
     <main class="content">
 
 

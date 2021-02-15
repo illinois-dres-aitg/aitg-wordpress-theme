@@ -1,7 +1,6 @@
 <?php get_header(); ?>
   <div class="flex-row">
     <div class="left-column">
-      <p>Test Page.php</p>
     </div>
     <main class="content">
 		<?php while ( have_posts() ) : the_post(); ?>
