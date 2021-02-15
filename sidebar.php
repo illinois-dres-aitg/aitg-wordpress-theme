@@ -33,7 +33,7 @@ $next_in_category_link = next_post_link( '%link', 'Next in category', true);
         <?php if ( $category ) { ?>
           <div class="prev-post">
             <?php if ($prev_link) {
-              echo  $prev_link);
+              echo  $prev_link;
             } else {
               echo  $no_prev_link;
             }
