@@ -27,8 +27,13 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
 
     <?php if ( is_active_sidebar( 'sidebar' ) ) :
 
+      if ($category) {
       ?>
-      <div>Category: <?php $category ?></div>
+      <div>Category: <?php echo $category ?></div>
+      <?php } else { ?>
+      <div>No Category</div>
+      <?php } ?>
+
       <nav aria-label="Previous and Next Posts">
         <?php if ( $category ) { ?>
           <div class="prev-post">
