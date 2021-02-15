@@ -33,34 +33,34 @@ $next_in_category_link = next_post_link( '%link', 'Next in category', true);
         <?php if ( $category ) { ?>
           <div class="prev-post">
             <?php if ($prev_link) {
-              echo  esc_html($prev_link);
+              echo  $prev_link);
             } else {
-              echo  esc_html($no_prev_link);
+              echo  $no_prev_link;
             }
             ?>
           </div>
           <div class="next-post">
             <?php if ($next_link) {
-              echo  esc_html($next_link);
+              echo  $next_link;
             } else {
-              echo  esc_html($no_next_link);
+              echo  $no_next_link;
             }
             ?>
           </div>
         <?php } else { ?>
           <div class="prev-post">
             <?php if ($prev_in_category_link) {
-              echo  esc_html($prev_in_category_link);
+              echo $prev_in_category_link;
             } else {
-              echo  esc_html($no_prev_in_category_link);
+              echo $no_prev_in_category_link;
             }
             ?>
           </div>
           <div class="next-post">
             <?php if ($next_in_category_link) {
-              echo  esc_html($next_in_category_link);
+              echo  $next_in_category_link;
             } else {
-              echo  esc_html($no_next_in_category_link);
+              echo  $no_next_in_category_link;
             }
             ?>
           </div>
