@@ -8,7 +8,7 @@ $class = ( $mob_sidebar ) ? 'block' : '';
 
 $category = single_cat_title( '', false );
 
-$tags = get_tags();
+$tags = the_tags();
 
 ?>
 
