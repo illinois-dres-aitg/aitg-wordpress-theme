@@ -22,8 +22,7 @@ $tags = the_tags();
       <div>Category: <?php echo $category ?></div>
       <?php } else { ?>
       <div>No Category</div>
-      <?php } ?>
-
+      <?php }
       if ($tags) {
       ?>
       <div>Tags: <?php echo $tags ?></div>
