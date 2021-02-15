@@ -11,6 +11,7 @@ function MenuContainer (containerNode, index, disclosureMenuObj) {
   this.containerNode = containerNode;
 
   // Check for navigation landmark role
+  console.log('[tagName]' + containerNode.tagName);
   if (containerNode.tagName.toLowerCase() !== 'nav') {
     containerNode.setAttribute('role', 'navigation');
   }
