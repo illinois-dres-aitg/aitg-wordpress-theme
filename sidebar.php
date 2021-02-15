@@ -14,12 +14,11 @@ $no_next_link = '<span class="no-link">Next</span>';
 $no_prev_in_category_link = '<span class="no-link">Previous in Category</span>';
 $no_next_in_category_link = '<span class="no-link">Next in Category</span>';
 
+$prev_link = get_previous_post_link('%link', 'Previous');
+$next_link = get_next_post_link('%link', 'Next');
 
-$prev_link = previous_post_link('%link', 'Previous');
-$next_link = next_post_link('%link', 'Next');
-
-$prev_in_category_link = previous_post_link( '%link', 'Previous in category', true);
-$next_in_category_link = next_post_link( '%link', 'Next in category', true);
+$prev_in_category_link = get_previous_post_link( '%link', 'Previous in category', true);
+$next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
 
 ?>
 
