@@ -17,5 +17,9 @@
         <?php the_category(); ?>
     </div>
 
+    <div class="tags">
+        <?php the_tags(); ?>
+    </div>
+
     <?php the_excerpt(); ?>
 </article>

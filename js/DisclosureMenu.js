@@ -64,6 +64,13 @@ function MenuContainer (containerNode, index, disclosureMenuObj) {
 function DisclosureMenu (domNode) {
   var containerNodes, containerNode, menuContainer, i;
 
+  // Check for navigation landmark role
+  if (domNode.tagName.toLowerCase() !== 'nav') {
+   domNode.setAttribute('role', 'navigation');
+  }
+  // Add an accessible name to main menu
+  domNode.setAttribute('aria-label', 'Main');
+
   this.rootNode = domNode;
 
   // Add hamburger button
