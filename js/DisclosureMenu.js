@@ -69,7 +69,7 @@ function DisclosureMenu (domNode) {
    domNode.setAttribute('role', 'navigation');
   }
   // Add an accessible name to main menu
-  domNode.setAttribute('aria-label', 'Main');
+  domNode.setAttribute('aria-label', 'Site Menus');
 
   this.rootNode = domNode;
 
