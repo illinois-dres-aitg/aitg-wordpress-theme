@@ -89,10 +89,20 @@ function DisclosureMenu (domNode) {
   // initially hide menu if screen is narrow
   this.menuNode.classList.add('hide');
 
-  // Add event handlers for closing the pull down menus when focus or mouse
+  // Add event handlers for closing the pulldown menus when focus or mouse
   // event is not on a menu item
   document.body.addEventListener('mousedown', this.handleBodyCloseMenus.bind(this));
   document.body.addEventListener('focusin', this.handleBodyCloseMenus.bind(this));
+
+  // Add event handler for closing the pulldown menu on animationend
+  document.addEventListener('animationend', function (e) {
+    if (e.animationName === 'fade-out') {
+      e.target.style.display = 'none';
+    }
+  });
+
+  // Add event handler for closing the pulldown menu on unload
+  window.addEventListener('unload', this.closeMenusWithoutAnimation.bind(this));
 
   // WP/ARIA housekeeping
   convertSpansToLinks(this.rootNode);
@@ -193,6 +203,16 @@ DisclosureMenu.prototype.closeMenus = function (subMenuNode) {
     }
   }
 };
+
+DisclosureMenu.prototype.closeMenusWithoutAnimation = function () {
+  for (var i = 0; i < this.menuContainers.length; i++) {
+    var mc = this.menuContainers[i];
+    if (mc.hasSubMenu) {
+      mc.subMenuNode.style.display = 'none';
+      mc.buttonNode.setAttribute('aria-expanded', 'false');
+    }
+  }
+}
 
 DisclosureMenu.prototype.toggleExpand = function (menuContainer) {
   if (menuContainer.hasSubMenu) {
