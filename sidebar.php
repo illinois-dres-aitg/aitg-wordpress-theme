@@ -48,9 +48,9 @@ $next_link = get_next_post_link('%link', 'Next');
 
       <?php
         $postslist = get_posts( array(
-            'posts_per_page' => 10,
-            'order'          => 'ASC',
-            'orderby'        => 'title'
+            'posts_per_page' => 5,
+            'order'          => 'DESC',
+            'orderby'        => 'post_date'
         ) );
 
         if ( $postslist ) {
