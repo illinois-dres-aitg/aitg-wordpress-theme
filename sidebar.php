@@ -73,7 +73,7 @@ $next_link = get_next_post_link('%link', 'Next');
       </nav>
 
       <nav aria-labelledby="id-categories">
-        <h2 id="id-categories">All Categories</h2>
+        <h2 id="id-categories">Categories</h2>
         <ul class="categories">
         <?php
           $categories = get_categories( array(
