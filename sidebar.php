@@ -72,8 +72,8 @@ $next_link = get_next_post_link('%link', 'Next');
         <div class="all-posts"><a href="/blog/">Index of all posts</a></div>
       </nav>
 
-      <nav aria-labelledby="id-categories">
-        <h2 id="id-categories">Categories</h2>
+      <nav aria-label="Post Categories">
+        <h2>Categories</h2>
         <ul class="categories">
         <?php
           $categories = get_categories( array(
