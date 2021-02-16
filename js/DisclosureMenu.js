@@ -90,9 +90,12 @@ function DisclosureMenu (domNode) {
   this.menuNode.classList.add('hide');
 
   // Add event handlers for closing the pulldown menus when focus or mouse
-  // event is not on a menu item
+  // event within document is not on a menu item
   document.body.addEventListener('mousedown', this.handleBodyCloseMenus.bind(this));
   document.body.addEventListener('focusin', this.handleBodyCloseMenus.bind(this));
+
+  // Add event handler for closing the pulldown menus on unload
+  window.addEventListener('unload', this.closeMenus.bind(this));
 
   // Add event handler for closing the pulldown menu on animationend by setting
   // display:none on the sub-menu at the end point of the 'fade-out' animation.
@@ -103,9 +106,6 @@ function DisclosureMenu (domNode) {
       e.target.style.display = 'none';
     }
   });
-
-  // Add event handler for closing the pulldown menu on unload
-  window.addEventListener('unload', this.closeMenusWithoutAnimation.bind(this));
 
   // WP/ARIA housekeeping
   convertSpansToLinks(this.rootNode);
@@ -206,16 +206,6 @@ DisclosureMenu.prototype.closeMenus = function (subMenuNode) {
     }
   }
 };
-
-DisclosureMenu.prototype.closeMenusWithoutAnimation = function () {
-  for (var i = 0; i < this.menuContainers.length; i++) {
-    var mc = this.menuContainers[i];
-    if (mc.hasSubMenu) {
-      mc.subMenuNode.style.display = 'none';
-      mc.buttonNode.setAttribute('aria-expanded', 'false');
-    }
-  }
-}
 
 DisclosureMenu.prototype.toggleExpand = function (menuContainer) {
   if (menuContainer.hasSubMenu) {
@@ -546,14 +536,9 @@ DisclosureMenu.prototype.getMenuCloseSVGNode = function () {
   return svg1;
 };
 
-
 /*
-*   IIFE that initializes DisclosureMenu objects
+*   IIFE that initializes DisclosureMenu object
 */
 (function () {
-  console.log('init banner menu...');
-  var menus = document.querySelectorAll('.banner-menu');
-  for (var i = 0; i < menus.length; i++) {
-    new DisclosureMenu(menus[i]);
-  }
+  new DisclosureMenu(document.querySelector('.banner-menu'));
 })();
