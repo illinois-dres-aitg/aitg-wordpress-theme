@@ -589,6 +589,70 @@ header .skip-to.aitg [role=menuitem] {
   }
 }
 
+/* -------- sidebar.scss -------- */
+#sidebar {
+  padding-bottom: 1rem;
+}
+
+#sidebar a {
+  color: #1d4b90;
+  text-decoration: none;
+}
+
+#sidebar a:focus,
+#sidebar a:hover {
+  color: #00132c;
+  background-color: #cad9ef;
+  -webkit-transition: 0.3s background;
+  -moz-transition: 0.3s background;
+  transition: 0.3s background;
+  text-decoration: underline;
+}
+
+#sidebar a:focus {
+  outline: 2px solid #ff552e;
+}
+
+#sidebar nav h2 {
+  font-weight: 500;
+  font-size: 110%;
+  margin: 1rem 0.5rem;
+  clear: left;
+}
+
+#sidebar nav ul {
+  font-size: 90%;
+  margin: 0 0.5rem 0 1.375rem;
+}
+
+#sidebar nav ul > li {
+  margin: 0.125rem 0;
+}
+
+#sidebar nav > div.prev-post,
+#sidebar nav > div.next-post {
+  float: left;
+  font-size: 90%;
+  margin: 1rem 0.5rem;
+}
+
+#sidebar nav > div.next-post {
+  margin-left: 1rem;
+}
+
+#sidebar nav > div.prev-post::before {
+  content: "<< ";
+}
+
+#sidebar nav > div.next-post::after {
+  content: " >>";
+}
+
+#sidebar nav > div.all-posts {
+  font-size: 100%;
+  margin: 1rem 0.5rem;
+}
+
 /* -------- events.scss -------- */
 ul.upcoming-events {
   list-style: none;
@@ -737,48 +801,48 @@ main img.aligncenter {
   flex-direction: row;
 }
 
-.left-column {
+div.left-column {
   display: flex;
   flex-direction: column;
   flex-basis: 4%;
 }
 
-.content {
+main.content {
   display: flex;
   flex-direction: column;
   flex-basis: 92%;
 }
 
-.right-column {
+div.right-column {
   display: flex;
   flex-direction: column;
   flex-basis: 4%;
 }
 
 @media screen and (min-width: 768px) {
-  .left-column {
-    flex-basis: 14%;
+  div.left-column {
+    flex-basis: 0%;
   }
 
-  .content {
+  main.content {
     flex-basis: 72%;
   }
 
-  .right-column {
-    flex-basis: 14%;
+  div.right-column {
+    flex-basis: 28%;
   }
 }
 @media screen and (min-width: 992px) {
-  .left-column {
-    flex-basis: 18%;
+  div.left-column {
+    flex-basis: 20%;
   }
 
-  .content {
-    flex-basis: 64%;
+  main.content {
+    flex-basis: 60%;
   }
 
-  .right-column {
-    flex-basis: 18%;
+  div.right-column {
+    flex-basis: 20%;
   }
 }
 footer {
