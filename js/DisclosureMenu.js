@@ -94,7 +94,10 @@ function DisclosureMenu (domNode) {
   document.body.addEventListener('mousedown', this.handleBodyCloseMenus.bind(this));
   document.body.addEventListener('focusin', this.handleBodyCloseMenus.bind(this));
 
-  // Add event handler for closing the pulldown menu on animationend
+  // Add event handler for closing the pulldown menu on animationend by setting
+  // display:none on the sub-menu at the end point of the 'fade-out' animation.
+  // Note: Before 'fade-out' animation was added to sub-menus, setting display:
+  // none to close the sub-menus was handled by the closeMenus method.
   document.addEventListener('animationend', function (e) {
     if (e.animationName === 'fade-out') {
       e.target.style.display = 'none';
