@@ -39,7 +39,8 @@
                   landmarks: 'main, [role="main"], [role="search"], nav',
                   headings: 'main h1, main h2',
                   colorTheme: 'illinois',
-                  customClass: 'aitg'
+                  customClass: 'aitg',
+                  enableActions: false
               }
           }
       };
