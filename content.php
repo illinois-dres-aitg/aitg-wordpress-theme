@@ -6,20 +6,20 @@
     </h1>
 
     <div class="date">
-        <?php the_date(); ?>
+        Date: <?php the_date(); ?>
     </div>
 
     <div class="author">
-        <?php the_author(); ?>
+        Author: <?php the_author(); ?>
     </div>
 
+    <?php the_content(); ?>
+
     <div class="categories">
-        <?php the_category(); ?>
+        Category: <?php the_category(', '); ?>
     </div>
 
     <div class="tags">
         <?php the_tags(); ?>
     </div>
-
-    <?php the_content(); ?>
 </article>
