@@ -6,7 +6,7 @@
     </h2>
 
     <div class="date">
-        <span>Date:</span> <?php the_date(); ?>
+        <span>Date:</span> <?php get_the_date(); ?>
     </div>
 
     <div class="author">
