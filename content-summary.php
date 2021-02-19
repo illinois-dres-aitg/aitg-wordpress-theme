@@ -6,15 +6,15 @@
     </h2>
 
     <div class="date">
-        <?php the_date(); ?>
+        <span>Date:</span> <?php the_date(); ?>
     </div>
 
     <div class="author">
-        <?php the_author(); ?>
+        <span>Author: </span> <?php the_author(); ?>
     </div>
 
     <div class="categories">
-        <?php the_category(); ?>
+        <span>Category:</span> <?php the_category(', '); ?>
     </div>
 
     <div class="tags">

@@ -6,11 +6,11 @@
     </h1>
 
     <div class="date">
-        Date: <?php the_date(); ?>
+        <span>Date:</span> <?php the_date(); ?>
     </div>
 
     <div class="author">
-        Author: <?php the_author(); ?>
+        <span>Author:</span> <?php the_author(); ?>
     </div>
 
     <?php the_content(); ?>
