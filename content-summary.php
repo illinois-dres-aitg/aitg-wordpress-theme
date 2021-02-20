@@ -13,6 +13,8 @@
         <span>Author: </span> <?php the_author(); ?>
     </div>
 
+    <?php the_excerpt(); ?>
+
     <div class="categories">
         <span>Category:</span> <?php the_category(', '); ?>
     </div>
@@ -21,5 +23,4 @@
         <?php the_tags(); ?>
     </div>
 
-    <?php the_excerpt(); ?>
 </article>
