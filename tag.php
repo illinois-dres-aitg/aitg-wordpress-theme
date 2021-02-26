@@ -22,7 +22,7 @@
                 <?php endif; ?>
             </ul>
 
-        else: ?>
+        <?php else: ?>
 
         	<div class="post clearfix">
         	    <h2><?php _e( 'Posts not found', 'basic' ); ?></h2>
