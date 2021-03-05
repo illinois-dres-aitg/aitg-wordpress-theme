@@ -1,3 +1,11 @@
+<?php
+$categories = the_category(', ');
+$hasCategory = strpos($categories, 'Uncategorized') === false;
+
+$tags = the_tags();
+$hasTags = strpos($tags, 'Tags') !== false;
+?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <h1 class="entry-title">
       <?php the_title(); ?>
@@ -13,11 +21,15 @@
 
     <?php the_content(); ?>
 
+    <?php if ($hasCategories) { ?>
     <div class="categories">
-        Category: <?php the_category(', '); ?>
+        Category: <?php echo $categories ?>
     </div>
+    <?php } ?>
 
+    <?php if ($hasTags) { ?>
     <div class="tags">
-        <?php the_tags(); ?>
+        <?php echo $tags ?>
     </div>
+    <?php } ?>
 </article>
