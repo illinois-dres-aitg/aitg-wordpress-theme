@@ -1,6 +1,6 @@
 <?php
 $categories = the_category(', ');
-$hasCategory = strpos($categories, 'Uncategorized') === false;
+$hasCategories = strpos($categories, 'Uncategorized') === false;
 
 $tags = the_tags();
 $hasTags = strpos($tags, 'Tags') !== false;
