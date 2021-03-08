@@ -303,6 +303,15 @@ DisclosureMenu.prototype.handleButtonKeydown = function (event) {
     flag = false;
 
   switch (key) {
+    case ' ':
+      var mc = this.getMenuContainer(event.target);
+      if (mc.hasSubMenu) {
+        this.toggleExpand(mc);
+        mc.buttonNode.focus();
+      }
+      flag = true;
+      break;
+
     case 'Esc':
     case 'Escape':
       this.closeMenus();
