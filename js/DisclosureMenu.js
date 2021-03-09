@@ -1,6 +1,27 @@
 'use strict';
 
 /*
+*   CSS classes and animation names referenced by this script:
+*
+*   menu                      class         WordPress
+*   menu-item-has-children    class         WordPress
+*   sub-menu                  class         WordPress
+*
+*   banner-hamburger          class         AITG stylesheet
+*   banner-menu               class         AITG stylesheet
+*   banner-name               class         AITG stylesheet
+*   hide                      class         AITG stylesheet
+*   left-adjust               class         AITG stylesheet
+*
+*   fade-out                  animation     AITG stylesheet
+*
+*   Important note: The sub-menus are opened and closed using CSS animations.
+*   In order for the menu close animation to work properly (i.e. to actually
+*   close the sub-menu), the name of the animation must be 'fade-out', which
+*   is referenced in the handler function for the 'animationend' event.
+*/
+
+/*
 *   MenuContainer: A DisclosureMenu object instantiates MenuContainer objects
 *   for use in managing a menu button's link behavior and submenu links.
 */
