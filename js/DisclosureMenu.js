@@ -1,6 +1,7 @@
 'use strict';
 
 /*
+5
 *   CSS classes and animation names referenced by this script:
 *
 *   menu                      class         WordPress
