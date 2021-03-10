@@ -1,11 +1,3 @@
-<?php
-$categories = get_the_category(', ');
-$hasCategories = count($categories) > 0;
-
-$tags = the_tags();
-$hasTags = strpos($tags, 'Tags') !== false;
-?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <h1 class="entry-title">
       <?php the_title(); ?>
@@ -21,15 +13,11 @@ $hasTags = strpos($tags, 'Tags') !== false;
 
     <?php the_content(); ?>
 
-    <?php if ($hasCategories) { ?>
     <div class="categories">
-        Category: <?php echo $categories ?>
+        Category: <?php echo  get_the_category(', ') ?>
     </div>
-    <?php } ?>
 
-    <?php if ($hasTags) { ?>
     <div class="tags">
-        <?php echo $tags ?>
+        <?php the_tags() { ?>
     </div>
-    <?php } ?>
 </article>
