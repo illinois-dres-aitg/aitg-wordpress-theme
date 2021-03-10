@@ -24,16 +24,17 @@ class BlogTags {
         $html = '<div class="post_tags">';
 
         $tags = get_tags(array(
-              'taxonomy' => 'post_tag',
-              'orderby' => 'count'));
+            'taxonomy' => 'post_tag',
+            'orderby' => 'count'));
 
         $html .= '  <h2 class="post_tags">Tags by Popularity</h2>';
 
         $html .= $this->list_of_tags($tags);
 
         $tags = get_tags(array(
-              'taxonomy' => 'post_tag',
-              'orderby' => 'name'));
+            'taxonomy' => 'post_tag',
+            'orderby' => 'name'),
+            'order'   => 'DESC');
 
         $html .= '  <h2 class="post_tags">Tags by Name</h2>';
 
