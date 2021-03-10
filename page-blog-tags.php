@@ -55,7 +55,7 @@ $blog_tags = new BlogTags();
     <main class="content">
     	<?php do_action( 'basic_main_content_inner_begin' ); ?>
 
-        <h1>Blog Tags</h1>
+        <h1><?php the_title(); ?></h1>
 
         <?php $blog_tags->show_tags(); ?>
 
