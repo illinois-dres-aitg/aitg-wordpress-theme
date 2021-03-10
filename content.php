@@ -18,6 +18,6 @@
     </div>
 
     <div class="tags">
-        <?php the_tags() { ?>
+        <?php the_tags() ?>
     </div>
 </article>
