@@ -91,6 +91,9 @@ $next_link = get_next_post_link('%link', 'Next');
           }
         ?>
         </ul>
+
+        <div class="all-posts"><a href="/all-tags/">Index of all tags</a></div>
+
       </nav>
     <?php
 
