@@ -25,7 +25,8 @@ class BlogTags {
 
         $tags = get_tags(array(
             'taxonomy' => 'post_tag',
-            'orderby' => 'count'));
+            'orderby' => 'count',
+            'order'   => 'DESC'));
 
         $html .= '  <h2 class="post_tags">Tags by Popularity</h2>';
 
@@ -33,8 +34,7 @@ class BlogTags {
 
         $tags = get_tags(array(
             'taxonomy' => 'post_tag',
-            'orderby' => 'name',
-            'order'   => 'DESC'));
+            'orderby' => 'name'));
 
         $html .= '  <h2 class="post_tags">Tags by Name</h2>';
 
