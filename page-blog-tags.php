@@ -33,8 +33,8 @@ class BlogTags {
 
         $tags = get_tags(array(
             'taxonomy' => 'post_tag',
-            'orderby' => 'name'),
-            'order'   => 'DESC');
+            'orderby' => 'name',
+            'order'   => 'DESC'));
 
         $html .= '  <h2 class="post_tags">Tags by Name</h2>';
 
