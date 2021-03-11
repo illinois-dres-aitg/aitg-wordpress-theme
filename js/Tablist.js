@@ -12,6 +12,7 @@ class Tablist {
     console.log('[tabNodes]: ' + this.tabNodes.length);
     for (let i = 0; this.tabNodes.length; i++) {
       let tabNode = this.tabNodes[i];
+      console.log('[tabNode]: ' + i + ' ' + tabNode.textContent);
 
       if (i === 0) {
         tabNode.tabindex = 0;
