@@ -21,7 +21,7 @@ class AITG_BlogTags {
                 if ($lastLetter !== '') {
                     $html .= '  </ul>';
                 }
-                $html .= '  <h3 class="post-letter">' . $letter . '</h3>';
+                $html .= '  <h3 class="post-letter">' . ucwords($letter) . '</h3>';
                 $html .= '  <ul class="post-tags">';
                 $lastLetter = $letter;
             }
