@@ -30,7 +30,20 @@ class Tablist {
         console.log('[ERROR]: ' + ' could not find "' + id + '" for tabpanel.');
       }
     }
+    this.updatePanels();
   }
+
+  updatePanels() {
+    for (let i = 0; this.tabNodes.length; i++) {
+      let tabNode = this.tabNodes[i];
+      if (tabNode.getAttribute('aria-selected') === 'true') {
+        this.tabpanelNodes[i].style.display = 'block';
+      } else {
+        this.tabpanelNodes[i].style.display = 'none';
+      }
+    }
+  }
+
 
 }
 
