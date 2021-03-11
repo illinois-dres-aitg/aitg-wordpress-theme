@@ -65,7 +65,6 @@ class Tablist {
       if (tabNode === node) {
         tabNode.setAttribute('aria-selected', 'true');
         tabNode.tabIndex = 0;
-        tabNode.focus();
       }
       else {
         tabNode.setAttribute('aria-selected', 'false');
@@ -86,8 +85,10 @@ class Tablist {
         index -= 1;
         if (index > 0) {
           this.setSelectedTab(this.tabNodes[index]);
+          this.tabNodes[index].focus();
         } else {
           this.setSelectedTab(this.firstTab);
+          this.firstTab.focus();
         }
         flag = true;
         break;
@@ -97,19 +98,23 @@ class Tablist {
         index += 1;
         if (index < this.maxTabs) {
           this.setSelectedTab(this.tabNodes[index]);
+          this.tabNodes[index].focus();
         } else {
           this.setSelectedTab(this.lastTab);
+          this.lastTab.focus();
         }
         flag = true;
         break;
 
       case 'Home':
         this.setSelectedTab(this.firstTab);
+        this.firstTab.focus();
         flag = true;
         break;
 
       case 'End':
         this.setSelectedTab(this.lastTab);
+        this.lastTab.focus();
         flag = true;
         break;
     }
@@ -124,6 +129,7 @@ class Tablist {
     var tgt = event.currentTarget;
 
     this.setSelectedTab(tgt);
+    tgt.focus();
 
     event.stopPropagation();
     event.preventDefault();
