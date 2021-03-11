@@ -89,7 +89,7 @@ class Tablist {
           this.tabNodes[index].focus();
         } else {
           this.setSelectedTab(this.lastTab);
-          this.firstTab.focus();
+          this.lastTab.focus();
         }
         flag = true;
         break;
@@ -102,7 +102,7 @@ class Tablist {
           this.tabNodes[index].focus();
         } else {
           this.setSelectedTab(this.firstTab);
-          this.lastTab.focus();
+          this.firstTab.focus();
         }
         flag = true;
         break;
