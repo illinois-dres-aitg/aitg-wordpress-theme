@@ -2,7 +2,7 @@
 /*
 *  Tablist: A Tablist object instantiates an ARIA Tablist, Tab and Tabpanel pattern.
 */
-class Tablist() {
+class Tablist {
   constructor(tablistNode) {
     this.tablistNode = tablistNode;
 
