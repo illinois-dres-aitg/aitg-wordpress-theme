@@ -39,6 +39,15 @@ class Tablist {
     this.updatePanels();
   }
 
+  getIndexOfTab(tabNode) {
+    for (let i = 0; i < this.maxTabs; i++) {
+      if (tabNode === this.tabNodes[i]) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
   updatePanels() {
     for (let i = 0; i < this.maxTabs; i++) {
       let tabNode = this.tabNodes[i];
@@ -68,7 +77,7 @@ class Tablist {
   onKeydown(event) {
     var tgt = event.currentTarget;
     let flag = false;
-    let index = this.tabNodes.indexOf(tgt);
+    let index = this.getIndexOfTab(tgt);
 
     switch(event.key) {
       case 'Right':
