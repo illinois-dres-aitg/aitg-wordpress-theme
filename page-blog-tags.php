@@ -45,16 +45,40 @@ class AITG_BlogTags {
             'orderby' => 'count',
             'order'   => 'DESC'));
 
-        $html = '  <ul class="post_tags">';
+        $lastCount = 0;
+
+        $html = '';
+
         foreach ( $tags as $tag ) {
-            if ($tag->count > 0) {
+            $count = $tag->count;
+            if ($count > 0) {
+                if ( $lastCount !== $count) {
+                    if ($lastCount !== 0) {
+                        $html .= '  </ul>';
+                    }
+                    if ($count > 1) {
+                        $html .= '  <h3 class="post-letter">' . $count . ' Posts</h3>';
+                    } else {
+                        $html .= '  <h3 class="post-letter">1 Post</h3>';
+                    }
+                    $html .= '  <ul class="post-tags">';
+                    $lastCount = $count;
+                }
                 $tag_link = get_tag_link( $tag->term_id );
 
                 $html .= "  <li><a href='{$tag_link}' class='{$tag->slug}'>";
                 $html .= "{$tag->name} ({$tag->count} posts)</a></li>";
+            } else {
+                if ($lastCount !== 0) {
+                    $html .= '  </ul>';
+                }
+                $lastCount = 0;
             }
         }
-        $html .= '  </ul>';
+
+        if ($lastCount !== 0) {
+            $html .= '  </ul>';
+        }
         return $html;
     }
 
