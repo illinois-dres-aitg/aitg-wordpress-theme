@@ -87,7 +87,7 @@ class AITG_BlogTags {
 
         $html .= '  <div role="tablist">';
         $html .= '    <div role="tab" aria-controls="id-tabpanel-pop">Popularity</div>';
-        $html .= '    <div role="tab" aria-controls="id-tabpanel-nam">Name</div>';
+        $html .= '    <div role="tab" aria-controls="id-tabpanel-name">Name</div>';
         $html .= '  </div>';
 
 
