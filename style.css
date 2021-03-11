@@ -752,14 +752,12 @@ main [role=tab][aria-selected=true]:hover {
   background-color: #cad9ef;
   transition: 0.3s background;
   text-decoration: underline;
+  color: #00132c;
 }
 
 main [role=tab]:focus,
 main [role=tab][aria-selected=true]:focus {
-  color: #00132c;
-  border-top-color: #ff552e;
-  border-left-color: #ff552e;
-  border-right-color: #ff552e;
+  border-color: #ff552e;
 }
 
 /* -------- styles.scss -------- */
