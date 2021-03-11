@@ -61,7 +61,9 @@ class Tablist {
         tabNode.setAttribute('aria-selected', 'false');
       }
     }
-    updatePanels();
+
+    this.updatePanels();
+
     event.stopPropagation();
     event.preventDefault();
   }
