@@ -695,7 +695,6 @@ main .post .code {
   padding: 0.25em;
   border-radius: 6px;
   white-space: pre-wrap;
-  overflow: scroll;
 }
 
 main .post .categories,
