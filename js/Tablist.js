@@ -6,7 +6,7 @@ class Tablist {
   constructor(tablistNode) {
     this.tablistNode = tablistNode;
 
-    this.tabNodes = this.tablistNode.querySelector('[role="tab"]');
+    this.tabNodes = this.tablistNode.querySelectorAll('[role="tab"]');
     this.tabpanelNodes = [];
 
     console.log('[tabNodes]: ' + this.tabNodes.length);
