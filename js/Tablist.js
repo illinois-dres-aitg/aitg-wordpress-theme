@@ -10,7 +10,7 @@ class Tablist() {
     this.tabpanelNodes = [];
 
     for (let i = 0; this.tabNodes.list; i++) {
-      let tabNode = tabNodes[i];
+      let tabNode = this.tabNodes[i];
 
       if (i === 0) {
         tabNode.tabindex = 0;
