@@ -13,6 +13,8 @@ class AITG_BlogTags {
 
         $lastLetter = '';
 
+        $html = '';
+
         foreach ( $tags as $tag ) {
             $letter = $tag->name[0];
             if ($lastLetter !== $letter) {
@@ -20,7 +22,7 @@ class AITG_BlogTags {
                     $html .= "  </ul>";
                 }
                 $html .= "  <h3 class='post-letter'>ucfirst{$letter}</h3>";
-                $html = "  <ul class='post-tags'>";
+                $html .= "  <ul class='post-tags'>";
             }
             if ($tag->count > 0) {
                 $tag_link = get_tag_link( $tag->term_id );
