@@ -728,17 +728,20 @@ main [role=tablist] {
 }
 
 main [role=tab] {
+  position: relative;
+  top: 2px;
   margin: 0;
   padding: 0.25em 0.5em;
   border: 2px solid #13294b;
   background-color: #13294b;
   color: white;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
   display: inline-block;
 }
 
 main [role=tab][aria-selected=true] {
   background-color: white;
+  border-botton-color: white;
   color: black;
 }
 
