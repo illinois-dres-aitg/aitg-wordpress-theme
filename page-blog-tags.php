@@ -19,16 +19,16 @@ class AITG_BlogTags {
             $letter = $tag->name[0];
             if ($lastLetter !== $letter) {
                 if ($lastLetter !== '') {
-                    $html .= "  </ul>";
+                    $html .= '  </ul>';
                 }
-                $html .= "  <h3 class='post-letter'>ucfirst{$letter}</h3>";
-                $html .= "  <ul class='post-tags'>";
+                $html .= '  <h3 class="post-letter">' . ucfirst{$letter} . '</h3>';
+                $html .= '  <ul class="post-tags">';
             }
             if ($tag->count > 0) {
                 $tag_link = get_tag_link( $tag->term_id );
 
-                $html .= "  <li><a href='{$tag_link}' class='{$tag->slug}'>";
-                $html .= "{$tag->name} ({$tag->count} posts)</a></li>";
+                $html .= '  <li><a href="' . $tag_link . ' class="' . $tag->slug . '">';
+                $html .= {$tag->name} ({$tag->count} posts)</a></li>";
             }
         }
 
