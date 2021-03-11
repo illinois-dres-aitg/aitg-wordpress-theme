@@ -7,9 +7,13 @@ class Tablist {
     this.tablistNode = tablistNode;
 
     this.tabNodes = this.tablistNode.querySelectorAll('[role="tab"]');
+    this.maxTabs = this.tabNode.length;
+    this.firstTab = this.tabNodes[0];
+    this.lastTab = this.tabNodes[this.maxTabs-1];
+
     this.tabpanelNodes = [];
 
-    for (let i = 0; i < this.tabNodes.length; i++) {
+    for (let i = 0; i < this.maxTabs; i++) {
       let tabNode = this.tabNodes[i];
 
       tabNode.addEventListener('keydown', this.onKeydown.bind(this));
@@ -36,7 +40,7 @@ class Tablist {
   }
 
   updatePanels() {
-    for (let i = 0; i < this.tabNodes.length; i++) {
+    for (let i = 0; i < this.maxTabs; i++) {
       let tabNode = this.tabNodes[i];
       if (tabNode.getAttribute('aria-selected') === 'true') {
         this.tabpanelNodes[i].style.display = 'block';
@@ -46,13 +50,8 @@ class Tablist {
     }
   }
 
-  onKeydown(event) {
-
-  }
-
-  onClick(event) {
-    var tgt = event.currentTarget;
-    for (let i = 0; i < this.tabNodes.length; i++) {
+  setSelectedTab(tabNode) {
+    for (let i = 0; i < this.maxTabs; i++) {
       let tabNode = this.tabNodes[i];
       if (tabNode === tgt) {
         tabNode.setAttribute('aria-selected', 'true');
@@ -63,8 +62,58 @@ class Tablist {
         tabNode.tabIndex = -1;
       }
     }
-
     this.updatePanels();
+  }
+
+  onKeydown(event) {
+    var tgt = event.currentTarget;
+    let flag = false;
+    let index = this.tabNodes.indexOf(tgt);
+
+    switch(event.key) {
+      case 'Right':
+      case 'ArrowRight':
+        index -= 1;
+        if (index > 0) {
+          this.setSelected(this.tabNodes[index]);
+        } else {
+          this.setSelected(this.firstTab);
+        }
+        flag = true;
+        break;
+
+      case 'Left':
+      case 'ArrowLeft':
+        index += 1;
+        if (index < this.maxTabs) {
+          this.setSelected(this.tabNodes[index]);
+        } else {
+          this.setSelected(this.lastTab);
+        }
+        flag = true;
+        break;
+
+      case 'Home':
+        this.setSelected(this.firstTab);
+        flag = true;
+        break;
+
+      case 'End':
+        this.setSelected(this.lastTab);
+        flag = true;
+        break;
+    }
+
+    if (flag) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+  }
+
+  onClick(event) {
+    var tgt = event.currentTarget;
+
+    this.setSelectedTab(tgt);
 
     event.stopPropagation();
     event.preventDefault();
