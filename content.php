@@ -14,7 +14,7 @@
     <?php the_content(); ?>
 
     <div class="categories">
-        Category: <?php echo  get_the_category(', ') ?>
+        <span>Category:</span> <?php the_category(', '); ?>
     </div>
 
     <div class="tags">
