@@ -65,6 +65,7 @@ class Tablist {
       if (tabNode === node) {
         tabNode.setAttribute('aria-selected', 'true');
         tabNode.tabIndex = 0;
+        tabNode.focus();
       }
       else {
         tabNode.setAttribute('aria-selected', 'false');
