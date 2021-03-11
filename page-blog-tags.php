@@ -11,8 +11,17 @@ class AITG_BlogTags {
             'taxonomy' => 'post_tag',
             'orderby' => 'name'));
 
-        $html = '  <ul class="post_tags">';
+        $lastLetter = '';
+
         foreach ( $tags as $tag ) {
+            $letter = $tag->name[0];
+            if ($lastLetter !== $letter) {
+                if ($lastLetter !== '') {
+                    $html .= "  </ul>";
+                }
+                $html .= "  <h3 class='post-letter'>ucfirst{$letter}</h3>";
+                $html = "  <ul class='post-tags'>";
+            }
             if ($tag->count > 0) {
                 $tag_link = get_tag_link( $tag->term_id );
 
@@ -20,7 +29,10 @@ class AITG_BlogTags {
                 $html .= "{$tag->name} ({$tag->count} posts)</a></li>";
             }
         }
-        $html .= '  </ul>';
+
+        if ($lastLetter !== '') {
+            $html .= "  </ul>";
+        }
         return $html;
     }
 
