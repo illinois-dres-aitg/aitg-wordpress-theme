@@ -741,7 +741,7 @@ main [role=tab] {
 
 main [role=tab][aria-selected=true] {
   background-color: white;
-  border-botton-color: white;
+  border-bottom-color: white;
   color: black;
 }
 
