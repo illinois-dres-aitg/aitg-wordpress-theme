@@ -16,10 +16,10 @@ class Tablist {
       tabNode.addEventListener('click', this.onClick.bind(this));
 
       if (i === 0) {
-        tabNode.tabindex = 0;
+        tabNode.tabIndex = 0;
         tabNode.setAttribute('aria-selected', 'true');
       } else {
-        tabNode.tabindex = -1;
+        tabNode.tabIndex = -1;
         tabNode.setAttribute('aria-selected', 'false');
       }
 
@@ -56,9 +56,11 @@ class Tablist {
       let tabNode = this.tabNodes[i];
       if (tabNode === tgt) {
         tabNode.setAttribute('aria-selected', 'true');
+        tabNode.tabIndex = 0;
       }
       else {
         tabNode.setAttribute('aria-selected', 'false');
+        tabNode.tabIndex = -1;
       }
     }
 
