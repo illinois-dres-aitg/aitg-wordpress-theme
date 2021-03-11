@@ -697,6 +697,10 @@ main .post .code {
   white-space: pre-wrap;
 }
 
+main .post .code .highlight {
+  background-color: #cad9ef;
+}
+
 main .post .categories,
 main .post .tags {
   margin-top: 0.5em;
