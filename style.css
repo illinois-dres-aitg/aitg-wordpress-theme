@@ -710,11 +710,17 @@ main nav.current-post-category {
   margin-bottom: 1em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  position: relative;
+}
+
+main nav.current-post-category div.prev-post {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 main nav.current-post-category div.next-post {
   position: absolute;
+  top: 0;
   right: 0;
 }
 
