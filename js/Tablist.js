@@ -7,7 +7,7 @@ class Tablist {
     this.tablistNode = tablistNode;
 
     this.tabNodes = this.tablistNode.querySelectorAll('[role="tab"]');
-    this.maxTabs = this.tabNode.length;
+    this.maxTabs = this.tabNodes.length;
     this.firstTab = this.tabNodes[0];
     this.lastTab = this.tabNodes[this.maxTabs-1];
 
