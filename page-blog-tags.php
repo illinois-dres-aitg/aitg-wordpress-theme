@@ -19,22 +19,22 @@ class AITG_BlogTags {
             $letter = $tag->name[0];
             if ($lastLetter !== $letter) {
                 if ($lastLetter !== '') {
-                    $html .= '  </ul>';
+                    $html .= '    </ul>';
                 }
-                $html .= '  <h3 class="post-letter">' . ucwords($letter) . '</h3>';
-                $html .= '  <ul class="post-tags">';
+                $html .= '    <h3 class="post-letter">' . ucwords($letter) . '</h3>';
+                $html .= '    <ul class="post-tags">';
                 $lastLetter = $letter;
             }
             if ($tag->count > 0) {
                 $tag_link = get_tag_link( $tag->term_id );
 
-                $html .= "  <li><a href='{$tag_link}' class='{$tag->slug}'>";
+                $html .= "      <li><a href='{$tag_link}' class='{$tag->slug}'>";
                 $html .= "{$tag->name} ({$tag->count} posts)</a></li>";
             }
         }
 
         if ($lastLetter !== '') {
-            $html .= '  </ul>';
+            $html .= '    </ul>';
         }
         return $html;
     }
@@ -54,30 +54,30 @@ class AITG_BlogTags {
             if ($count > 0) {
                 if ( $lastCount !== $count) {
                     if ($lastCount !== 0) {
-                        $html .= '  </ul>';
+                        $html .= '    </ul>';
                     }
                     if ($count > 1) {
-                        $html .= '  <h3 class="post-letter">' . $count . ' Posts</h3>';
+                        $html .= '    <h3 class="post-letter">' . $count . ' Posts</h3>';
                     } else {
-                        $html .= '  <h3 class="post-letter">1 Post</h3>';
+                        $html .= '    <h3 class="post-letter">1 Post</h3>';
                     }
-                    $html .= '  <ul class="post-tags">';
+                    $html .= '    <ul class="post-tags">';
                     $lastCount = $count;
                 }
                 $tag_link = get_tag_link( $tag->term_id );
 
-                $html .= "  <li><a href='{$tag_link}' class='{$tag->slug}'>";
+                $html .= "      <li><a href='{$tag_link}' class='{$tag->slug}'>";
                 $html .= "{$tag->name} ({$tag->count} posts)</a></li>";
             } else {
                 if ($lastCount !== 0) {
-                    $html .= '  </ul>';
+                    $html .= '    </ul>';
                 }
                 $lastCount = 0;
             }
         }
 
         if ($lastCount !== 0) {
-            $html .= '  </ul>';
+            $html .= '    </ul>';
         }
         return $html;
     }
@@ -85,11 +85,21 @@ class AITG_BlogTags {
     public function show_tags() {
         $html = '<div class="post_tags">';
 
-        $html .= '  <h2 class="post_tags">Tags by Popularity</h2>';
-        $html .= $this->list_of_tags_by_count();
+        $html .= '  <div role="tablist">';
+        $html .= '    <div role="tab" aria-controls="id-tabpanel-pop">Popular</div>';
+        $html .= '    <div role="tab" aria-controls="id-tabpanel-nam">Name</div>';
+        $html .= '  </div>';
 
-        $html .= '  <h2 class="post_tags">Tags by Name</h2>';
+
+        $html .= '  <div role="tabpanel" id="id-tabpanel-pop">';
+        $html .= '    <h2 class="post_tags">Tags by Popularity</h2>';
+        $html .= $this->list_of_tags_by_count();
+        $html .= '  </div>';
+
+        $html .= '  <div role="tabpanel" id="id-tabpanel-name">';
+        $html .= '    <h2 class="post_tags">Tags by Name</h2>';
         $html .= $this->list_of_tags_by_name();
+        $html .= '  </div>';
 
         $html .= '</div>';
         echo $html;
