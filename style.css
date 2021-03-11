@@ -723,6 +723,25 @@ main nav.current-post-category div.next-post {
   right: 0;
 }
 
+main [role=tablist] {
+  border-bottom: 2px solid #13294b;
+}
+
+main [role=tab] {
+  margin: 0;
+  padding: 0.25em 0.5em;
+  border: 2px solid #13294b;
+  background-color: #13294b;
+  color: white;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+main [role=tab][aria-selected=true] {
+  background-color: white;
+  color: black;
+}
+
 /* -------- styles.scss -------- */
 main {
   color: #00132c;
