@@ -59,10 +59,10 @@ class Tablist {
     }
   }
 
-  setSelectedTab(tabNode) {
+  setSelectedTab(node) {
     for (let i = 0; i < this.maxTabs; i++) {
       let tabNode = this.tabNodes[i];
-      if (tabNode === tgt) {
+      if (tabNode === node) {
         tabNode.setAttribute('aria-selected', 'true');
         tabNode.tabIndex = 0;
       }
