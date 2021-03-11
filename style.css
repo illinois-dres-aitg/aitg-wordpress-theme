@@ -739,10 +739,26 @@ main [role=tab] {
   display: inline-block;
 }
 
+main [role=tab]:focus,
+main [role=tab]:hover {
+  background-color: #cad9ef;
+  transition: 0.3s background;
+}
+
 main [role=tab][aria-selected=true] {
   background-color: white;
   border-bottom-color: white;
   color: black;
+}
+
+main [role=tab]:focus,
+main [role=tab]:hover,
+main [role=tab][aria-selected=true]:focus,
+main [role=tab][aria-selected=true]:hover {
+  color: #00132c;
+  border-top-color: #ff552e;
+  border-left-color: #ff552e;
+  border-right-color: #ff552e;
 }
 
 /* -------- styles.scss -------- */
