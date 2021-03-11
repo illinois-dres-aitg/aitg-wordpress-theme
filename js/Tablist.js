@@ -84,9 +84,9 @@ class Tablist {
       case 'ArrowRight':
         index -= 1;
         if (index > 0) {
-          this.setSelected(this.tabNodes[index]);
+          this.setSelectedTab(this.tabNodes[index]);
         } else {
-          this.setSelected(this.firstTab);
+          this.setSelectedTab(this.firstTab);
         }
         flag = true;
         break;
@@ -95,20 +95,20 @@ class Tablist {
       case 'ArrowLeft':
         index += 1;
         if (index < this.maxTabs) {
-          this.setSelected(this.tabNodes[index]);
+          this.setSelectedTab(this.tabNodes[index]);
         } else {
-          this.setSelected(this.lastTab);
+          this.setSelectedTab(this.lastTab);
         }
         flag = true;
         break;
 
       case 'Home':
-        this.setSelected(this.firstTab);
+        this.setSelectedTab(this.firstTab);
         flag = true;
         break;
 
       case 'End':
-        this.setSelected(this.lastTab);
+        this.setSelectedTab(this.lastTab);
         flag = true;
         break;
     }
