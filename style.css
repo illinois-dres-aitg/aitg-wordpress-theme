@@ -686,6 +686,35 @@ ul.upcoming-events.presentations > li {
   grid-template-columns: 60% 20% 1fr;
 }
 
+/* -------- blog.scss -------- */
+main .post .categories,
+main .post .tags {
+  margin: 0.25em;
+}
+
+main nav.current-post-category {
+  width: 100%;
+  position: relative;
+}
+
+main nav.current-post-category div.prev-post {
+  position: absolute;
+  left: 1em;
+}
+
+main nav.current-post-category div.next-post {
+  position: absolute;
+  right: 1em;
+}
+
+main nav.current-post-category div.prev-post::before {
+  content: "<< ";
+}
+
+main nav.current-post-category div.next-post::after {
+  content: " >>";
+}
+
 /* -------- styles.scss -------- */
 main {
   color: #00132c;
@@ -896,3 +925,5 @@ footer a:hover {
 footer a:focus {
   outline: 2px solid #ff552e;
 }
+
+/*# sourceMappingURL=styles.css.map */

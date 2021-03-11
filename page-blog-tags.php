@@ -4,9 +4,32 @@ Template Name: Blog Tags
 Template Post Type: page
 */
 
-class BlogTags {
+class AITG_BlogTags {
 
-    private function list_of_tags($tags) {
+    private function list_of_tags_by_name() {
+        $tags = get_tags(array(
+            'taxonomy' => 'post_tag',
+            'orderby' => 'name'));
+
+        $html = '  <ul class="post_tags">';
+        foreach ( $tags as $tag ) {
+            if ($tag->count > 0) {
+                $tag_link = get_tag_link( $tag->term_id );
+
+                $html .= "  <li><a href='{$tag_link}' class='{$tag->slug}'>";
+                $html .= "{$tag->name} ({$tag->count} posts)</a></li>";
+            }
+        }
+        $html .= '  </ul>';
+        return $html;
+    }
+
+    private function list_of_tags_by_count() {
+        $tags = get_tags(array(
+            'taxonomy' => 'post_tag',
+            'orderby' => 'count',
+            'order'   => 'DESC'));
+
         $html = '  <ul class="post_tags">';
         foreach ( $tags as $tag ) {
             if ($tag->count > 0) {
@@ -23,22 +46,11 @@ class BlogTags {
     public function show_tags() {
         $html = '<div class="post_tags">';
 
-        $tags = get_tags(array(
-            'taxonomy' => 'post_tag',
-            'orderby' => 'count',
-            'order'   => 'DESC'));
-
         $html .= '  <h2 class="post_tags">Tags by Popularity</h2>';
-
-        $html .= $this->list_of_tags($tags);
-
-        $tags = get_tags(array(
-            'taxonomy' => 'post_tag',
-            'orderby' => 'name'));
+        $html .= $this->list_of_tags_by_count();
 
         $html .= '  <h2 class="post_tags">Tags by Name</h2>';
-
-        $html .= $this->list_of_tags($tags);
+        $html .= $this->list_of_tags_by_name();
 
         $html .= '</div>';
         echo $html;
@@ -46,7 +58,7 @@ class BlogTags {
 
 }
 
-$blog_tags = new BlogTags();
+$aitg_blog_tags = new AITG_BlogTags();
 
 ?>
 
@@ -58,7 +70,7 @@ $blog_tags = new BlogTags();
 
         <h1><?php the_title(); ?></h1>
 
-        <?php $blog_tags->show_tags(); ?>
+        <?php $aitg_blog_tags->show_tags(); ?>
 
     	<?php do_action( 'basic_main_content_inner_end' ); ?>
     </main>
