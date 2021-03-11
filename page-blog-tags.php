@@ -86,7 +86,7 @@ class AITG_BlogTags {
         $html = '<div class="post_tags">';
 
         $html .= '  <div role="tablist">';
-        $html .= '    <div role="tab" aria-controls="id-tabpanel-pop">Popular</div>';
+        $html .= '    <div role="tab" aria-controls="id-tabpanel-pop">Popularity</div>';
         $html .= '    <div role="tab" aria-controls="id-tabpanel-nam">Name</div>';
         $html .= '  </div>';
 
@@ -127,7 +127,7 @@ $aitg_blog_tags = new AITG_BlogTags();
       <?php get_sidebar(); ?>
     </div>
   </div>
-
+  <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/Tablist.js"></script>
 	<!-- END #content -->
 
 <?php get_footer(); ?>
