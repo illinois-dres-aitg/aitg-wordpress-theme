@@ -9,6 +9,7 @@ class Tablist {
     this.tabNodes = this.tablistNode.querySelector('[role="tab"]');
     this.tabpanelNodes = [];
 
+    console.log('[tabNodes]: ' + this.tabNodes.length);
     for (let i = 0; this.tabNodes.list; i++) {
       let tabNode = this.tabNodes[i];
 
