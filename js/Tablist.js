@@ -88,7 +88,7 @@ class Tablist {
           this.setSelectedTab(this.tabNodes[index]);
           this.tabNodes[index].focus();
         } else {
-          this.setSelectedTab(this.firstTab);
+          this.setSelectedTab(this.lastTab);
           this.firstTab.focus();
         }
         flag = true;
@@ -101,7 +101,7 @@ class Tablist {
           this.setSelectedTab(this.tabNodes[index]);
           this.tabNodes[index].focus();
         } else {
-          this.setSelectedTab(this.lastTab);
+          this.setSelectedTab(this.firstTab);
           this.lastTab.focus();
         }
         flag = true;
