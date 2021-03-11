@@ -10,7 +10,7 @@ class Tablist {
     this.tabpanelNodes = [];
 
     console.log('[tabNodes]: ' + this.tabNodes.length);
-    for (let i = 0; this.tabNodes.length; i++) {
+    for (let i = 0; i < this.tabNodes.length; i++) {
       let tabNode = this.tabNodes[i];
       console.log('[tabNode]: ' + i + ' ' + tabNode.textContent);
 
@@ -35,7 +35,7 @@ class Tablist {
   }
 
   updatePanels() {
-    for (let i = 0; this.tabNodes.length; i++) {
+    for (let i = 0; i < this.tabNodes.length; i++) {
       let tabNode = this.tabNodes[i];
       if (tabNode.getAttribute('aria-selected') === 'true') {
         this.tabpanelNodes[i].style.display = 'block';
