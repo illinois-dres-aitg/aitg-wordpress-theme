@@ -80,8 +80,8 @@ class Tablist {
     let index = this.getIndexOfTab(tgt);
 
     switch(event.key) {
-      case 'Right':
-      case 'ArrowRight':
+      case 'Left':
+      case 'ArrowLeft':
         index -= 1;
         if (index > 0) {
           this.setSelectedTab(this.tabNodes[index]);
@@ -93,8 +93,8 @@ class Tablist {
         flag = true;
         break;
 
-      case 'Left':
-      case 'ArrowLeft':
+      case 'Right':
+      case 'ArrowRight':
         index += 1;
         if (index < this.maxTabs) {
           this.setSelectedTab(this.tabNodes[index]);
