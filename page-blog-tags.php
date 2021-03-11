@@ -23,6 +23,7 @@ class AITG_BlogTags {
                 }
                 $html .= '  <h3 class="post-letter">' . $letter . '</h3>';
                 $html .= '  <ul class="post-tags">';
+                $lastLetter = $letter;
             }
             if ($tag->count > 0) {
                 $tag_link = get_tag_link( $tag->term_id );
