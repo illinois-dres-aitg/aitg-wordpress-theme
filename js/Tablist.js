@@ -9,10 +9,11 @@ class Tablist {
     this.tabNodes = this.tablistNode.querySelectorAll('[role="tab"]');
     this.tabpanelNodes = [];
 
-    console.log('[tabNodes]: ' + this.tabNodes.length);
     for (let i = 0; i < this.tabNodes.length; i++) {
       let tabNode = this.tabNodes[i];
-      console.log('[tabNode]: ' + i + ' ' + tabNode.textContent);
+
+      tabNode.addEventListener('keydown', this.onKeydown.bind(this));
+      tabNode.addEventListener('click', this.onClick.bind(this));
 
       if (i === 0) {
         tabNode.tabindex = 0;
@@ -45,6 +46,25 @@ class Tablist {
     }
   }
 
+  onKeydown(event) {
+
+  }
+
+  onClick(event) {
+    var tgt = event.currentTarget;
+    for (let i = 0; i < this.tabNodes.length; i++) {
+      let tabNode = this.tabNodes[i];
+      if (tabNode === tgt) {
+        tabNode.setAttribute('aria-selected', 'true');
+      }
+      else {
+        tabNode.setAttribute('aria-selected', 'false');
+      }
+    }
+    updatePanels();
+    event.stopPropagation();
+    event.preventDefault();
+  }
 
 }
 
