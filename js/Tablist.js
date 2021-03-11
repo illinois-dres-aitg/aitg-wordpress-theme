@@ -30,6 +30,7 @@ class Tablist {
       let id = tabNode.getAttribute('aria-controls');
       let tabpanelNode = document.getElementById(id);
       if (tabpanelNode) {
+        tabpanelNode.tabIndex = 0;
         this.tabpanelNodes.push(tabpanelNode);
       }
       else {

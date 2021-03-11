@@ -86,17 +86,17 @@ class AITG_BlogTags {
         $html = '<div class="post_tags">';
 
         $html .= '  <div role="tablist">';
-        $html .= '    <div role="tab" aria-controls="id-tabpanel-pop">Popularity</div>';
-        $html .= '    <div role="tab" aria-controls="id-tabpanel-name">Name</div>';
+        $html .= '    <div role="tab" aria-controls="id-tabpanel-pop" id="id-tab-pop">Popularity</div>';
+        $html .= '    <div role="tab" aria-controls="id-tabpanel-name" id="id-tab-name">Name</div>';
         $html .= '  </div>';
 
 
-        $html .= '  <div role="tabpanel" id="id-tabpanel-pop">';
+        $html .= '  <div role="tabpanel" aria-labelledby="id-tab-pop" id="id-tabpanel-pop">';
         $html .= '    <h2 class="post_tags">Tags by Popularity</h2>';
         $html .= $this->list_of_tags_by_count();
         $html .= '  </div>';
 
-        $html .= '  <div role="tabpanel" id="id-tabpanel-name">';
+        $html .= '  <div role="tabpanel" aria-labelledby="id-tab-name" id="id-tabpanel-name">';
         $html .= '    <h2 class="post_tags">Tags by Name</h2>';
         $html .= $this->list_of_tags_by_name();
         $html .= '  </div>';
