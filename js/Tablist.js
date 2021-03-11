@@ -37,5 +37,5 @@ class Tablist {
 *   IIFE that initializes DisclosureMenu object
 */
 (function () {
-  new Tabs(document.querySelector('[role="tablist"]'));
+  new Tablist(document.querySelector('[role="tablist"]'));
 })();
