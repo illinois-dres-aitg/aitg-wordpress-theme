@@ -84,7 +84,7 @@ class Tablist {
       case 'Left':
       case 'ArrowLeft':
         index -= 1;
-        if (index > 0) {
+        if (index >= 0) {
           this.setSelectedTab(this.tabNodes[index]);
           this.tabNodes[index].focus();
         } else {
