@@ -40,7 +40,7 @@ function AlphabetizeLists(listSelector) {
     let html = '';
 
     items.forEach(item => {
-      html = '<li>';
+      html += '<li>';
       if (item.href) {
         html += '<a href="' + item.href + '"' + ' class="' + item.className +'">' + item.name + '</a>';
       } else {
