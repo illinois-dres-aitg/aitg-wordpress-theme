@@ -758,6 +758,10 @@ main [role=tab][aria-selected=true]:focus {
   outline: none;
 }
 
+main [role=tabpanel]:focus {
+  outline-offset: 2px;
+}
+
 /* -------- styles.scss -------- */
 main {
   color: #00132c;
