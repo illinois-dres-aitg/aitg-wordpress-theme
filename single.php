@@ -1,7 +1,7 @@
 <?php get_header();
 
-$prev_in_category_link = get_previous_post_link( '%link', '<< Previous in category', true);
-$next_in_category_link = get_next_post_link( '%link', 'Next in category >>', true);
+$prev_in_category_link = get_previous_post_link( '%link', 'Previous in category', true);
+$next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
 
 ?>
 
@@ -19,7 +19,7 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category >>', tru
       <nav class="current-post-category" aria-label="Current Post Category">
         <span class="prev-post">
           <?php if ($prev_in_category_link) {
-            echo  $prev_in_category_link;
+            echo  '<< ' . $prev_in_category_link;
           } ?>
         </span>
         <?php if ($prev_in_category_link && $next_in_category_link) {
@@ -27,7 +27,7 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category >>', tru
         } ?>
         <span class="next-post">
           <?php if ($next_in_category_link) {
-            echo  $next_in_category_link;
+            echo  $next_in_category_link . '>>';
           } ?>
         </span>
       </nav>
