@@ -31,6 +31,7 @@ class Tablist {
       let tabpanelNode = document.getElementById(id);
       if (tabpanelNode) {
         tabpanelNode.tabIndex = 0;
+        tabpanelNode.classList.add('hide-tabpanel');
         this.tabpanelNodes.push(tabpanelNode);
       }
       else {
@@ -53,9 +54,11 @@ class Tablist {
     for (let i = 0; i < this.maxTabs; i++) {
       let tabNode = this.tabNodes[i];
       if (tabNode.getAttribute('aria-selected') === 'true') {
-        this.tabpanelNodes[i].style.display = 'block';
+        this.tabpanelNodes[i].classList.remove('hide-tabpanel');
+        this.tabpanelNodes[i].classList.add('show-tabpanel');
       } else {
-        this.tabpanelNodes[i].style.display = 'none';
+        this.tabpanelNodes[i].classList.remove('show-tabpanel');
+        this.tabpanelNodes[i].classList.add('hide-tabpanel');
       }
     }
   }

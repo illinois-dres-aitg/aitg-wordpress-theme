@@ -742,6 +742,18 @@ main [role=tab][aria-selected=true] {
   color: black;
 }
 
+main [role=tabpanel].show-tabpanel {
+  -webkit-animation: fade-in 0.5s ease;
+  -moz-animation: fade-in 0.5s ease;
+  animation: fade-in 0.5s ease;
+}
+
+main [role=tabpanel].hide-tabpanel {
+  -webkit-animation: fade-out 10ms ease;
+  -moz-animation: fade-out 10ms ease;
+  animation: fade-out 10ms ease;
+}
+
 main [role=tab]:focus,
 main [role=tab]:hover,
 main [role=tab][aria-selected=true]:focus,
