@@ -759,7 +759,7 @@ main [role=tab][aria-selected=true]:focus {
 }
 
 main [role=tabpanel]:focus {
-  outline-offset: 2px;
+  outline-offset: 4px;
 }
 
 /* -------- styles.scss -------- */
