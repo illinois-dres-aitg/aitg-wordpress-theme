@@ -29,7 +29,7 @@ class AITG_BlogTags {
                 $tag_link = get_tag_link( $tag->term_id );
 
                 $html .= "      <li><a href='{$tag_link}' class='{$tag->slug}'>";
-                $html .= "{$tag->name} ({$tag->count} posts)</a></li>";
+                $html .= "{$tag->name} ({$tag->count})</a></li>";
             }
         }
 
@@ -67,7 +67,7 @@ class AITG_BlogTags {
                 $tag_link = get_tag_link( $tag->term_id );
 
                 $html .= "      <li><a href='{$tag_link}' class='{$tag->slug}'>";
-                $html .= "{$tag->name} ({$tag->count} posts)</a></li>";
+                $html .= "{$tag->name}</a></li>";
             } else {
                 if ($lastCount !== 0) {
                     $html .= '    </ul>';
@@ -86,8 +86,8 @@ class AITG_BlogTags {
         $html = '<div class="post_tags">';
 
         $html .= '  <div role="tablist">';
-        $html .= '    <div role="tab" aria-controls="id-tabpanel-pop" id="id-tab-pop">Popularity</div>';
         $html .= '    <div role="tab" aria-controls="id-tabpanel-name" id="id-tab-name">Name</div>';
+        $html .= '    <div role="tab" aria-controls="id-tabpanel-pop" id="id-tab-pop">Popularity</div>';
         $html .= '  </div>';
 
 

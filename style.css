@@ -712,19 +712,10 @@ main nav.current-post-category {
   margin-top: 1.5em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  position: relative;
 }
 
 main nav.current-post-category div.prev-post {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-main nav.current-post-category div.next-post {
-  position: absolute;
-  top: 0;
-  right: 0;
+  margin-right: 1em;
 }
 
 main [role=tablist] {
