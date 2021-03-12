@@ -53,10 +53,11 @@ class Tablist {
   updatePanels() {
     for (let i = 0; i < this.maxTabs; i++) {
       let tabNode = this.tabNodes[i];
+      let tabpanelNode = this.tabpanelNodes[i];
       if (tabNode.getAttribute('aria-selected') === 'true') {
-        tabNode.classList.remove('hide-tabpanel');
-        tabNode.classList.add('show-tabpanel');
-        tabNode.style.display = 'block';
+        tabpanelNode.classList.remove('hide-tabpanel');
+        tabpanelNode.classList.add('show-tabpanel');
+        tabpanelNode.style.display = 'block';
       } else {
         tabpanelNode.classList.remove('show-tabpanel');
         tabpanelNode.classList.add('hide-tabpanel');
