@@ -8,7 +8,6 @@ function AlphabetizeLists(listSelector) {
 
   for(let i = 0; i < listNodes.length; i++) {
     let listNode = listNodes[i];
-    console.log('List: ' + i);
 
     let listitemNodes = listNode.querySelectorAll('li');
     let items = [];
@@ -28,27 +27,22 @@ function AlphabetizeLists(listSelector) {
           item.href = linkNode.href;
           item.className = linkNode.className;
         }
-
-        console.log('  [listitem]: ' + item.nameCompare + ' ' + item.href + ' ' + item.className);
-
         items.push(item);
       }
 
       items.sort(function(a, b) {
-
-          if (a.nameCompare < b.nameCompare) {
-            return -1;
-          }
-          if (a.nameCompare > b.nameCompare) {
-            return 1;
-          }
-          // names must be equal
-          return 0;
-  
+        if (a.nameCompare < b.nameCompare) {
+          return -1;
+        }
+        if (a.nameCompare > b.nameCompare) {
+          return 1;
+        }
+        // names must be equal
+        return 0;
       });
-    
+
       let html = '';
-    
+
       items.forEach(item => {
           html += '<li>';
           if (item.href) {
@@ -58,13 +52,8 @@ function AlphabetizeLists(listSelector) {
           }
           html += '</li>';
       });
-
-      console.log('[HTML]: ' + html);
-
       listNode.innerHTML = html;
-
     }
-
   }
 }
 
