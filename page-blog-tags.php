@@ -22,7 +22,7 @@ class AITG_BlogTags {
                     $html .= '    </ul>';
                 }
                 $html .= '    <h3 class="post-letter">' . ucwords($letter) . '</h3>';
-                $html .= '    <ul class="post-tags">';
+                $html .= '    <ul class="post-tags name">';
                 $lastLetter = $letter;
             }
             if ($tag->count > 0) {
@@ -57,11 +57,11 @@ class AITG_BlogTags {
                         $html .= '    </ul>';
                     }
                     if ($count > 1) {
-                        $html .= '    <h3 class="post-letter">' . $count . ' Posts</h3>';
+                        $html .= '    <h3 class="post-count">' . $count . ' Posts</h3>';
                     } else {
-                        $html .= '    <h3 class="post-letter">1 Post</h3>';
+                        $html .= '    <h3 class="post-count">1 Post</h3>';
                     }
-                    $html .= '    <ul class="post-tags">';
+                    $html .= '    <ul class="post-tags count">';
                     $lastCount = $count;
                 }
                 $tag_link = get_tag_link( $tag->term_id );
@@ -79,6 +79,8 @@ class AITG_BlogTags {
         if ($lastCount !== 0) {
             $html .= '    </ul>';
         }
+
+
         return $html;
     }
 
@@ -128,6 +130,7 @@ $aitg_blog_tags = new AITG_BlogTags();
     </div>
   </div>
   <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/Tablist.js"></script>
+  <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/alphabetizeLists.js"></script>
 	<!-- END #content -->
 
 <?php get_footer(); ?>
