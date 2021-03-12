@@ -755,6 +755,7 @@ main [role=tab][aria-selected=true]:hover {
 main [role=tab]:focus,
 main [role=tab][aria-selected=true]:focus {
   border-color: #ff552e;
+  outline: none;
 }
 
 /* -------- styles.scss -------- */
