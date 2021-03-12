@@ -27,7 +27,7 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
         } ?>
         <span class="next-post">
           <?php if ($next_in_category_link) {
-            echo  $next_in_category_link . '>>';
+            echo  $next_in_category_link . ' >>';
           } ?>
         </span>
       </nav>
