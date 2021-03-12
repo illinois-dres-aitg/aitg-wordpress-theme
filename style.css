@@ -714,8 +714,10 @@ main nav.current-post-category {
   padding-bottom: 0.5em;
 }
 
-main nav.current-post-category div.prev-post {
-  margin-right: 1em;
+main nav.current-post-category span.separator:before {
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  content: "|";
 }
 
 main [role=tablist] {

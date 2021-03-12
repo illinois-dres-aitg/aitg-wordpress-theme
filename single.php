@@ -17,16 +17,19 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category >>', tru
       ?>
 
       <nav class="current-post-category" aria-label="Current Post Category">
-        <div class="prev-post">
+        <span class="prev-post">
           <?php if ($prev_in_category_link) {
             echo  $prev_in_category_link;
           } ?>
-        </div>
-        <div class="next-post">
+        </span>
+        <?php if ($prev_in_category_link && $next_in_category_link) {
+          echo  '<span class="separator"></span>';
+        } ?>
+        <span class="next-post">
           <?php if ($next_in_category_link) {
             echo  $next_in_category_link;
           } ?>
-        </div>
+        </span>
       </nav>
 
 
