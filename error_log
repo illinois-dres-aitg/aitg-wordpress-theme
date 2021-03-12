@@ -1,0 +1,12 @@
+[26-Feb-2021 19:51:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/accessibleitg/public_html/aitg/wp-content/themes/aitg-wordpress-theme/tag.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/accessibleitg/public_html/aitg/wp-content/themes/aitg-wordpress-theme/tag.php on line 1
+[26-Feb-2021 19:53:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/accessibleitg/public_html/aitg/wp-content/themes/aitg-wordpress-theme/tag.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/accessibleitg/public_html/aitg/wp-content/themes/aitg-wordpress-theme/tag.php on line 1
+[26-Feb-2021 19:54:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/accessibleitg/public_html/aitg/wp-content/themes/aitg-wordpress-theme/tag.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/accessibleitg/public_html/aitg/wp-content/themes/aitg-wordpress-theme/tag.php on line 1

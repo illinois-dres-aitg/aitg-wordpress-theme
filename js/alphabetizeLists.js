@@ -8,6 +8,7 @@ function AlphabetizeLists(listSelector) {
 
   for(let i = 0; i < listNodes.length; i++) {
     let listNode = listNodes[i];
+    console.log('List: ' + i);
 
     let listitemNodes = listNode.querySelectorAll('li');
     let items = [];
@@ -28,28 +29,42 @@ function AlphabetizeLists(listSelector) {
           item.className = linkNode.className;
         }
 
+        console.log('  [listitem]: ' + item.nameCompare + ' ' + item.href + ' ' + item.className);
+
         items.push(item);
       }
 
+      items.sort(function(a, b) {
+
+          if (a.nameCompare < b.nameCompare) {
+            return -1;
+          }
+          if (a.nameCompare > b.nameCompare) {
+            return 1;
+          }
+          // names must be equal
+          return 0;
+  
+      });
+    
+      let html = '';
+    
+      items.forEach(item => {
+          html += '<li>';
+          if (item.href) {
+            html += '<a href="' + item.href + '"' + ' class="' + item.className +'">' + item.name + '</a>';
+          } else {
+            html += item.name;
+          }
+          html += '</li>';
+      });
+
+      console.log('[HTML]: ' + html);
+
+      listNode.innerHTML = html;
+
     }
 
-    items.sort(function(a, b) {
-        return a.nameCompare > b.nameCompare;
-    });
-
-    let html = '';
-
-    items.forEach(item => {
-      html += '<li>';
-      if (item.href) {
-        html += '<a href="' + item.href + '"' + ' class="' + item.className +'">' + item.name + '</a>';
-      } else {
-        html += item.name;
-      }
-      html += '</li>';
-    });
-
-    listNode.innerHTML = html;
   }
 }
 
