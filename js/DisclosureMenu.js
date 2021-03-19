@@ -84,7 +84,7 @@ function MenuContainer (containerNode, index, disclosureMenuObj) {
 *   menubar widgets and their subcomponents.
 */
 function DisclosureMenu (domNode) {
-  var containerNodes, containerNode, menuContainer, i;
+  var containerNodes, containerNode, menuContainer, linkNode, color i;
 
   // Check for navigation landmark role
   if (domNode.tagName.toLowerCase() !== 'nav') {
@@ -138,6 +138,8 @@ function DisclosureMenu (domNode) {
 
   // Get the DOM nodes for the menubar list items and process each one.
   containerNodes = this.rootNode.querySelectorAll('ul.menu > li');
+  linkNode = this.rootNode.querySelector('ul.menu > li > a');
+  color = window.getComputedStyle(linkNode).getPropertyValue('color');
 
   for (i = 0; i < containerNodes.length; i++) {
     containerNode = containerNodes[i];
@@ -204,12 +206,10 @@ function DisclosureMenu (domNode) {
 
 /* Prototype Methods */
 
-DisclosureMenu.prototype.updateSVGCurrentColorValue = function () {
+DisclosureMenu.prototype.updateSVGCurrentColorValue = function (color) {
   var svgNodes = this.rootNode.querySelectorAll('svg');
   if (svgNodes.length && svgNodes[0].parentNode) {
     var linkNode = svgNodes[0].parentNode;
-    var color =- window.getComputedStyle(linkNode).getPropertyValue('color');
-
     // set the color used by the currentColor value in the SVG
     for (let i = 0; i < svgNodes.length; i++) {
       svgNodes[i].setAttribute('color', color);
