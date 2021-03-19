@@ -168,7 +168,7 @@ function DisclosureMenu (domNode) {
   this.firstMenuContainer = this.menuContainers[0];
   this.lastMenuContainer = this.menuContainers[this.menuContainers.length - 1];
 
-  this.updateSVGCurrentColorValue();
+  this.updateSVGCurrentColorValue(color);
 
   // Helper functions for constructor
 
