@@ -161,6 +161,8 @@ function DisclosureMenu (domNode) {
   this.firstMenuContainer = this.menuContainers[0];
   this.lastMenuContainer = this.menuContainers[this.menuContainers.length - 1];
 
+  this.updateSVGCurrentColorValue();
+
   // Helper functions for constructor
 
   // If any span elements are found in the banner menu, it is because WP
@@ -196,6 +198,22 @@ function DisclosureMenu (domNode) {
 }
 
 /* Prototype Methods */
+
+DisclosureMenu.prototype.updateSVGCurrentColorValue = function () {
+  var svgNodes = this.rootNode.quesrySelectAll('svg');
+  if (svgNodes.length && svgNode[0].parentNode) {
+    var linkNode = svgNodes[0].parentNode;
+    var color =- window.getComputedStyle(linkNode).getPropertyValue('color');
+
+    // set the color used by the currentColor value in the SVG
+    for (let i = 0; i < svgNodes.length; i++) {
+      svgNodes[i].setAttribute('color', color);
+    }
+
+    var svgNode = this.hamburgerButtonNode.querySelector('svg');
+    svgNode.setAttribute('color', color);
+  }
+}
 
 DisclosureMenu.prototype.getMenuContainer = function (node) {
   for (var i = 0; i < this.menuContainers.length; i++) {
