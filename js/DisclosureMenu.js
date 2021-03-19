@@ -207,7 +207,7 @@ function DisclosureMenu (domNode) {
 DisclosureMenu.prototype.updateSVGCurrentColorValue = function () {
   var svgNodes, svgNode, pNode, color;
 
-  svgNodes = this.rootNode.querySelectorAll('svg');
+  svgNodes = document.querySelectorAll('svg');
   if (svgNodes.length && svgNodes[0].parentNode) {
     pNode = svgNodes[0].parentNode;
     color = window.getComputedStyle(pNode).getPropertyValue('color');
@@ -216,11 +216,6 @@ DisclosureMenu.prototype.updateSVGCurrentColorValue = function () {
     for (let i = 0; i < svgNodes.length; i++) {
       svgNodes[i].setAttribute('color', color);
     }
-
-    svgNode = this.hamburgerButtonNode.querySelector('svg');
-    pNode = svgNode.parentNode;
-    color = window.getComputedStyle(pNode).getPropertyValue('color');
-    svgNode.setAttribute('color', color);
   }
 }
 
@@ -574,7 +569,7 @@ DisclosureMenu.prototype.getMenuCloseSVGNode = function () {
   svg1.appendChild(g1);
 
   let rect1 = document.createElementNS(xmlns, 'rect');
-  rect1.setAttributeNS(null, 'fill', '#FFFFFF');
+  rect1.setAttributeNS(null, 'fill', '#13294b');
   rect1.setAttributeNS(null, 'x', '0');
   rect1.setAttributeNS(null, 'y', '0');
   rect1.setAttributeNS(null, 'width', '32');
