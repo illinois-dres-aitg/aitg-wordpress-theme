@@ -84,7 +84,7 @@ function MenuContainer (containerNode, index, disclosureMenuObj) {
 *   menubar widgets and their subcomponents.
 */
 function DisclosureMenu (domNode) {
-  var containerNodes, containerNode, menuContainer, linkNode, color i;
+  var containerNodes, containerNode, menuContainer, linkNode, color, i;
 
   // Check for navigation landmark role
   if (domNode.tagName.toLowerCase() !== 'nav') {
