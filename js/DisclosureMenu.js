@@ -141,7 +141,7 @@ function DisclosureMenu (domNode) {
 
   for (i = 0; i < containerNodes.length; i++) {
     containerNode = containerNodes[i];
-    containerNode.appendChild(createMenuLinkSVG());
+    containerNode.appendChild(this.createMenuLinkSVG());
 
     // When a menu item gets focus, close any other submenus
     containerNode.addEventListener('focusin', this.handleFocusIn.bind(this));
