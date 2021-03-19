@@ -3,9 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,600,700" />
   <link rel="icon" type="image/png" href="<?php echo esc_url( get_template_directory_uri() ); ?>/images/icon.png">
-  <link rel="stylesheet" media="all" href="<?php echo esc_url( get_template_directory_uri() ); ?>/style.css"/>
   <?php wp_head(); ?>
 
 </head>
