@@ -569,7 +569,7 @@ DisclosureMenu.prototype.getMenuCloseSVGNode = function () {
   svg1.appendChild(g1);
 
   let rect1 = document.createElementNS(xmlns, 'rect');
-  rect1.setAttributeNS(null, 'fill', '#13294b');
+  rect1.setAttributeNS(null, 'fill', '#FFFFFF');
   rect1.setAttributeNS(null, 'x', '0');
   rect1.setAttributeNS(null, 'y', '0');
   rect1.setAttributeNS(null, 'width', '32');
