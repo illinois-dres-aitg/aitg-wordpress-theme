@@ -161,7 +161,7 @@ function DisclosureMenu (domNode) {
   this.firstMenuContainer = this.menuContainers[0];
   this.lastMenuContainer = this.menuContainers[this.menuContainers.length - 1];
 
-//  this.updateSVGCurrentColorValue();
+  this.updateSVGCurrentColorValue();
 
   // Helper functions for constructor
 
@@ -200,13 +200,10 @@ function DisclosureMenu (domNode) {
 /* Prototype Methods */
 
 DisclosureMenu.prototype.updateSVGCurrentColorValue = function () {
-  var svgNodes = this.menuNode.querySelectorAll('svg');
-  var svgNodes = document.querySelector('.menu').querySelectorAll('svg');
-  console.log('[ tagName]: ' + this.menuNode.tagName + ' ' + this.menuNode.className);
-  console.log('[svgNodes]: ' + svgNodes.length);
+  var svgNodes = this.rootNode.querySelectorAll('svg');
   if (svgNodes.length && svgNodes[0].parentNode) {
     var linkNode = svgNodes[0].parentNode;
-    var color = window.getComputedStyle(linkNode).getPropertyValue('color');
+    var color =- window.getComputedStyle(linkNode).getPropertyValue('color');
 
     // set the color used by the currentColor value in the SVG
     for (let i = 0; i < svgNodes.length; i++) {
