@@ -201,6 +201,8 @@ function DisclosureMenu (domNode) {
 
 DisclosureMenu.prototype.updateSVGCurrentColorValue = function () {
   var svgNodes = this.rootNode.querySelectorAll('svg');
+  console.log('[  svgNodes]: ' + svgNodes.length);
+  console.log('[parentNode]: ' + svgNodes[0].parentNode);
   if (svgNodes.length && svgNodes[0].parentNode) {
     var linkNode = svgNodes[0].parentNode;
     var color =- window.getComputedStyle(linkNode).getPropertyValue('color');
