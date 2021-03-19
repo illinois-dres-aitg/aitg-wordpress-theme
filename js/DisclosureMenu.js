@@ -161,7 +161,7 @@ function DisclosureMenu (domNode) {
   this.firstMenuContainer = this.menuContainers[0];
   this.lastMenuContainer = this.menuContainers[this.menuContainers.length - 1];
 
-  this.updateSVGCurrentColorValue();
+  this.updateSVGCurrentColorValue(domNode);
 
   // Helper functions for constructor
 
@@ -199,8 +199,8 @@ function DisclosureMenu (domNode) {
 
 /* Prototype Methods */
 
-DisclosureMenu.prototype.updateSVGCurrentColorValue = function () {
-  var svgNodes = this.menuNode.querySelectorAll('svg');
+DisclosureMenu.prototype.updateSVGCurrentColorValue = function (node) {
+  var svgNodes = node.querySelectorAll('svg');
   console.log('[  svgNodes]: ' + svgNodes.length);
   if (svgNodes.length && svgNodes[0].parentNode) {
     var linkNode = svgNodes[0].parentNode;
