@@ -397,7 +397,7 @@ header .skip-to.aitg [role=menuitem] {
 
 .banner-menu ul.menu li.menu-item a,
 .banner-menu ul.menu li-menu-item a:visited {
-  color: #fff;
+  color: white;
 }
 
 .banner-menu ul.menu li.menu-item a:focus,
@@ -674,7 +674,7 @@ ul.upcoming-events > li {
 }
 
 ul.upcoming-events > li > div {
-  background-color: #eee;
+  background-color: #e8e9eb;
   padding: 0.25rem 0.5rem;
 }
 
@@ -690,8 +690,8 @@ ul.upcoming-events.presentations > li {
 main .post .code {
   font-family: monospace;
   font-size: 11pt;
-  background-color: #EEE;
-  border: thin solid #DDD;
+  background-color: #e8e9eb;
+  border: thin solid #d2d2d2;
   padding: 0.25em;
   border-radius: 6px;
   white-space: pre-wrap;
@@ -739,7 +739,7 @@ main [role=tab] {
 main [role=tab][aria-selected=true] {
   background-color: white;
   border-bottom-color: white;
-  color: black;
+  color: #00132c;
 }
 
 main [role=tabpanel].show-tabpanel {
@@ -984,5 +984,3 @@ footer a:hover {
 footer a:focus {
   outline: 2px solid #ff552e;
 }
-
-/*# sourceMappingURL=styles.css.map */
