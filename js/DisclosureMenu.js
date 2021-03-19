@@ -201,11 +201,12 @@ function DisclosureMenu (domNode) {
 
 DisclosureMenu.prototype.updateSVGCurrentColorValue = function () {
   var svgNodes = this.menuNode.querySelectorAll('svg');
+  var svgNodes = document.querySelector('.menu').querySelectorAll('svg');
   console.log('[ tagName]: ' + this.menuNode.tagName + ' ' + this.menuNode.className);
   console.log('[svgNodes]: ' + svgNodes.length);
   if (svgNodes.length && svgNodes[0].parentNode) {
     var linkNode = svgNodes[0].parentNode;
-    var color =- window.getComputedStyle(linkNode).getPropertyValue('color');
+    var color = window.getComputedStyle(linkNode).getPropertyValue('color');
 
     // set the color used by the currentColor value in the SVG
     for (let i = 0; i < svgNodes.length; i++) {
