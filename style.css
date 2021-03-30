@@ -947,6 +947,10 @@ div.right-column {
     box-shadow: -1px 0 #eee;
   }
 }
+main.content iframe.kmsembed {
+  width: 100% !important;
+}
+
 footer {
   color: #fff;
   background-color: #13294b;
