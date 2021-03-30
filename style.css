@@ -1,17 +1,17 @@
 /*
- * Theme Name: DRES Accessible IT Group WordPress Theme
- * Description: Is fully responsive, clean and minimal WordPress theme. It has various options in WordPress Customizer to change look of the theme - primary design color, background and header, page layout (left or right sidebar, full or centered content). Clean valid code, semantic markup, markup by Schema.org, full adaptation to mobile devices. Basic is ready to use with child themes and gives for developers simple design change with custom hooks and action. Translation Ready (English, Russian, Ukrainian, French, German, Polish, Turkish). Fully compatible with WPML, WooCommerce, bbPress.
- * Theme URI:
- * Tested up to: 5.5
- * Requires PHP: 7.0
- * Author: Nicholas Hoyt, Christy Blew, Lori Lane and Jon Gunderson
- * Author https://github.com/illinois-dres-aitg/aitg-wordpress-theme
- * Version: 0.9.0 beta
- * License: GNU General Public License v2 or later
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Tags: one-column, right-sidebar
- * Text Domain: basic
- */
+* Theme Name: DRES Accessible IT Group WordPress Theme
+* Theme URI: https://github.com/illinois-dres-aitg/aitg-wordpress-theme
+* Author: Christy Blew, Jon Gunderson, Lori Lane and Nicholas Hoyt
+* Description: Responsive, minimal and accessible WordPress theme
+* Version: 0.9.0 beta
+* Requires at least: 5.5
+* Tested up to: 5.7
+* Requires PHP: 7.0
+* License: GNU General Public License v2 or later
+* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+* Text Domain: dres-accessible-it-group-wordpress-theme
+* Tags: accessible, right-sidebar
+*/
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
@@ -949,6 +949,11 @@ div.right-column {
 }
 main.content iframe.kmsembed {
   width: 100% !important;
+}
+
+main.content pre {
+  overflow: auto;
+  background-color: #e8e9eb;
 }
 
 footer {
