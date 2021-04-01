@@ -699,6 +699,11 @@ main .post .code .highlight {
   background-color: #cad9ef;
 }
 
+main .post .code .scrollable {
+  height: 10rem;
+  overflow-y: auto;
+}
+
 main .post details {
   margin: 1rem 0;
 }
