@@ -690,7 +690,7 @@ main .post .code {
   font-size: 11pt;
   background-color: #e8e9eb;
   border: thin solid #d2d2d2;
-  padding: 0.25em;
+  padding: 0.5rem;
   border-radius: 6px;
   white-space: pre-wrap;
 }
@@ -699,22 +699,34 @@ main .post .code .highlight {
   background-color: #cad9ef;
 }
 
+main .post details {
+  margin: 1rem 0;
+}
+
+main .post details > summary {
+  cursor: pointer;
+}
+
+main .post details > div {
+  margin: 0.5rem 0;
+}
+
 main .post .categories,
 main .post .tags {
-  margin-top: 0.5em;
+  margin-top: 0.5rem;
 }
 
 main nav.current-post-category {
   margin: 0;
   padding: 0;
-  margin-top: 1.5em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  margin-top: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 main nav.current-post-category span.separator:before {
-  padding-left: 0.25em;
-  padding-right: 0.25em;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
   content: "|";
 }
 
@@ -726,7 +738,7 @@ main [role=tab] {
   position: relative;
   top: 2px;
   margin: 0;
-  padding: 0.25em 0.5em;
+  padding: 0.25rem 0.5rem;
   border: 2px solid #13294b;
   background-color: #13294b;
   color: white;
