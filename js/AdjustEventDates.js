@@ -48,7 +48,7 @@ function UpdateHeadingsOnMyCalendar () {
 
     if (caption) {
       h2.textContent = caption.textContent;
-      h2.setAttribute('aria-hidden', 'false');
+      h2.style.display = 'block';
     }
 
     if (h3Single) {
