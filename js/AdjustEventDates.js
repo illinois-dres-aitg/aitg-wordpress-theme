@@ -42,9 +42,10 @@ function UpdateHeadingsOnMyCalendar () {
   var h3Single = main.querySelector('h3.mc-single');
 
   if (h2) {
-
     if (caption) {
-      h2.textContent = caption.textContent;
+      if (h2.textContent !== caption.textContent) {
+        h2.textContent = caption.textContent;
+      }
       h2.style.display = 'block';
     }
 
@@ -54,7 +55,9 @@ function UpdateHeadingsOnMyCalendar () {
         h2Single.classList.add('mc-single');
         h3Single.parentNode.insertBefore(h2Single, h3Single);
       }
-      h2Single.textContent = h3Single.textContent;
+      if (h2Single.textContent !== h3Single.textContent) {
+        h2Single.textContent = h3Single.textContent;
+      }
       h3Single.style.display = 'none';
       h2.style.display = 'none';
     }
