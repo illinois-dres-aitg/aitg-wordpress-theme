@@ -40,6 +40,7 @@ function UpdateHeadingsOnMyCalendar () {
   var main = document.querySelector('main');
   var h2 = main.querySelector('h2.aitg-calendar');
   var caption = main.querySelector('.my-calendar-table caption');
+  var h2Single = main.querySelector('h2.mc-single');
   var h3Single = main.querySelector('h3.mc-single');
 
   console.log('[Calendar Headings]: ' + h2 + ' ' + caption + ' ' + h3Single);
@@ -52,9 +53,12 @@ function UpdateHeadingsOnMyCalendar () {
     }
 
     if (h3Single) {
-      var h2Single = document.createElement('h2');
+      if (!h2Single) {
+        h2Single = document.createElement('h2');
+        h2Single.classList.add('mc-single');
+        h3Single.parentNode.insertBefore(h2Single, h3Single);
+      }
       h2Single.textContent = h3Single.textContent;
-      h3Single.parentNode.insertBefore(h2Single, h3Single);
       h3Single.style.display = 'none';
       h2.style.display = 'none';
     }
