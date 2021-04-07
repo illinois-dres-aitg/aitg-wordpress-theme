@@ -42,6 +42,8 @@ function UpdateHeadingsOnMyCalendar () {
   var caption = main.querySelector('caption.my-calendar-month');
   var h3Single = main.querySelector('h3.mc-single');
 
+  console.log('[Calendar Headings]: ' + h2 + ' ' + caption + ' ' + h3Single);
+
   if (h2) {
     if (caption) {
       h2.textContent = caption.textContent;
