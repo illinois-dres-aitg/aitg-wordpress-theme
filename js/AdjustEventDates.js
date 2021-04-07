@@ -37,8 +37,8 @@ function AdjustEventDates() {
 function AddH2HeadingToMyCalendar () {
   console.log('Adjust heading level for My Calendar');
 
-  var main = document.QuerySeletor('main');
-  var h2 = document.QuerySeletor('h2');
+  var main = document.querySeletor('main');
+  var h2 = document.querySeletor('h2');
   var caption = main.querySelector('caption');
 
   console.log('[caption]: ' + h2 + ' ' + caption);
