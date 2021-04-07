@@ -44,16 +44,20 @@ function UpdateHeadingsOnMyCalendar () {
 
   console.log('[Calendar Headings]: ' + h2 + ' ' + caption + ' ' + h3Single);
 
-  if (h2 && caption) {
-    h2.textContent = caption.textContent;
-    h2.setAttribute('aria-hidden', 'false');
-  }
+  if (h2) {
 
-  if (h3Single) {
-    var h2Single = document.createElement('h2');
-    h2Single.textContent = h3Single.textContent;
-    h3Single.parentNode.insertBefore(h2Single, h3Single);
-    h3Single.style.display = 'none';
+    if (caption) {
+      h2.textContent = caption.textContent;
+      h2.setAttribute('aria-hidden', 'false');
+    }
+
+    if (h3Single) {
+      var h2Single = document.createElement('h2');
+      h2Single.textContent = h3Single.textContent;
+      h3Single.parentNode.insertBefore(h2Single, h3Single);
+      h3Single.style.display = 'none';
+      h2.style.display = 'none';
+    }
   }
 }
 
