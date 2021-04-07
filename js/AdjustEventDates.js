@@ -66,9 +66,12 @@ function UpdateHeadingsOnMyCalendar () {
 window.addEventListener('load', AdjustEventDates);
 window.addEventListener('load', UpdateHeadingsOnMyCalendar);
 
-var node = document.querySelector('.my-calendar-header');
+window.addEventListener('load', funtion () {
+  var node = document.querySelector('.my-calendar-header');
 
-if (node) {
-  node.addEventListener('pointerup', UpdateHeadingsOnMyCalendar);
-  node.addEventListener('keyup', UpdateHeadingsOnMyCalendar);
-}
+  if (node) {
+    node.addEventListener('pointerup', UpdateHeadingsOnMyCalendar);
+    node.addEventListener('keyup', UpdateHeadingsOnMyCalendar);
+  }
+});
+
