@@ -35,15 +35,11 @@ function AdjustEventDates() {
 }
 
 function UpdateHeadingsOnMyCalendar () {
-  console.log('Adjust heading level for My Calendar');
-
   var main = document.querySelector('main');
   var h2 = main.querySelector('h2.aitg-calendar');
   var caption = main.querySelector('.my-calendar-table caption');
   var h2Single = main.querySelector('h2.mc-single');
   var h3Single = main.querySelector('h3.mc-single');
-
-  console.log('[Calendar Headings]: ' + h2 + ' ' + caption + ' ' + h3Single);
 
   if (h2) {
 
@@ -64,7 +60,7 @@ function UpdateHeadingsOnMyCalendar () {
     }
   }
 
-  window.setTimeout(UpdateHeadingsOnMyCalendar, 1000);
+  window.setTimeout(UpdateHeadingsOnMyCalendar, 600);
 
 }
 
