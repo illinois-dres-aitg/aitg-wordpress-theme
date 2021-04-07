@@ -39,7 +39,7 @@ function UpdateHeadingsOnMyCalendar () {
 
   var main = document.querySelector('main');
   var h2 = main.querySelector('h2.aitg-calendar');
-  var caption = main.querySelector('caption.my-calendar-month');
+  var caption = main.querySelector('caption.my-calendar-month caption.my-calendar-week');
   var h3Single = main.querySelector('h3.mc-single');
 
   console.log('[Calendar Headings]: ' + h2 + ' ' + caption + ' ' + h3Single);
