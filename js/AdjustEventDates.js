@@ -60,17 +60,10 @@ function UpdateHeadingsOnMyCalendar () {
     }
   }
 
+  window.setTimeout(UpdateHeadingsOnMyCalendar, 1000);
 
 }
 
 window.addEventListener('load', AdjustEventDates);
 window.addEventListener('load', UpdateHeadingsOnMyCalendar);
-
-window.addEventListener('load', function () {
-  var node = document.querySelector('.my-calendar-header');
-  if (node) {
-    node.addEventListener('pointerup', UpdateHeadingsOnMyCalendar);
-    node.addEventListener('keyup', UpdateHeadingsOnMyCalendar);
-  }
-});
 
