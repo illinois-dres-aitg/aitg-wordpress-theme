@@ -59,7 +59,16 @@ function UpdateHeadingsOnMyCalendar () {
       h2.style.display = 'none';
     }
   }
+
+
 }
 
 window.addEventListener('load', AdjustEventDates);
 window.addEventListener('load', UpdateHeadingsOnMyCalendar);
+
+var node = document.querySelector('.my-calendar-header');
+
+if (node) {
+  node.addEventListener('pointerup', UpdateHeadingsOnMyCalendar);
+  node.addEventListener('keyup', UpdateHeadingsOnMyCalendar);
+}
