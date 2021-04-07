@@ -34,18 +34,27 @@ function AdjustEventDates() {
   }
 }
 
-function AddH2HeadingToMyCalendar () {
+function UpdateHeadingsOnMyCalendar () {
   console.log('Adjust heading level for My Calendar');
 
   var main = document.querySelector('main');
-  var h2 = main.querySelector('h2');
-  var caption = main.querySelector('caption');
+  var h2 = main.querySelector('h2.aitg-calendar');
+  var caption = main.querySelector('caption.my-calendar-month');
+  var h3Single = main.querySelector('h3.mc-single');
 
-  console.log('[caption]: ' + h2 + ' ' + caption);
-  if (h2 && caption) {
-    h2.textContent = caption.textContent;
+  if (h2) {
+    if (caption) {
+      h2.textContent = caption.textContent;
+      h2.setAttribute('aria-hidden', 'false');
+    }
+    if (h3Single) {
+      var h2Single = document.createElement('h2');
+      h2Single.textContent = h3Single.textContent;
+      h3Single.parentNode.insertBefore(h3Single, h2Single);
+      h3Single.style.display = 'none';
+    }
   }
 }
 
 window.addEventListener('load', AdjustEventDates);
-window.addEventListener('load', AddH2HeadingToMyCalendar);
+window.addEventListener('load', UpdateHeadingsOnMyCalendar);
