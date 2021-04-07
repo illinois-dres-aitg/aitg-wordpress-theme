@@ -39,6 +39,7 @@ function UpdateHeadingsOnMyCalendar() {
   var main = document.querySelector('main');
   var h2 = main.querySelector('h2.aitg-calendar');
   var caption = main.querySelector('.my-calendar-table caption');
+  var h2Month = main.querySelector('h2.my-calendar-month');
   var h2Single = main.querySelector('h2.mc-single');
   var h3Single = main.querySelector('h3.mc-single');
 
@@ -48,6 +49,10 @@ function UpdateHeadingsOnMyCalendar() {
         h2.textContent = caption.textContent;
       }
       h2.style.display = 'block';
+    }
+
+    if (h2Month) {
+      h2.style.display = 'none';
     }
 
     if (h3Single) {
