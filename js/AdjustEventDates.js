@@ -34,7 +34,8 @@ function AdjustEventDates() {
   }
 }
 
-function UpdateHeadingsOnMyCalendar () {
+function UpdateHeadingsOnMyCalendar() {
+  console.log('[UpdateHeadingsOnMyCalendar]');
   var main = document.querySelector('main');
   var h2 = main.querySelector('h2.aitg-calendar');
   var caption = main.querySelector('.my-calendar-table caption');
