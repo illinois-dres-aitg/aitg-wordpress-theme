@@ -17,7 +17,7 @@
     </div>
     <div>
       <ul>
-        <li><a href="https://illinois.edu/resources/website/accessibility.html">Accessibility Statement</a></li>
+        <li><a href="https://illinois.edu/resources/website/accessibility.html" title="The accessibility resources and responsibilities at the University of Illinois">Accessibility @ Illinois</a></li>
         <li><a href="/about/">About AITG</a></li>
         <li><a href="/contact/">Contact Us</a></li>
       </ul>
