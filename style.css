@@ -793,22 +793,12 @@ main [role=tabpanel]:focus {
   outline-offset: 4px;
 }
 
-/* -------- main.scss -------- */
-main {
-  color: #00132c;
-  font-family: "Source Serif Pro", serif;
-  font-size: 1.125rem;
-  line-height: 1.4;
-  padding: 1.25rem;
-}
-
-main a,
+/* -------- breadcrumb.scss -------- */
 .breadcrumb a {
+  margin-top: 2px;
   color: #1d4b90;
 }
 
-main a:focus,
-main a:hover,
 .breadcrumb a:focus,
 .breadcrumb a:hover {
   color: #00132c;
@@ -818,8 +808,33 @@ main a:hover,
   transition: 0.3s background;
 }
 
-main a:focus,
 .breadcrumb a:focus {
+  outline: 2px solid #ff552e;
+}
+
+/* -------- main.scss -------- */
+main {
+  color: #00132c;
+  font-family: "Source Serif Pro", serif;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  padding: 1.25rem;
+}
+
+main a {
+  color: #1d4b90;
+}
+
+main a:focus,
+main a:hover {
+  color: #00132c;
+  background-color: #cad9ef;
+  -webkit-transition: 0.3s background;
+  -moz-transition: 0.3s background;
+  transition: 0.3s background;
+}
+
+main a:focus {
   outline: 2px solid #ff552e;
 }
 
