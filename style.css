@@ -802,12 +802,15 @@ main {
   padding: 1.25rem;
 }
 
-main a {
+main a,
+.breadcrumb a {
   color: #1d4b90;
 }
 
 main a:focus,
-main a:hover {
+main a:hover,
+.breadcrumb a:focus,
+.breadcrumb a:hover {
   color: #00132c;
   background-color: #cad9ef;
   -webkit-transition: 0.3s background;
@@ -815,7 +818,8 @@ main a:hover {
   transition: 0.3s background;
 }
 
-main a:focus {
+main a:focus,
+.breadcrumb a:focus {
   outline: 2px solid #ff552e;
 }
 
