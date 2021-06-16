@@ -794,8 +794,11 @@ main [role=tabpanel]:focus {
 }
 
 /* -------- breadcrumb.scss -------- */
-.breadcrumb a {
+.breadcrumb {
   margin-top: 2px;
+}
+
+.breadcrumb a {
   color: #1d4b90;
 }
 
