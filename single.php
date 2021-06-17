@@ -8,7 +8,14 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
   <div class="flex-row">
     <div class="left-column">
      </div>
-    <main class="content">
+    <div class="mmiddle-column">
+      <div class="breadcrumb">
+        <!-- @ breadcrumb trail of links indicating location of
+             current page in menu structure -->
+        <?php echo do_shortcode( '[breadcrumb]' ); ?>
+      </div>
+
+      <main class="content">
 
 
   <?php while (have_posts()) : the_post();
@@ -42,7 +49,8 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
 
   endwhile; ?>
 
-    </main>
+      </main>
+    </div>
     <div class="right-column">
       <?php get_sidebar(); ?>
     </div>
