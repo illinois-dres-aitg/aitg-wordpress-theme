@@ -803,6 +803,11 @@ main [role=tabpanel]:focus {
   padding: 0.25rem;
 }
 
+.breadcrumb-container a:unvisited,
+.breadcrumb-container a:visited {
+  color: #1d4b90;
+}
+
 .breadcrumb-container a:focus,
 .breadcrumb-container a:hover {
   color: #00132c;
