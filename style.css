@@ -802,13 +802,13 @@ main [role=tabpanel]:focus {
   padding: 0.25rem;
 }
 
-.breadcrumb-container a:unvisited,
-.breadcrumb-container a:visited {
+.breadcrumb-container li a:unvisited,
+.breadcrumb-container li a:visited {
   color: #00132c !important;
 }
 
-.breadcrumb-container a:focus,
-.breadcrumb-container a:hover {
+.breadcrumb-container li a:focus,
+.breadcrumb-container li a:hover {
   color: #00132c;
   background-color: #cad9ef;
   -webkit-transition: 0.3s background;
@@ -816,7 +816,7 @@ main [role=tabpanel]:focus {
   transition: 0.3s background;
 }
 
-.breadcrumb-container a:focus {
+.breadcrumb-container li a:focus {
   outline: 2px solid #ff552e;
 }
 
