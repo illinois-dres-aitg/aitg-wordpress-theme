@@ -822,7 +822,7 @@ main {
   font-family: "Source Serif Pro", serif;
   font-size: 1.125rem;
   line-height: 1.4;
-  padding: 1.25rem;
+  padding: 0.5rem 1.25rem 1.25rem;
 }
 
 main a {
