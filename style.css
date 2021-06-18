@@ -796,6 +796,7 @@ main [role=tabpanel]:focus {
 /* -------- breadcrumb.scss -------- */
 .breadcrumb-container {
   padding: 0.75rem 0.5rem 0;
+  color: #00132c !important;
 }
 
 .breadcrumb-container li {
@@ -1054,5 +1055,3 @@ footer a:hover {
 footer a:focus {
   outline: 2px solid #ff552e;
 }
-
-/*# sourceMappingURL=style.css.map */
