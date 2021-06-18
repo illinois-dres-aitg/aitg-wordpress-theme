@@ -799,10 +799,6 @@ main [role=tabpanel]:focus {
   color: #00132c !important;
 }
 
-.breadcrumb-container li {
-  padding: 0.25rem !important;
-}
-
 .breadcrumb-container li a {
   color: #00132c !important;
 }
