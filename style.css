@@ -796,7 +796,6 @@ main [role=tabpanel]:focus {
 /* -------- breadcrumb.scss -------- */
 .breadcrumb-container {
   padding: 0.75rem 0.5rem 0;
-  color: #1d4b90;
 }
 
 .breadcrumb-container li {
@@ -805,7 +804,7 @@ main [role=tabpanel]:focus {
 
 .breadcrumb-container a:unvisited,
 .breadcrumb-container a:visited {
-  color: #1d4b90;
+  color: #00132c;
 }
 
 .breadcrumb-container a:focus,
