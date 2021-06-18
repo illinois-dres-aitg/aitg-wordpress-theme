@@ -7,6 +7,14 @@
       <div class="breadcrumb">
         <!-- @ breadcrumb trail of links indicating location of
              current page in menu structure -->
+        <?php echo do_shortcode( '[breadcrumb]' ); ?>
+        <script>
+            window.addEventListener('load', function() {
+                let aNode = document.querySelector('.breadcrumb-container a[title="Blog"]');
+                aNode.href += '/blog/';
+            });
+        </script>
+
       </div>
 
       <main class="content">

@@ -6,6 +6,7 @@
       <div class="breadcrumb">
         <!-- @ breadcrumb trail of links indicating location of
              current page in menu structure -->
+        <?php echo do_shortcode( '[breadcrumb]' ); ?>
       </div>
 
       <main class="content">
