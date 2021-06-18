@@ -810,6 +810,7 @@ main [role=tabpanel]:focus {
   -webkit-transition: 0.3s background;
   -moz-transition: 0.3s background;
   transition: 0.3s background;
+  text-decoration: underline !important;
 }
 
 .breadcrumb-container li a:focus {
