@@ -799,7 +799,7 @@ main [role=tabpanel]:focus {
 }
 
 .breadcrumb-container li {
-  padding: 0.25rem;
+  padding: 0.25rem !important;
 }
 
 .breadcrumb-container li a:unvisited,
