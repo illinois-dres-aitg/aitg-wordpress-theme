@@ -794,16 +794,16 @@ main [role=tabpanel]:focus {
 }
 
 /* -------- breadcrumb.scss -------- */
-.breadcrumb {
+.breadcrumb-container {
   padding: 0.5rem 1.25rem;
 }
 
-.breadcrumb a {
+.breadcrumb-container {
   color: #1d4b90;
 }
 
-.breadcrumb a:focus,
-.breadcrumb a:hover {
+.breadcrumb-container a:focus,
+.breadcrumb-container a:hover {
   color: #00132c;
   background-color: #cad9ef;
   -webkit-transition: 0.3s background;
@@ -811,7 +811,7 @@ main [role=tabpanel]:focus {
   transition: 0.3s background;
 }
 
-.breadcrumb a:focus {
+.breadcrumb-container a:focus {
   outline: 2px solid #ff552e;
 }
 
