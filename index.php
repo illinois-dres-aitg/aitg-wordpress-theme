@@ -5,9 +5,11 @@
     </div>
     <div class="middle-column">
       <div class="breadcrumb">
-        <!-- @ breadcrumb trail of links indicating location of
+        <nav aria-label="Breadcrumbs">
+            <!-- @ breadcrumb trail of links indicating location of
              current page in menu structure -->
-        <?php echo do_shortcode( '[breadcrumb]' ); ?>
+          <?php echo do_shortcode( '[breadcrumb]' ); ?>
+        </nav>
         <script>
             window.addEventListener('load', function() {
                 let aNode = document.querySelector('.breadcrumb-container a[title="Blog"]');

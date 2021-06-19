@@ -4,7 +4,7 @@
     </div>
 
     <div class="middle-column">
-      <div class="breadcrumb">
+      <nav aria-label="Breadcrumbs">
         <!-- @ breadcrumb trail of links indicating location of
              current page in menu structure -->
         <?php echo do_shortcode( '[breadcrumb]' ); ?>
@@ -22,7 +22,7 @@
                 aNode.href = location.href.split('?s')[0];
             });
         </script>
-      </div>        
+      </nav>
         <main class="middle-column search-results">
     <?php if (have_posts()) : ?>
     	<div class="search-form">

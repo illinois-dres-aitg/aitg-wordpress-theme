@@ -5,6 +5,11 @@
     </div>
 
     <div class="middle-column search-results">
+      <nav aria-label="Breadcrumbs">
+        <!-- @ breadcrumb trail of links indicating location of
+             current page in menu structure -->
+        <?php echo do_shortcode( '[breadcrumb]' ); ?>
+      </nav>
       <div class="search-form">
         <h1><?php _e( 'Oops! That page can&rsquo;t be found.', 'basic' ); ?></h1>
          <?php get_search_form(); ?>

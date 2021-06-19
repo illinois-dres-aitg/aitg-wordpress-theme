@@ -3,11 +3,11 @@
     <div class="left-column">
     </div>
     <div class="middle-column">
-      <div class="breadcrumb">
+      <nav aria-label="Breadcrumbs">
         <!-- @ breadcrumb trail of links indicating location of
              current page in menu structure -->
         <?php echo do_shortcode( '[breadcrumb]' ); ?>
-      </div>
+      </nav>
 
       <main class="content">
 

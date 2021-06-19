@@ -9,7 +9,7 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
     <div class="left-column">
      </div>
     <div class="middle-column">
-      <div class="breadcrumb">
+      <nav aria-label="Breadcrumbs">
         <!-- @ breadcrumb trail of links indicating location of
              current page in menu structure -->
         <?php echo do_shortcode( '[breadcrumb]' ); ?>
@@ -31,7 +31,7 @@ $next_in_category_link = get_next_post_link( '%link', 'Next in category', true);
                 liNode.appendChild(spanNode);
             });
         </script>
-      </div>
+      </nav>
 
       <main class="content">
 
