@@ -46,9 +46,10 @@ jQuery(document).ready(function ($) {
 
 
 // social buttons
+	/*
 	$('.psb').click(function () {
 		window.open($(this).attr("href"), 'displayWindow', 'width=700,height=400,left=200,top=100,location=no, directories=no,status=no,toolbar=no,menubar=no');
 		return false;
 	});
-
+	*/
 });
