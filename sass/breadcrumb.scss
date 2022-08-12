@@ -1,0 +1,24 @@
+/* -------- breadcrumb.scss -------- */
+
+@use "base" as *;
+
+.breadcrumb-container {
+  padding: 0.75rem 0.5rem 0;
+  color: $default-text-color !important;
+}
+
+.breadcrumb-container li a {
+  color: $default-text-color !important;
+}
+
+.breadcrumb-container li a:focus,
+.breadcrumb-container li a:hover {
+  color: $default-text-color;
+  background-color: $industrial-blue-3;
+  @include background-transition;
+  text-decoration: underline !important;
+}
+
+.breadcrumb-container li a:focus {
+  outline: 2px solid $illini-orange;
+}

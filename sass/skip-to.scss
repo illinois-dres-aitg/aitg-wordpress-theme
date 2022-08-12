@@ -1,0 +1,63 @@
+/* -------- skip-to.scss -------- */
+
+@use "base" as *;
+
+header .skip-to.aitg {
+  left: 60%;
+  -webkit-transition: left $std-trans-time linear;
+  transition: left $std-trans-time linear;
+
+  @media screen and (min-width: $tablet-width) {
+    left: 40%;
+  }
+}
+
+header .skip-to.aitg button {
+  color: $dark-gray-text;
+  background-color: $illini-gray-2;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+
+  padding: 6px 8px 8px;
+
+  border-top: none !important;
+  border-right: 2px solid $white;
+  border-bottom: 2px solid $white;
+  border-left: 2px solid $white;
+
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+header .skip-to.aitg button:focus,
+header .skip-to.aitg button:hover {
+  color: $default-text-color;
+  background-color: $industrial-blue-3;
+  outline: none;
+}
+
+header .skip-to.aitg button:focus {
+  padding: 6px 7px 7px;
+  border-top: none !important;
+  border-right: 3px solid $illini-orange;
+  border-bottom: 3px solid $illini-orange;
+  border-left: 3px solid $illini-orange;
+}
+
+header .skip-to.aitg [role="menu"] {
+  margin-left: -9rem;
+
+  @media screen and (min-width: $phone-width-landscape) {
+    margin-left: -4.5rem;
+  }
+  @media screen and (min-width: $desktop-width) {
+    margin-left: 0;
+  }
+}
+
+header .skip-to.aitg [role=menuitem] {
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+}

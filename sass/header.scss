@@ -1,0 +1,206 @@
+/* -------- header.scss -------- */
+
+@use "base" as *;
+
+header {
+  position: relative;
+  z-index: 1;
+
+  @media screen and (min-width: $desktop-width) {
+    position: sticky;
+    top: 0;
+  }
+}
+
+// banner: two-row grid layout
+
+.banner {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr;
+}
+
+// banner row 1
+
+.banner-row-1 {
+  color: $default-text-color;
+  background-color: $white;
+  width: 100%;
+}
+
+.banner-logo {
+  float: left;
+  width: 100%;
+
+  @media screen and (min-width: $tablet-width) {
+    width: 40%;
+  }
+}
+
+.banner-logo img {
+  width: 200px;
+}
+
+.banner-logo a {
+  display: block;
+  width: 200px;
+  padding: 14px 24px 8px;
+}
+
+.banner-logo a:focus,
+.banner-logo a:hover {
+  background-color: $industrial-blue-3;
+  @include background-transition;
+}
+
+.banner-logo a:focus {
+  @include outline-inset($illini-orange);
+}
+
+// search widget
+
+.banner-search {
+  float: left;
+  padding: 0 20px 12px;
+
+  @media screen and (min-width: $tablet-width) {
+    float: right;
+    padding: 14px 24px 8px;
+  }
+}
+
+.search-widget form {
+  display: grid;
+  grid-template-columns: 1fr 32px;
+  grid-template-rows: 1fr;
+  width: 18rem;
+  height: 32px;
+}
+
+.search-widget input {
+  grid-column: 1;
+  color: $dark-gray-text;
+  background-color: $illini-gray-2;
+  border: none;
+  @include outline-inset(transparent, 2);
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.search-widget input::placeholder {
+  text-transform: uppercase;
+  color: $dark-gray-text;
+  opacity: 1;
+}
+
+.search-widget input:focus {
+  background-color: $white;
+  @include background-transition;
+  border: 2px solid $illini-blue;
+  border-right: none;
+  padding-left: 8px;
+}
+
+.search-widget button {
+  grid-column: 2;
+  color: $white;
+  background-color: $illini-blue;
+  border: none;
+  @include outline-inset(transparent, 2);
+  padding: 0;
+}
+
+.search-widget button:focus {
+  background-color: $industrial-blue;
+  @include background-transition;
+  outline: 3px solid $illini-orange;
+}
+
+.search-widget button svg {
+  position: relative;
+  top: 1.75px;
+  left: 0.5px;
+}
+
+// banner row 2
+
+.banner-row-2 {
+  position: relative;
+  color: $white;
+  background-color: $illini-blue;
+  width: 100%;
+
+  @media screen and (min-width: $phone-width-landscape) {
+    position: static;
+  }
+}
+
+.banner-name {
+  float: left;
+  width: 100%;
+  font-size: 1.5rem;
+  white-space: nowrap;
+
+  @media screen and (min-width: $desktop-width) {
+    width: auto;
+  }
+}
+
+.banner-name a {
+  display: block;
+  color: $white;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 12px 24px;
+
+  @media screen and (min-width: $desktop-width) {
+    padding: 17px 24px;
+  }
+}
+
+.banner-name a:focus,
+.banner-name a:hover {
+  color: $cobalt;
+  background-color: $white;
+  @include background-transition;
+  text-decoration: underline;
+}
+
+.banner-name a:focus {
+  @include outline-inset($illini-orange);
+}
+
+// hamburger icon
+
+.banner-hamburger {
+  position: absolute;
+  top: 11px;
+  right: 12px;
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+
+  @media screen and (min-width: $phone-width-landscape) {
+    display: none;
+  }
+}
+
+.banner-hamburger:focus {
+  @include outline-inset($illini-orange);
+}
+
+.banner-hamburger:hover {
+  cursor: pointer;
+}
+
+.banner-hamburger[aria-expanded=true] {
+  > svg.menu-open  { display: none; }
+  > svg.menu-close { display: block; }
+}
+
+.banner-hamburger[aria-expanded=false] {
+  > svg.menu-open  { display: block; }
+  > svg.menu-close { display: none; }
+}

@@ -1,0 +1,134 @@
+// VARIABLES
+
+// COLORS
+$cobalt: #1d4b90;
+$default-text-color: #00132c;
+$illini-blue: #13294b;
+$illini-orange: #ff552e;
+$industrial-blue: #1d58a7;
+$industrial-blue-3: #cad9ef;
+
+$white: white;
+$medium-gray-border: #aaa;
+$dark-gray-text: #444;
+
+// LIGHT GRAY SHADES
+$illini-gray-1: #e8e9eb; // background for larger blocks of text
+$illini-gray-2: #dddede; // background for Search, SkipTo
+$illini-gray-3: #d2d2d2;
+
+// DIMENSIONS
+$desktop-width:         992px;
+$tablet-width:          768px;
+$phone-width-landscape: 576px;
+$phone-width-portrait:  414px;
+
+// TRANSITION / ANIMATION
+$fade-in:         0.5s ease;
+$fade-out:        0.3s ease;
+$fade-out-min:    10ms ease;
+$icon-transition: 0.5s ease;
+$std-trans-time:  0.3s;
+
+// MIXINS
+@mixin background-transition {
+  -webkit-transition: $std-trans-time background;
+  -moz-transition: $std-trans-time background;
+  transition: $std-trans-time background;
+}
+
+@mixin outline-inset ($color, $width: 3) {
+  outline-offset: -#{$width}px;
+  outline: #{$width}px solid $color;
+}
+
+@mixin icon-rotation {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+@mixin icon-transition {
+  -webkit-transition: $icon-transition;
+  -moz-transition: $icon-transition;
+  transition: $icon-transition;
+}
+
+@mixin fade-in-animation {
+  -webkit-animation: fade-in $fade-in;
+  -moz-animation: fade-in $fade-in;
+  animation: fade-in $fade-in;
+}
+
+@mixin fade-out-standard {
+  -webkit-animation: fade-out $fade-out;
+  -moz-animation: fade-out $fade-out;
+  animation: fade-out $fade-out;
+}
+
+@mixin fade-out-minimal {
+  -webkit-animation: fade-out $fade-out-min;
+  -moz-animation: fade-out $fade-out-min;
+  animation: fade-out $fade-out-min;
+}
+
+@mixin keyframes ($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+/*
+* Theme Name: DRES Accessible IT Group WordPress Theme
+* Theme URI: https://github.com/illinois-dres-aitg/aitg-wordpress-theme
+* Author: Christy Blew, Jon Gunderson, Lori Lane and Nicholas Hoyt
+* Description: Responsive, minimal and accessible WordPress theme
+* Version: 0.9.0 beta
+* Requires at least: 5.5
+* Tested up to: 5.7
+* Requires PHP: 7.0
+* License: GNU General Public License v2 or later
+* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+* Text Domain: dres-accessible-it-group-wordpress-theme
+* Tags: accessible, right-sidebar
+*/
+
+// RULES
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@700&display=swap');
+
+html, body, div, p, span, a,
+h1, h2, h3, h4, h5, h6,
+dl, dt, dd, ol, ul, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+}
+
+body {
+  font-family: Montserrat, sans-serif;
+}
+
+svg {
+  forced-color-adjust: auto;
+}
+
+.screen-reader-text {
+  position: absolute;
+  top: -30em;
+  left: -3000em;
+}

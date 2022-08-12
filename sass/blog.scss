@@ -1,0 +1,103 @@
+/* -------- blog.scss -------- */
+
+@use "base" as *;
+
+main .post .code {
+  font-family: monospace;
+  font-size: 11pt;
+  background-color: $illini-gray-1;
+  border: thin solid $illini-gray-3;
+  padding: 0.5rem;
+  border-radius: 6px;
+  white-space: pre-wrap;
+}
+
+main .post .code.scrollable {
+  height: 10rem;
+  overflow-y: auto;
+}
+
+main .post .code .highlight {
+  background-color: $industrial-blue-3;
+}
+
+main .post details {
+  margin: 1rem 0;
+}
+
+main .post details > summary {
+  cursor: pointer;
+}
+
+main .post details > div {
+  margin: 0.5rem 0;
+}
+
+main .post .categories,
+main .post .tags {
+  margin-top: 0.5rem;
+}
+
+main nav.current-post-category {
+  margin: 0;
+  padding: 0;
+  margin-top: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+main nav.current-post-category span.separator:before {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  content: "|";
+}
+
+main [role=tablist] {
+  border-bottom: 2px solid $illini-blue;
+}
+
+main [role=tab] {
+  position: relative;
+  top: 2px;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  border: 2px solid $illini-blue;
+  background-color: $illini-blue;
+  color: $white;
+  border-radius: 5px 5px 0 0;
+  display: inline-block;
+}
+
+main [role=tab][aria-selected=true] {
+  background-color: $white;
+  border-bottom-color: $white;
+  color: $default-text-color;
+}
+
+main [role=tabpanel].show-tabpanel {
+  @include fade-in-animation;
+}
+
+main [role=tabpanel].hide-tabpanel {
+  @include fade-out-minimal;
+}
+
+main [role=tab]:focus,
+main [role=tab]:hover,
+main [role=tab][aria-selected=true]:focus,
+main [role=tab][aria-selected=true]:hover {
+  background-color: $industrial-blue-3;
+  transition: 0.3s background;
+  text-decoration: underline;
+  color: $default-text-color;
+}
+
+main [role=tab]:focus,
+main [role=tab][aria-selected=true]:focus {
+  border-color: $illini-orange;
+  outline: none;
+}
+
+main [role=tabpanel]:focus {
+  outline-offset: 4px;
+}
